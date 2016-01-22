@@ -8,5 +8,5 @@ target
 *.war
 *.ear
 *.log
-src/main/resources/META-INF/persistence.xml
+
 
