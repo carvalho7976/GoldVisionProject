@@ -1,0 +1,18 @@
+INSERT INTO papel(
+            id, nome)
+    VALUES (1, 'ROLE_ADMIN');
+
+INSERT INTO pessoa(
+            id, cpf, habilitado, idade, login, nome, password, sexo)
+    VALUES (150, '132135', TRUE, 12, 'admin', 'administrador', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 1);
+
+INSERT INTO papel_pessoa(
+            pessoa_id, papel_id)
+    VALUES (150, 1);
+
+    
+    LOGAR COM:
+    USER: admin
+    PASSWORD:1234
+    
+    datatable
