@@ -13,6 +13,72 @@
 	<jsp:include page="../fragments/menu.jsp" />
 
 	<h1>Cadastro</h1>
+	<form class="form-horizontal">
+		<fieldset>
+
+			<!-- Form Name -->
+			<legend>Cadastrar cliente</legend>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="nome">Nome</label>
+				<div class="col-md-4">
+					<input id="nome" name="nome" type="text" placeholder="placeholder"
+						class="form-control input-md" required=""> <span
+						class="help-block">help</span>
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="endereco">Endereço</label>
+				<div class="col-md-4">
+					<input id="endereco" name="endereco" type="text"
+						placeholder="placeholder" class="form-control input-md"> <span
+						class="help-block">help</span>
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="cpf">CPF</label>
+				<div class="col-md-4">
+					<input id="cpf" name="cpf" type="text" placeholder="placeholder"
+						class="form-control input-md"> <span class="help-block">help</span>
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="rg">RG</label>
+				<div class="col-md-4">
+					<input id="rg" name="rg" type="text" placeholder="placeholder"
+						class="form-control input-md"> <span class="help-block">help</span>
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="datanacs">DataNacs</label>
+				<div class="col-md-4">
+					<input id="datanacs" name="datanacs" type="text"
+						placeholder="placeholder" class="form-control input-md"> <span
+						class="help-block">help</span>
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="naturalidade">Naturalidade</label>
+				<div class="col-md-4">
+					<input id="naturalidade" name="naturalidade" type="text"
+						placeholder="placeholder" class="form-control input-md"> <span
+						class="help-block">help</span>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
 
 
 </body>
