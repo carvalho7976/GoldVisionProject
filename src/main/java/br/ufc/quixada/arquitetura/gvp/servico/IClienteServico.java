@@ -1,5 +1,7 @@
 package br.ufc.quixada.arquitetura.gvp.servico;
 
+import java.util.List;
+
 import br.ufc.quixada.arquitetura.gvp.modelo.Cliente;
 
 public interface IClienteServico {
@@ -8,4 +10,5 @@ public interface IClienteServico {
 	public void editarCliente(Cliente cliente);
 	public void deletarCliente(Integer idCliente);
 	public Cliente procurarPorId(Integer idCliente);
+	public List<Cliente> listarClientes();
 }

@@ -1,10 +1,14 @@
 package br.ufc.quixada.arquitetura.gvp.servico;
 
+import java.util.List;
+
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import br.ufc.quixada.arquitetura.gvp.modelo.Cliente;
 import br.ufc.quixada.arquitetura.gvp.persistencia.ClienteDao;
 
+@Named
 public class ClienteServico implements IClienteServico{
 
 	@Inject
@@ -31,6 +35,12 @@ public class ClienteServico implements IClienteServico{
 	@Override
 	public Cliente procurarPorId(Integer idCliente) {
 		return clienteDao.buscarPorId(idCliente);
+	}
+
+	@Override
+	public List<Cliente> listarClientes() {
+		// TODO Auto-generated method stub
+		return clienteDao.listar();
 	}
 
 }
