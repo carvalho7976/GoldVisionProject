@@ -7,10 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="produto")
@@ -19,12 +16,12 @@ public class Produto {
 	@Column(name="id_produto")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
+	
 	@Column(name = "cod_produto")
 	private String codigo;
 	
 	@Column(name = "qtd")
-	private String quantidade;
+	private Integer quantidade;
 	
 	@Column(name = "tipo_armacao")
 	private String tipoArmacao;
@@ -33,11 +30,24 @@ public class Produto {
 	@JoinColumn (name = "cod_marca")
 	private Marca marca;
 	
-	public String getQuantidade() {
+	@ManyToOne
+	@JoinColumn(name = "cod_modelo")
+	private Modelo modelo;
+	
+	@Column(name = "valor_compra")
+	private Double valorCompra;
+	
+	@Column(name = "valor_venda")
+	private Double valorVenda;
+	
+	public Produto() {
+	}
+	
+	public Integer getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(String quantidade) {
+	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
 
@@ -69,6 +79,34 @@ public class Produto {
 		this.codigo = codigo;
 	}
 	
+	public Modelo getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(Modelo modelo) {
+		this.modelo = modelo;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public Double getValorCompra() {
+		return valorCompra;
+	}
+
+	public void setValorCompra(Double valorCompra) {
+		this.valorCompra = valorCompra;
+	}
+
+	public Double getValorVenda() {
+		return valorVenda;
+	}
+
+	public void setValorVenda(Double valorVenda) {
+		this.valorVenda = valorVenda;
+	}
+
 	@Override
 	public String toString() {
 		return "Produto:[id"+getId()+"+]";

@@ -8,9 +8,10 @@ import javax.transaction.Transactional;
 
 import br.ufc.quixada.arquitetura.gvp.modelo.Marca;
 import br.ufc.quixada.arquitetura.gvp.persistencia.IMarcaDao;
+import br.ufc.quixada.arquitetura.gvp.util.GenericServiceImpl;
 
 @Named
-public class MarcaServico implements IMarcaServico {
+public class MarcaServico extends GenericServiceImpl<Marca> implements IMarcaServico  {
 	
 	@Inject
 	private IMarcaDao marcaRepositorio;

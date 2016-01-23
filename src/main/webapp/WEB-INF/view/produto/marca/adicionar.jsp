@@ -9,8 +9,10 @@
 <title>Adicionar</title>
 </head>
 <body>
+
 	<form:form servletRelativeAction="/marca/adicionar" method="post"
 		modelAttribute="marca" class="form-horizontal" role="form">
+		
 		<div class="form-group">
 		
 			<label for="nomeMarca" class="col-sm-1 control-label">Nome da
