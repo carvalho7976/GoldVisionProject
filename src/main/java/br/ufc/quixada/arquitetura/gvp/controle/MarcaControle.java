@@ -33,7 +33,6 @@ public class MarcaControle {
 
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
 	public ModelAndView addMarcaPOST(@ModelAttribute("marca") Marca marca) {
-		System.out.println(marca.getNomeMarca());
 		servico.salvarMarca(marca);
 		ModelAndView model = new ModelAndView("redirect:/marca/listar");
 		return model;

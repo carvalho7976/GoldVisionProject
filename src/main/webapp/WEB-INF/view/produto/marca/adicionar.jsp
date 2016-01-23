@@ -11,6 +11,7 @@
 <jsp:include page="../../fragments/headTag.jsp" />
 </head>
 <body>
+
 	<div id="container">
 		<jsp:include page="../../fragments/menu.jsp" />
 		<div class="panel-heading">
@@ -42,6 +43,7 @@
 						class="btn btn-default">Cancelar</a>
 				</div>
 			</form:form>
+
 		</div>
 	</div>
 </body>
