@@ -2,6 +2,9 @@
 <html>
 <head>
 <title>Venda Page</title>
+
+<jsp:include page="../fragments/headTag.jsp" />
+<jsp:include page="../fragments/menu.jsp" />
 <style>
 .error {
 	padding: 15px;
@@ -40,7 +43,6 @@
 
 	<div id="venda-box">
 
-		<h2>Login com usuário e senha</h2>
 
 		<c:if test="${not empty error}">
 			<div class="error">${error}</div>
@@ -49,44 +51,106 @@
 			<div class="msg">${msg}</div>
 		</c:if>
 
-		<form name='vendaForm'
-		  action="<c:url value='/venda/save/' />" method='POST'>		  
-		  
-		  <table>
-			<tr>
-				<td>Valor de Venda:</td>
-				<td><input type='number' name='valorVenda' value=''></td>
-			</tr>
-			<tr>
-				<td>Forma de Pagamento:</td>
-				<td><input type='text' name='formaPagamento' /></td>
-			</tr>
-			<tr>
-				<td>Dia de Vencimento:</td>
-				<td><input type='number' name='diaVencimento' /></td>
-			</tr>
-			<tr>
-				<td>Numero de Parcelas:</td>
-				<td><input type='number' name='numParcelas' /></td>
-			</tr>
-			<tr>
-				<td>Número de Parcelas Pagas:</td>
-				<td><input type='number' name='numParcelasPagas' /></td>
-			</tr>
-			<tr>
-				<td>Mês do Ultimo Pagamento:</td>
-				<td><input type='number' name='ultimoPagamento' /></td>
-			</tr>
-			<tr>
-				<td colspan='2'><input name="submit" type="submit"
-					value="Enviar" /></td>
-			</tr>
-		  </table>
+		<div class="container">
+			<form class="form-horizontal" name='vendaForm' action="<c:url value='/venda/save/' />" method='POST'>
+				<fieldset>
 
-		  <input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}" />
+					<!-- Form Name -->
+					<legend>Cadastrar Venda</legend>
 
-		</form>
+					<!-- Text input-->
+					<div class="row">
+						<div class="form-group" class="row">
+							<label class="col-md-4 control-label" for="textinput">Valor
+								de Venda</label>
+							<div class="col-md-4">
+								<input id="textinput" name="valorVenda" type="number"
+									placeholder="ex: 200" class="form-control input-md"
+									required="">
+
+							</div>
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="row">
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="textinput">Forma
+								de Pagamento</label>
+							<div class="col-md-4">
+								<input id="textinput" name="formaPagamento" type="text"
+									placeholder="ex: a vista" class="form-control input-md"
+									required="">
+
+							</div>
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="row">
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="textinput">Dia
+								de Vencimento</label>
+							<div class="col-md-4">
+								<input id="textinput" name="diaVencimento" type="number"
+									placeholder="ex:2" class="form-control input-md" required="">
+
+							</div>
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="row">
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="textinput">Número
+								de Parcelas</label>
+							<div class="col-md-4">
+								<input id="textinput" name="numParcelas" type="number"
+									placeholder="ex:12" class="form-control input-md" required="">
+
+							</div>
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="row">
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="textinput">Mês
+								do Ultimo Pagamento</label>
+							<div class="col-md-4">
+								<input id="textinput" name="numParcelasPagas" type="number"
+									placeholder="ex: 1" class="form-control input-md" required="">
+
+							</div>
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="row">
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="textinput">Número
+								de Parcelas Pagas</label>
+							<div class="col-md-4">
+								<input id="textinput" name="ultimoPagamento" type="number"
+									placeholder="ex:1" class="form-control input-md" required="">
+
+							</div>
+						</div>
+					</div>
+
+					<!-- Button -->
+					<div class="row">
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="singlebutton"></label>
+							<div class="col-md-4">
+								<button id="singlebutton" name="singlebutton"
+									class="btn btn-primary">Salvar</button>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
 	</div>
 
 </body>
