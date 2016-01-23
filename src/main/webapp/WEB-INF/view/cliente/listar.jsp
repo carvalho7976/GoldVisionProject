@@ -24,37 +24,35 @@
 			</div>
 		</div>
 		<br />
-		<div class="">
-			<table class="table" id="tableCliente">
-				<thead>
+		<table class="table" id="tableCliente">
+			<thead>
+				<tr>
+					<th>nome</th>
+					<th>Endereço</th>
+					<th>Telefone</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${clientes}" var="cliente">
 					<tr>
-						<th>nome</th>
-						<th>Endereço</th>
-						<th>Telefone</th>
-						<th></th>
+						<td>${cliente.nome}</td>
+						<td>${cliente.endereco }</td>
+						<td>${cliente.telefone}</td>
+						<td><a
+							href="<c:url value="/cliente/detalhes/${cliente.id }/" ></c:url>">
+								<button type="button" class="btn btn-info">Detalhes</button>
+						</a> <a
+							href="<c:url value="/cliente/editar	/${cliente.id }/" ></c:url>">
+								<button type="button" class="btn btn-warning">Editar</button>
+						</a> <a
+							href="<c:url value="/cliente/apagar/${cliente.id }/" ></c:url>">
+								<button type="button" class="btn btn-danger">Apagar</button>
+						</a></td>
 					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${clientes}" var="cliente">
-						<tr>
-							<td>${cliente.nome}</td>
-							<td>${cliente.endereco }</td>
-							<td>${cliente.telefone}</td>
-							<td><a
-								href="<c:url value="/cliente/detalhes/${cliente.id }/" ></c:url>">
-									<button type="button" class="btn btn-info">Detalhes</button>
-							</a> <a
-								href="<c:url value="/cliente/editar	/${cliente.id }/" ></c:url>">
-									<button type="button" class="btn btn-warning">Editar</button>
-							</a> <a
-								href="<c:url value="/cliente/apagar/${cliente.id }/" ></c:url>">
-									<button type="button" class="btn btn-danger">Apagar</button>
-							</a></td>
-						</tr>
-					</c:forEach>
-				</tbody>
-				</div>
-				</div>
-				</div>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>

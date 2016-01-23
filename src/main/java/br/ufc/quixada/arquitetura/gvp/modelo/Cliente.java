@@ -29,6 +29,12 @@ public class Cliente {
 	Date dataNasc;
 	String naturalidade;
 	String telefone;
+	
+	
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getTelefone() {
 		return telefone;
