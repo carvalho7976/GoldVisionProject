@@ -13,7 +13,7 @@
 	<jsp:include page="../fragments/menu.jsp" />
 
 	<div class="container">
-		<form:form servletRelativeAction="/cliente/cadastrar/" method="post"
+		<form:form servletRelativeAction="/cliente/editar/${cliente.id}/" method="post"
 			modelAttribute="cliente" class="form-horizontal" role="form">
 
 			<fieldset>
@@ -26,7 +26,7 @@
 					<div class="row">
 						<label class="col-md-4 control-label" for="nome">Nome</label>
 						<div class="col-md-4">
-							<input id="nome" name="nome" type="text"
+							<input id="nome" name="nome" type="text" value = "${cliente.nome }"
 								class="form-control input-md" required>
 						</div>
 					</div>
@@ -36,7 +36,7 @@
 					<div class="row">
 						<label class="col-md-4 control-label" for="endereco">Endereço</label>
 						<div class="col-md-4">
-							<input id="endereco" name="endereco" type="text"
+							<input id="endereco" name="endereco" type="text" value = "${cliente.endereco}"
 								class="form-control input-md">
 						</div>
 					</div>
@@ -47,7 +47,7 @@
 					<div class="row">
 						<label class="col-md-4 control-label" for="cpf">CPF</label>
 						<div class="col-md-4">
-							<input id="cpf" name="cpf" type="text"
+							<input id="cpf" name="cpf" type="text" value = "${cliente.cpf }"
 								class="form-control input-md" required>
 						</div>
 					</div>
@@ -58,7 +58,7 @@
 					<div class="row">
 						<label class="col-md-4 control-label" for="rg">RG</label>
 						<div class="col-md-4">
-							<input id="rg" name="rg" type="text"
+							<input id="rg" name="rg" type="text" value = "${cliente.rg }"
 								class="form-control input-md" required>
 						</div>
 					</div>
@@ -69,7 +69,7 @@
 					<div class="row">
 						<label class="col-md-4 control-label" for="dataNacs">DataNacs</label>
 						<div class="col-md-4">
-							<input id="datanacs" name="datanacs" type="text"
+							<input id="datanacs" name="datanacs" type="text" value = "${cliente.dataNasc }"
 								class="form-control input-md">
 						</div>
 					</div>
@@ -80,7 +80,7 @@
 					<div class="row">
 						<label class="col-md-4 control-label" for="naturalidade">Naturalidade</label>
 						<div class="col-md-4">
-							<input id="naturalidade" name="naturalidade" type="text"
+							<input id="naturalidade" name="naturalidade" type="text" value = "${cliente.naturalidade }"
 								class="form-control input-md">
 						</div>
 					</div>
@@ -91,7 +91,7 @@
 					<div class="row">
 						<label class="col-md-4 control-label" for="telefone">Telefone</label>
 						<div class="col-md-4">
-							<input id="telefone" name="telefone" type="text"
+							<input id="telefone" name="telefone" type="text" value = "${cliente.telefone }"
 								class="form-control input-md">
 						</div>
 					</div>

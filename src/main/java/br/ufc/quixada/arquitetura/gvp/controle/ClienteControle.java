@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.itextpdf.text.pdf.PdfStructTreeController.returnType;
 
 import br.ufc.quixada.arquitetura.gvp.modelo.Cliente;
 import br.ufc.quixada.arquitetura.gvp.servico.ClienteServico;
@@ -59,11 +57,25 @@ public class ClienteControle {
 		String clienteEnd = "/cliente/";
 		return new ModelAndView("redirect:" +clienteEnd );
 	}
-	@RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/editar/{id}/", method = RequestMethod.GET)
 	public ModelAndView editar(Model modelAtribute,@PathVariable("id") Integer id) {
-		modelAtribute.addAttribute("cliente", clienteServico.procurarPorId(id));
 		
+		modelAtribute.addAttribute("cliente", clienteServico.procurarPorId(id));
 		ModelAndView model = new ModelAndView("cliente/editar");
+		return model;
+	}
+	@RequestMapping(value = "/editar/{id}/", method = RequestMethod.POST)
+	public ModelAndView editarSalvar(@ModelAttribute("cliente") Cliente cliente,@PathVariable("id") Integer id) {
+		cliente.setId(id);
+		clienteServico.salvarCliente(cliente);
+		String clienteEnd = "/cliente/";
+		return new ModelAndView("redirect:" +clienteEnd );
+	}
+	@RequestMapping(value = "/detalhes/{id}", method = RequestMethod.GET)
+	public ModelAndView detalhes(Model modelAtribute,@PathVariable("id") Integer id) {
+		
+		modelAtribute.addAttribute("cliente", clienteServico.procurarPorId(id));
+		ModelAndView model = new ModelAndView("cliente/detalhes");
 		return model;
 	}
 }
