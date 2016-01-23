@@ -33,5 +33,5 @@
 <link href="<c:url value="/resources/css/datatables.min.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/dataTables.tableTools.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 

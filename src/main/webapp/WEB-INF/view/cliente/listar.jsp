@@ -12,8 +12,44 @@
 <body>
 	<jsp:include page="../fragments/menu.jsp" />
 
-	<h1>Listar</h1>
-
-
+	<div class="container">
+		<h1>Modulo Clientes</h1>
+		<div class="row">
+			<div class="col-xs-12 col-md-8"></div>
+			<div class="col-xs-6 col-md-4">
+				<a href="cadastrar/">
+					<button type="button" class="btn btn-primary">Cadastrar
+						cliente</button>
+				</a>
+			</div>
+		</div>
+		<br />
+		<div class="">
+			<table class="table" id="tableCliente">
+				<thead>
+					<tr>
+						<th>nome</th>
+						<th>Endereço</th>
+						<th>Telefone</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${clientes}" var="cliente">
+						<tr>
+							<td>${cliente.nome}</td>
+							<td>${cliente.endereco }</td>
+							<td>${cliente.telefone}</td>
+							<td>
+								<button type="button" class="btn btn-info">Detalhes</button>
+								<button type="button" class="btn btn-warning">Editar</button>
+								<button type="button" class="btn btn-danger">Apagar</button>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+				</div>
+				</div>
+				</div>
 </body>
 </html>

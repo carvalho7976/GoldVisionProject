@@ -15,8 +15,13 @@ public class ClienteDao implements IClienteDao{
 
 	@Override
 	public void salvar(Cliente cliente) {
-		if(cliente.getId() != null) em.persist(cliente);
-		else em.merge(cliente);
+		try {
+			if(cliente.getId() == null) em.persist(cliente);
+			else em.merge(cliente);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Override
