@@ -7,14 +7,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import br.ufc.quixada.arquitetura.gvp.modelo.Marca;
+import br.ufc.quixada.arquitetura.gvp.util.JpaGenericRepositoryImpl;
 
 @Named
-public class MarcaDAO implements IMarcaDao{
+public class MarcaDAO extends JpaGenericRepositoryImpl<Marca> implements IMarcaDao{
 	@PersistenceContext
 	private EntityManager em;
 
 	public void salvar(Marca marca) {
-		if(marca.getId() != null) em.persist(marca);
+		if(marca.getId() == null) em.persist(marca);
 		else em.merge(marca);
 	}
 
