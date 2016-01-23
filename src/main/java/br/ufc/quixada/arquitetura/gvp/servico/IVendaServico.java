@@ -5,11 +5,11 @@ import java.util.List;
 import br.ufc.quixada.arquitetura.gvp.modelo.Venda;
 
 public interface IVendaServico {
-	public abstract void save(Venda v);
+	public abstract void salva(Venda v);
 
-	public abstract List<Venda> findAll();
+	public abstract List<Venda> procuraTodos();
 
-	public Venda findById(Long id);
+	public Venda procuraPorId(Long id);
 	
 	public void remove(Venda Venda);
 }

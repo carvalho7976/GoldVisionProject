@@ -86,6 +86,10 @@ public class Venda {
 	public void setUltimoPagamento(Integer ultimoPagamento) {
 		this.ultimoPagamento = ultimoPagamento;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
 
 	@Override
 	public String toString() {
@@ -95,27 +99,6 @@ public class Venda {
 				+ numParcelas + ", numParcelasPagas=" + numParcelasPagas
 				+ ", ultimoPagamento=" + ultimoPagamento + "]";
 	}
-
-	public Integer getId() {
-		return id;
-	}
-	
-	/*
-	public List<Papel> getPapeis() {
-		return papeis;
-	}
-
-	public void setPapeis(List<Papel> papeis) {
-		this.papeis = papeis;
-	}
-
-	
-	@ManyToMany
-	@JoinTable(name = "papel_pessoa", joinColumns = @JoinColumn(name = "pessoa_id"), inverseJoinColumns = @JoinColumn(name = "papel_id"))
-	private List<Papel> papeis;
-	*/
-	
-	
 
 }
 

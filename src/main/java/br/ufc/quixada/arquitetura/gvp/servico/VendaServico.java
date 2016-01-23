@@ -7,7 +7,6 @@ import javax.inject.Named;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import br.ufc.quixada.arquitetura.gvp.modelo.Pessoa;
 import br.ufc.quixada.arquitetura.gvp.modelo.Venda;
 import br.ufc.quixada.arquitetura.gvp.persistencia.IVendaDao;
 
@@ -23,21 +22,21 @@ public class VendaServico implements IVendaServico {
 
 	@Override
 	@Transactional
-	public void save(Venda v) {
-		VendaRepository.save(v);
+	public void salva(Venda v) {
+		VendaRepository.salva(v);
 	}
 
 	@Override
 	@Transactional
-	public List<Venda> findAll() {
-		List<Venda> l = VendaRepository.findAll();
+	public List<Venda> procuraTodos() {
+		List<Venda> l = VendaRepository.procuraTodos();
 		return l;
 	}
 
 	@Override
 	@Transactional
-	public Venda findById(Long id) {
-		Venda g = VendaRepository.findById(id);
+	public Venda procuraPorId(Long id) {
+		Venda g = VendaRepository.procuraPorId(id);
 		return g;
 	}
 

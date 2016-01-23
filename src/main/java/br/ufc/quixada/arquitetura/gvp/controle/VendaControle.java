@@ -25,9 +25,9 @@ public class VendaControle {
 	public ModelAndView home(Model mod) {
 
 		ModelAndView model = new ModelAndView("venda/venda");
-		model.addObject("vendas", vs.findAll());
+		model.addObject("vendas", vs.procuraTodos());
 		
-		// necessario para o formulario savePessoa
+		// necessario para o formulario saveVenda
 		mod.addAttribute("Venda", new Venda());
 		
 		return model;
@@ -53,7 +53,7 @@ public class VendaControle {
 		venda.setNumParcelasPagas(numParcelasPagas);
 		venda.setUltimoPagamento(ultimoPagamento);
 
-		vs.save(venda);
+		vs.salva(venda);
 
 		return "redirect:/venda/";
 	}
