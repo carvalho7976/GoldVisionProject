@@ -21,26 +21,26 @@ public class PapelServico implements IPapelServico {
 
 	@Override
 	@Transactional
-	public void save(Papel c) {
-		papelRepository.save(c);
+	public void salvar(Papel c) {
+		papelRepository.salvar(c);
 	}
 
 	@Override
 	@Transactional
-	public List<Papel> findAll() {
-		List<Papel> l = papelRepository.findAll();
+	public List<Papel> listar() {
+		List<Papel> l = papelRepository.listar();
 		return l;
 	}
 
 	@Override
 	@Transactional
-	public void remove(Papel c) {
-		papelRepository.remove(c);
+	public void apagar(Papel c) {
+		papelRepository.apagar(c);
 	}
 
 	@Override
-	public Papel findByName(String name) {
-		return papelRepository.findByName(name);
+	public Papel buscarPorNome(String name) {
+		return papelRepository.buscarPorNome(name);
 	}
 
 }
