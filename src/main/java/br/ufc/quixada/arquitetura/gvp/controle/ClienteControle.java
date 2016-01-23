@@ -8,6 +8,7 @@ import javax.inject.Named;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -50,5 +51,19 @@ public class ClienteControle {
 		String clienteEnd = "/cliente/";
 		return new ModelAndView("redirect:" +clienteEnd );
 	}
-
+	
+	@RequestMapping(value = "/apagar/{id}", method = RequestMethod.GET)
+	public ModelAndView apagar(@PathVariable("id") Integer id) {
+		clienteServico.deletarCliente(id);
+		
+		String clienteEnd = "/cliente/";
+		return new ModelAndView("redirect:" +clienteEnd );
+	}
+	@RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
+	public ModelAndView editar(Model modelAtribute,@PathVariable("id") Integer id) {
+		modelAtribute.addAttribute("cliente", clienteServico.procurarPorId(id));
+		
+		ModelAndView model = new ModelAndView("cliente/editar");
+		return model;
+	}
 }

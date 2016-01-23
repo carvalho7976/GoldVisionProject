@@ -18,7 +18,7 @@
 
 			<fieldset>
 				<!-- Form Name -->
-				<legend>Cadastrar cliente</legend>
+				<legend>Editar cliente</legend>
 
 				<!-- Text input-->
 

@@ -6,5 +6,6 @@
 		<ul>
 			<li  class='active'><a href="<c:url value="/" ></c:url>">INICIO</a></li>
 			<li><a href="<c:url value="/logout/"></c:url>">SAIR</a></li>
+			<li><a href="<c:url value="/cliente/" ></c:url>">CLIENTE</a></li>
 		</ul>
 	</div>

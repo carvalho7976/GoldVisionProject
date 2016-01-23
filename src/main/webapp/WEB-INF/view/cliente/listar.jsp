@@ -40,11 +40,16 @@
 							<td>${cliente.nome}</td>
 							<td>${cliente.endereco }</td>
 							<td>${cliente.telefone}</td>
-							<td>
-								<button type="button" class="btn btn-info">Detalhes</button>
-								<button type="button" class="btn btn-warning">Editar</button>
-								<button type="button" class="btn btn-danger">Apagar</button>
-							</td>
+							<td><a
+								href="<c:url value="/cliente/detalhes/${cliente.id }/" ></c:url>">
+									<button type="button" class="btn btn-info">Detalhes</button>
+							</a> <a
+								href="<c:url value="/cliente/editar	/${cliente.id }/" ></c:url>">
+									<button type="button" class="btn btn-warning">Editar</button>
+							</a> <a
+								href="<c:url value="/cliente/apagar/${cliente.id }/" ></c:url>">
+									<button type="button" class="btn btn-danger">Apagar</button>
+							</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
