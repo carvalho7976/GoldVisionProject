@@ -14,7 +14,7 @@ public class MarcaDAO implements IMarcaDao{
 	private EntityManager em;
 
 	public void salvar(Marca marca) {
-		if(marca.getId() != null) em.persist(marca);
+		if(marca.getId() == null) em.persist(marca);
 		else em.merge(marca);
 	}
 
