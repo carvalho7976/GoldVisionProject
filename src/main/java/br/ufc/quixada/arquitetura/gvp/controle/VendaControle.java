@@ -1,6 +1,7 @@
 package br.ufc.quixada.arquitetura.gvp.controle;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -20,8 +21,9 @@ public class VendaControle {
 
 	@Inject
 	private VendaServico vs;
-
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	
+	
+	@RequestMapping(value = "/cadastrar", method = RequestMethod.GET)
 	public ModelAndView home(Model mod) {
 
 		ModelAndView model = new ModelAndView("venda/venda");
@@ -32,6 +34,18 @@ public class VendaControle {
 		
 		return model;
 	}
+	
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView listar(Model modelAtribute) {
+		
+		List<Venda> vendas = vs.listar();
+		modelAtribute.addAttribute("vendas",vendas);
+		ModelAndView model = new ModelAndView("venda/listar");
+		return model;
+		
+	}
+
 	
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST, produces = "application/json; charset=UTF-8")
