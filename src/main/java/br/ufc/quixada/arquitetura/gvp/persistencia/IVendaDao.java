@@ -6,12 +6,12 @@ import br.ufc.quixada.arquitetura.gvp.modelo.Venda;
 
 public interface IVendaDao {
 
-	public abstract void salva(Venda v);
+	public abstract void salvar(Venda v);
 
-	public abstract List<Venda> procuraTodos();
+	public abstract List<Venda> listar();
 	
-	public Venda procuraPorId(Long id);
+	public Venda buscarPorId(Long id);
 	
-	public void remove(Venda venda);
+	public void apagar(Venda venda);
 	
 }

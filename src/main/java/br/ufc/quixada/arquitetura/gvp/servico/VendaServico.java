@@ -22,27 +22,27 @@ public class VendaServico implements IVendaServico {
 
 	@Override
 	@Transactional
-	public void salva(Venda v) {
-		VendaRepository.salva(v);
+	public void salvar(Venda v) {
+		VendaRepository.salvar(v);
 	}
 
 	@Override
 	@Transactional
-	public List<Venda> procuraTodos() {
-		List<Venda> l = VendaRepository.procuraTodos();
+	public List<Venda> listar() {
+		List<Venda> l = VendaRepository.listar();
 		return l;
 	}
 
 	@Override
 	@Transactional
-	public Venda procuraPorId(Long id) {
-		Venda g = VendaRepository.procuraPorId(id);
+	public Venda buscarPorId(Long id) {
+		Venda g = VendaRepository.buscarPorId(id);
 		return g;
 	}
 
 	@Override
 	@Transactional
-	public void remove(Venda g) {
-		VendaRepository.remove(g);
+	public void apagar(Venda g) {
+		VendaRepository.apagar(g);
 	}
 }

@@ -15,7 +15,7 @@ public class VendaDao implements IVendaDao {
 	@PersistenceContext
 	private EntityManager em;
 
-	public void salva(Venda g) {
+	public void salvar(Venda g) {
 		if (g.getId() == null) {
 			em.persist(g);
 		} else {
@@ -23,17 +23,17 @@ public class VendaDao implements IVendaDao {
 		}
 	}
 
-	public List<Venda> procuraTodos() {
+	public List<Venda> listar() {
 		return em.createQuery("from Venda", Venda.class).getResultList();
 	}
 
 	@Override
-	public Venda procuraPorId(Long id) {
+	public Venda buscarPorId(Long id) {
 		return em.find(Venda.class, id);
 	}
 
 	@Override
-	public void remove(Venda Venda) {
+	public void apagar(Venda Venda) {
 		em.remove(em.merge(Venda));
 	}
 
