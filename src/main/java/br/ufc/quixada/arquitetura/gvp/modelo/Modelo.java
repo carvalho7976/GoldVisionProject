@@ -59,6 +59,14 @@ public class Modelo {
 		this.marca = marca;
 	}
 	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
 		return "Marca:[id"+getCodigo()+"+]";
