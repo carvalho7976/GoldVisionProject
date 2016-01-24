@@ -22,9 +22,9 @@ public class Modelo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	/*@OneToMany(mappedBy = "modelo", targetEntity = Produto.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "modelo", targetEntity = Produto.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Produto> produtos;
-	*/
+	
 	@Column(name="cod_modelo")
 	private String codigo;
 	
@@ -65,6 +65,14 @@ public class Modelo {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
 	}
 
 	@Override

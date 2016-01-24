@@ -45,6 +45,15 @@
 			</button>
 			<a class="navbar-brand" href="<c:url value='/cliente/'/>">Cliente</a>
 		</div>
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="<c:url value='/modelo/listar'/>">Modelos</a>
+		</div>
 			<ul class="nav navbar-nav navbar-right">
 						<li><a href="<c:url value="/logout" />">Sair<span
 								class="glyphicon glyphicon-off"></span></a></li>
