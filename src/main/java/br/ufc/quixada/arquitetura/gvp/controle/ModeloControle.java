@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ufc.quixada.arquitetura.gvp.modelo.Marca;
 import br.ufc.quixada.arquitetura.gvp.modelo.Modelo;
+import br.ufc.quixada.arquitetura.gvp.modelo.Produto;
 import br.ufc.quixada.arquitetura.gvp.servico.MarcaServico;
 import br.ufc.quixada.arquitetura.gvp.servico.ModeloServico;
 
@@ -57,15 +58,44 @@ public class ModeloControle {
 		ModelAndView model = new ModelAndView("produto/marca/modelo/listar");
 		return model;
 	}
-	
-	@RequestMapping(value="/{id}/excluir", method = RequestMethod.GET)
-	public ModelAndView excluir(@PathVariable("id") Integer id){
-		if(modeloServico.procurarPorId(id) != null){
+
+	@RequestMapping(value = "/{id}/excluir", method = RequestMethod.GET)
+	public ModelAndView excluir(@PathVariable("id") Integer id) {
+		if (modeloServico.procurarPorId(id) != null) {
 			modeloServico.deletarModelo(id);
 		}
-		
+
 		ModelAndView model = new ModelAndView("redirect:/modelo/listar");
 		return model;
 	}
-	
+
+	@RequestMapping(value = "/{id}/detalhes", method = RequestMethod.GET)
+	public ModelAndView detalhes(@PathVariable("id") Integer id, Model modelAtribute) {
+		modelAtribute.addAttribute("modelo", modeloServico.procurarPorId(id));
+		ModelAndView model = new ModelAndView("/produto/marca/modelo/detalhes");
+		return model;
+	}
+
+	@RequestMapping(value = "/{id}/editar", method = RequestMethod.GET)
+	public ModelAndView editarGET(@PathVariable("id") Integer id, Model modelAtribute) {
+		modelAtribute.addAttribute("modelo", modeloServico.procurarPorId(id));
+		modelAtribute.addAttribute("listaMarcas", marcaServico.find(Marca.class));
+
+		ModelAndView model = new ModelAndView("/produto/marca/modelo/editar");
+		return model;
+	}
+
+	@RequestMapping(value = "/{id}/editar", method = RequestMethod.POST)
+	public ModelAndView editarPOST(@PathVariable("id") Integer id, String nomeModelo, String codigo, Integer marca,
+			final RedirectAttributes redirectAttributes) {
+		
+		Modelo meuModelo = modeloServico.procurarPorId(id);
+		meuModelo.setNomeModelo(nomeModelo);
+		meuModelo.setCodigo(codigo);
+		meuModelo.setMarca(marcaServico.procurarPorId(marca));
+		modeloServico.salvarModelo(meuModelo);
+
+		ModelAndView model = new ModelAndView("redirect:/modelo/listar");
+		return model;
+	}
 }
