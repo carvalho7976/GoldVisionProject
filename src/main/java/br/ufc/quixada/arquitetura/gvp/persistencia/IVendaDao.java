@@ -10,7 +10,7 @@ public interface IVendaDao {
 
 	public abstract List<Venda> listar();
 	
-	public Venda buscarPorId(Long id);
+	public Venda buscarPorId(Integer id);
 	
 	public void apagar(Venda venda);
 	

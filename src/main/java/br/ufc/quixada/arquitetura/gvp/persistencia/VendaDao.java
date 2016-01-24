@@ -28,7 +28,7 @@ public class VendaDao implements IVendaDao {
 	}
 
 	@Override
-	public Venda buscarPorId(Long id) {
+	public Venda buscarPorId(Integer id) {
 		return em.find(Venda.class, id);
 	}
 

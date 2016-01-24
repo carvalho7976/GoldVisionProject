@@ -1,0 +1,107 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Gold Vision</title>
+<jsp:include page="../fragments/headTag.jsp" />
+</head>
+<body>
+	<jsp:include page="../fragments/menu.jsp" />
+
+	<div class="container">
+		<form:form servletRelativeAction="/venda/editar/${venda.id}/" method="post"
+			modelAttribute="venda" class="form-horizontal" role="form">
+
+			<fieldset>
+				<!-- Form Name -->
+				<legend>Editar venda</legend>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<div class="row">
+						<label class="col-md-4 control-label" for="valorVenda">Valor de Venda</label>
+						<div class="col-md-4">
+							<input id="valorVenda" name="valorVenda" type="number" value = "${venda.valorVenda }"
+								class="form-control input-md" required>
+						</div>
+					</div>
+				</div>
+				<!-- Text input-->
+				<div class="form-group">
+					<div class="row">
+						<label class="col-md-4 control-label" for="formaPagamento">Forma de Pagamento</label>
+						<div class="col-md-4">
+							<input id="formaPagamento" name="formaPagamento" type="text" value = "${venda.formaPagamento}"
+								class="form-control input-md">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<div class="row">
+						<label class="col-md-4 control-label" for="diaVencimento">Dia de Vencimento</label>
+						<div class="col-md-4">
+							<input id="diaVencimento" name="diaVencimento" type="number" value = "${venda.diaVencimento }"
+								class="form-control input-md" required>
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<div class="row">
+						<label class="col-md-4 control-label" for="numParcelas">Numero de Parcelas</label>
+						<div class="col-md-4">
+							<input id="numParcelas" name="numParcelas" type="number" value = "${venda.numParcelas }"
+								class="form-control input-md" required>
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<div class="row">
+						<label class="col-md-4 control-label" for="numParcelasPagas">Numero de Parcelas Pagas</label>
+						<div class="col-md-4">
+							<input id="numParcelasPagas" name="numParcelasPagas" type="number" value = "${venda.numParcelasPagas }"
+								class="form-control input-md">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<div class="row">
+						<label class="col-md-4 control-label" for="ultimoPagamento">Ultimo Pagamento</label>
+						<div class="col-md-4">
+							<input id="ultimoPagamento" name="ultimoPagamento" type="number" value = "${venda.ultimoPagamento }"
+								class="form-control input-md">
+						</div>
+					</div>
+				</div>
+
+				<!-- Button -->
+				<div class="form-group">
+					<div class="row">
+						<label class="col-md-4 control-label" for="salvar"></label>
+						<div class="col-md-4">
+							<button id="salvar" name="salvar" class="btn btn-primary">Salvar</button>
+							<a href="<c:url value="/venda/" ></c:url>">
+							<button type="button" class="btn btn-danger">Cancelar</button>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</fieldset>
+		</form:form>
+	</div>
+
+</body>
+</html>

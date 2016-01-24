@@ -29,6 +29,7 @@
 				<thead>
 					<tr>
 						<th>Data da Venda</th>
+						<th>Valor de Venda</th>
 						<th>Dia do Vencimento</th>
 						<th>Forma de Pagamento</th>
 						<th>Número de Parcelas</th>
@@ -40,26 +41,32 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${vendas}" var="venda">
-						
+
 						<tr>
 							<td>${venda.dataVenda}</td>
+							<td>${venda.valorVenda}</td>
 							<td>${venda.diaVencimento }</td>
 							<td>${venda.formaPagamento}</td>
 							<td>${venda.numParcelas}</td>
 							<td>${venda.numParcelasPagas}</td>
 							<td>${venda.ultimoPagamento}</td>
-							
+
 							<td>
-								<button type="button" class="btn btn-info btn-sm" >Detalhes</button>
-								<button type="button" class="btn btn-warning btn-sm">Editar</button>
-								<button type="button" class="btn btn-danger btn-sm">Apagar</button>
+								
+								<a
+								href="<c:url value="editar/${venda.id }/" ></c:url>">
+									<button type="button" class="btn btn-warning">Editar</button>
+							</a> <a href="<c:url value="/venda/apagar/${venda.id }/" ></c:url>">
+									<button type="button" class="btn btn-danger">Apagar</button>
+							</a>
+							</td>
 							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
-				</table>
-				</div>
-				</div>
-			
+			</table>
+		</div>
+	</div>
+
 </body>
 </html>

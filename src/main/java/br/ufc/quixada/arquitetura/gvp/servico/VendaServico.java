@@ -35,7 +35,7 @@ public class VendaServico implements IVendaServico {
 
 	@Override
 	@Transactional
-	public Venda buscarPorId(Long id) {
+	public Venda buscarPorId(Integer id) {
 		Venda g = VendaRepository.buscarPorId(id);
 		return g;
 	}

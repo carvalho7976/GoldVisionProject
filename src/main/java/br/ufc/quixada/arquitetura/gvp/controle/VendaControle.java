@@ -7,11 +7,14 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.ufc.quixada.arquitetura.gvp.modelo.Cliente;
 import br.ufc.quixada.arquitetura.gvp.modelo.Venda;
 import br.ufc.quixada.arquitetura.gvp.servico.VendaServico;
 
@@ -45,8 +48,31 @@ public class VendaControle {
 		return model;
 		
 	}
-
 	
+	@RequestMapping(value = "/apagar/{id}", method = RequestMethod.GET)
+	public ModelAndView apagar(@PathVariable("id") Integer id) {
+		vs.apagar(vs.buscarPorId(id));
+		
+		String vendaEnd = "/venda/";
+		return new ModelAndView("redirect:" +vendaEnd );
+	}
+	
+	
+	@RequestMapping(value = "/editar/{id}/", method = RequestMethod.GET)
+	public ModelAndView editar(Model modelAtribute,@PathVariable("id") Integer id) {
+		
+		modelAtribute.addAttribute("venda", vs.buscarPorId(id));
+		ModelAndView model = new ModelAndView("venda/editar");
+		return model;
+	}
+	@RequestMapping(value = "/editar/{id}/", method = RequestMethod.POST)
+	public ModelAndView editarSalvar(@ModelAttribute("venda") Venda venda,@PathVariable("id") Integer id) {
+		venda.setId(id);
+		venda.setDataVenda(vs.buscarPorId(id).getDataVenda());
+		vs.salvar(venda);
+		String vendaEnd = "/venda/";
+		return new ModelAndView("redirect:" +vendaEnd );
+	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST, produces = "application/json; charset=UTF-8")
 	public String criarVenda(	
