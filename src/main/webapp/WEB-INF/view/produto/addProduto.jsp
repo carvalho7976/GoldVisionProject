@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -22,9 +22,9 @@
 			</div>
 
 			<div class="form-group">
-				<label for="codigo" class="col-sm-1 control-label">Código</label>
+				<label for="codigo" class="col-sm-1 control-label">CÃ³digo</label>
 				<div class="col-sm-10">
-					<form:input id="codigo" class="form-control" placeholder="Código"
+					<form:input id="codigo" class="form-control" placeholder="CÃ³digo"
 						path="codigo" />
 					<form:errors path="codigo" cssClass="error" />
 				</div>

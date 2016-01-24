@@ -38,17 +38,15 @@
 								<button class="btn btn-primary">
 									<span class="glyphicon glyphicon-plus"></span> Detalhes
 								</button>
-						</a></td>
-						<td><a
+						</a><a
 							href="<c:url value="/marca/${marca.id}/editar" ></c:url>">
 								<button class="btn btn-primary">
 									<span class="glyphicon glyphicon-edit"></span> Editar Marca
 								</button>
-						</a></td>
-						<td><a
+						</a><a
 							href="<c:url value="/marca/${marca.id}/excluir" ></c:url>">
 								<button class="btn btn-danger">
-									<span class="glyphicon glyphicon-trash"></span></span> Excluir Marca
+									<span class="glyphicon glyphicon-trash"></span> Excluir Marca
 								</button>
 						</a></td>
 					</tr>

@@ -11,5 +11,5 @@ public interface IProdutoServico {
 
 	public Produto procurarPorId(Integer idProduto);
 
-	public abstract List<Produto> listarMarcas();
+	public abstract List<Produto> listarProdutos();
 }

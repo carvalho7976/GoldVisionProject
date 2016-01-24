@@ -23,7 +23,7 @@ public class ProdutoServico implements IProdutoServico{
 
 	@Override
 	@Transactional
-	public List<Produto> listarMarcas() {
+	public List<Produto> listarProdutos() {
 		return produtoDao.listar();
 	}
 
