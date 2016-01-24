@@ -12,16 +12,14 @@
 <body>
 	<jsp:include page="../fragments/menu.jsp" />
 
-	<div class="container">
+	<div class="container" align="center">
 		<h1>Modulo Vendas</h1>
 		<div class="row">
-			<div class="col-xs-12 col-md-8"></div>
-			<div class="col-xs-6 col-md-4">
-				<a href="cadastrar/">
-					<button type="button" class="btn btn-primary btn-sm">Cadastrar
-						venda</button>
-				</a>
-			</div>
+			<a href="<c:url value="cadastrar/" ></c:url>">
+				<button class="btn btn-primary">
+					<span class="glyphicon glyphicon-plus"></span>Adicionar Nova Marca
+				</button>
+			</a>
 		</div>
 		<br />
 		<div class="">
@@ -51,15 +49,18 @@
 							<td>${venda.numParcelasPagas}</td>
 							<td>${venda.ultimoPagamento}</td>
 
-							<td>
-								
-								<a
-								href="<c:url value="editar/${venda.id }/" ></c:url>">
-									<button type="button" class="btn btn-warning">Editar</button>
-							</a> <a href="<c:url value="/venda/apagar/${venda.id }/" ></c:url>">
-									<button type="button" class="btn btn-danger">Apagar</button>
+							<td><a
+								href="<c:url value="/editar/${venda.id}/" ></c:url>">
+									<button class="btn btn-primary">
+										<span class="glyphicon glyphicon-edit"></span> Editar
+									</button>
 							</a>
-							</td>
+							<a
+								href="<c:url value="/venda/apagar/${venda.id}/" ></c:url>">
+									<button class="btn btn-danger">
+										<span class="glyphicon glyphicon-trash"></span> Excluir
+									</button>
+							</a>
 							</td>
 						</tr>
 					</c:forEach>

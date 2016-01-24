@@ -10,17 +10,22 @@
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>
-	<div id="container">
-		<jsp:include page="../fragments/menu.jsp" />
-		<div class="nav navbar-nav navbar-right">
-			<a href="<c:url value="/produto/adicionar" ></c:url>">
+	<jsp:include page="../fragments/menu.jsp" />
+	
+	<div id="container" align="center">
+		<h1>Modulo Produtos</h1>
+		<div class="row">
+			<div class="col-xs-12 col-md-8"></div>
+			<div class="col-xs-6 col-md-4">
+				<a href="<c:url value="/produto/adicionar" ></c:url>">
 				<button class="btn btn-primary">
 					<span class="glyphicon glyphicon-plus"></span>Adicionar Novo
 					Produto
 				</button>
 			</a>
+			</div>
 		</div>
-		
+		<br />
 		<div class="container">
 
 			<table class="table" id="tableCliente">
@@ -43,15 +48,13 @@
 						<td><a
 							href="<c:url value="/produto/${produto.id}/detalhes" ></c:url>">
 								<button class="btn btn-primary">
-									<span class="glyphicon glyphicon-plus"></span> Detalhes
+									<span class="glyphicon glyphicon-file"></span> Detalhes
 								</button>
-						</a><a
-							href="<c:url value="/produto/${produto.id}/editar" ></c:url>">
+						</a><a href="<c:url value="/produto/${produto.id}/editar" ></c:url>">
 								<button class="btn btn-primary">
 									<span class="glyphicon glyphicon-edit"></span> Editar Produto
 								</button>
-						</a><a
-							href="<c:url value="/produto/${produto.id}/excluir" ></c:url>">
+						</a><a href="<c:url value="/produto/${produto.id}/excluir" ></c:url>">
 								<button class="btn btn-danger">
 									<span class="glyphicon glyphicon-trash"></span> Excluir Produto
 								</button>

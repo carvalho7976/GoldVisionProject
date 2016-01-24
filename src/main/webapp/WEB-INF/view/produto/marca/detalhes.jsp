@@ -17,7 +17,7 @@
 
 			<a href="<c:url value="/marca/${marca.id}/editar" ></c:url>">
 				<button class="btn btn-primary">
-					<span class="glyphicon glyphicon-plus"></span> Editar Marca
+					<span class="glyphicon glyphicon-edit"></span> Editar Marca
 				</button>
 			</a>
 			<table class="table" id="tableModelos">

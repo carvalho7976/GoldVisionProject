@@ -10,8 +10,9 @@
 <jsp:include page="../../fragments/headTag.jsp" />
 </head>
 <body>
-	<div id="container">
-		<jsp:include page="../../fragments/menu.jsp" />
+<jsp:include page="../../fragments/menu.jsp" />
+	<div id="container" align="center">
+		<h1>Modulo Produtos</h1>
 		<div class="nav navbar-nav navbar-right">
 			<a href="<c:url value="/marca/adicionar" ></c:url>">
 				<button class="btn btn-primary">
@@ -36,7 +37,7 @@
 						<td><a
 							href="<c:url value="/marca/${marca.id}/detalhes" ></c:url>">
 								<button class="btn btn-primary">
-									<span class="glyphicon glyphicon-plus"></span> Detalhes
+									<span class="glyphicon glyphicon-file"></span> Detalhes
 								</button>
 						</a><a
 							href="<c:url value="/marca/${marca.id}/editar" ></c:url>">

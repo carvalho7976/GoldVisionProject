@@ -11,13 +11,15 @@
 <jsp:include page="../../fragments/headTag.jsp" />
 </head>
 <body>
-
-	<div id="container">
-		<jsp:include page="../../fragments/menu.jsp" />
+	<jsp:include page="../../fragments/menu.jsp" />
+	<div id="container" align="center">
+		
 		<div class="panel-heading">
 			<form:form servletRelativeAction="/marca/adicionar" method="post"
 				modelAttribute="marca" class="form-horizontal" role="form">
-
+				<div class="form-group" style="text-align: center;">
+				<label class="control-label" style="font-size: 20px;">Adicionar Marca</label>
+			</div>
 				<div class="form-group">
 
 					<label for="nomeMarca" class="col-sm-1 control-label">Nome

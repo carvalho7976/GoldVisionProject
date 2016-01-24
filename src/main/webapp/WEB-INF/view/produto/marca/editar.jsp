@@ -11,36 +11,38 @@
 <jsp:include page="../../fragments/headTag.jsp" />
 </head>
 <body>
-<div id="container">
-		<jsp:include page="../../fragments/menu.jsp" />
-	<form:form servletRelativeAction="/marca/${marca.id}/editar" method="post"
-		modelAttribute="marca" class="form-horizontal" role="form">
+<jsp:include page="../../fragments/menu.jsp" />
+	<div id="container" align="center">
+		
+		<form:form servletRelativeAction="/marca/${marca.id}/editar"
+			method="post" modelAttribute="marca" class="form-horizontal"
+			role="form">
 
-		<div class="form-group">
+			<div class="form-group">
 
-			<label for="nomeMarca" class="col-sm-1 control-label">Nome da
-				Marca</label>
-			<div class="col-sm-10">
-				<form:input id="nomeMarca" class="form-control"
-					placeholder="Nome da Marca" path="nomeMarca" />
-				<form:errors path="nomeMarca" cssClass="error" />
+				<label for="nomeMarca" class="col-sm-1 control-label">Nome
+					da Marca</label>
+				<div class="col-sm-10">
+					<form:input id="nomeMarca" class="form-control"
+						placeholder="Nome da Marca" path="nomeMarca" />
+					<form:errors path="nomeMarca" cssClass="error" />
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label for="codigo" class="col-sm-1 control-label">Codigo</label>
-			<div class="col-sm-10">
-				<form:input id="codigo" class="form-control"
-					placeholder="Quantidade" path="codigo" />
-				<form:errors path="codigo" cssClass="error" />
+			<div class="form-group">
+				<label for="codigo" class="col-sm-1 control-label">Codigo</label>
+				<div class="col-sm-10">
+					<form:input id="codigo" class="form-control"
+						placeholder="Quantidade" path="codigo" />
+					<form:errors path="codigo" cssClass="error" />
+				</div>
 			</div>
-		</div>
-		<div class="controls">
-			<input id="criar" class="btn btn-primary" type="submit"
-				value="Atualizar" /> <a
-				href="<c:url value="/marca/listar"></c:url>"
-				class="btn btn-default">Cancelar</a>
-		</div>
-	</form:form>
+			<div class="controls">
+				<input id="criar" class="btn btn-primary" type="submit"
+					value="Atualizar" /> <a
+					href="<c:url value="/marca/listar"></c:url>"
+					class="btn btn-danger">Cancelar</a>
+			</div>
+		</form:form>
 	</div>
 </body>
 </html>

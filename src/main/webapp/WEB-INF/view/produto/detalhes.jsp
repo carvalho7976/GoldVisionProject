@@ -17,7 +17,7 @@
 			<div class="col-sm-10">
 				<a href="<c:url value="/produto/${produto.id}/editar"  ></c:url>">
 					<button class="btn btn-primary">
-						<span class="glyphicon glyphicon-plus"></span> Editar Produto
+						<span class="glyphicon glyphicon-edit"></span> Editar Produto
 					</button>
 				</a> <a href="<c:url value="/produto/${produto.id}/excluir" ></c:url>">
 					<button class="btn btn-danger">

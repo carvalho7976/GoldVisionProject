@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
@@ -43,8 +43,6 @@
 </head>
 <body onload='document.loginForm.username.focus();'>
 
-	<h1>Gold Vision</h1>
-
 	<div id="venda-box">
 
 
@@ -56,7 +54,8 @@
 		</c:if>
 
 		<div class="container">
-			<form class="form-horizontal" name='vendaForm' action="<c:url value='/venda/save/' />" method='POST'>
+			<form class="form-horizontal" name='vendaForm'
+				action="<c:url value='/venda/save/' />" method='POST'>
 				<fieldset>
 
 					<!-- Form Name -->
@@ -69,8 +68,7 @@
 								de Venda</label>
 							<div class="col-md-4">
 								<input id="textinput" name="valorVenda" type="number"
-									placeholder="ex: 200" class="form-control input-md"
-									required="">
+									placeholder="ex: 200" class="form-control input-md" required="">
 
 							</div>
 						</div>

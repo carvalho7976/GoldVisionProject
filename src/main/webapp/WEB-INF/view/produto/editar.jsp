@@ -7,15 +7,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Editar</title>
+<title>Editar Produto</title>
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>
-	<div id="container">
-		<jsp:include page="../fragments/menu.jsp" />
+	<jsp:include page="../fragments/menu.jsp" />
+	<div id="container" align="center">
+
 		<form:form servletRelativeAction="/produto/${produto.id}/editar"
 			method="post" modelAttribute="produto" class="form-horizontal"
 			role="form">
+			<div class="form-group" style="text-align: center;">
+				<label class="control-label" style="font-size: 20px;">Editar
+					Produto</label>
+			</div>
 
 			<div class="form-group">
 				<label for="codigo" class="col-sm-1 control-label">Código</label>
@@ -64,7 +69,7 @@
 				<input id="criar" class="btn btn-primary" type="submit"
 					value="Atualizar" /> <a
 					href="<c:url value="/produto/listar"></c:url>"
-					class="btn btn-default">Cancelar</a>
+					class="btn btn-danger"">Cancelar</a>
 			</div>
 		</form:form>
 	</div>

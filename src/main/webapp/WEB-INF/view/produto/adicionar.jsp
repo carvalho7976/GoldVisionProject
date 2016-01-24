@@ -8,13 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Adicionar</title>
+<title>Adicionar Produto</title>
+<jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>
 	<jsp:include page="../fragments/menu.jsp" />
 
-	<div id="container">
-		<jsp:include page="../fragments/headTag.jsp" />
+	<div id="container" align="center">
+		
 
 		<form:form servletRelativeAction="/produto/adicionar" method="post"
 			modelAttribute="produto" role="form">
@@ -78,12 +79,12 @@
 					<form:errors path="marca" cssClass="error" />
 				</div>
 			</div>
-
+			
 			<div class="controls">
 				<input id="criar" class="btn btn-primary" type="submit"
 					value="Adicionar" /> <a
 					href="<c:url value="/produto/listar"></c:url>"
-					class="btn btn-primary">Cancelar</a>
+					class="btn btn-danger">Cancelar</a>
 			</div>
 		</form:form>
 		<jsp:include page="../fragments/footer.jsp" />
