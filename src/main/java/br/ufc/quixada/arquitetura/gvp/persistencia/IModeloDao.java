@@ -7,7 +7,7 @@ import br.ufc.quixada.arquitetura.gvp.util.GenericRepository;
 
 public interface IModeloDao extends GenericRepository<Modelo>{
 	public abstract void salvar(Modelo modelo);
-	public void apagar(Integer idModelo);
+	public void apagar(Modelo modelo);
 	public abstract  List<Modelo> listar();
 	public Modelo buscarPorId(Integer idModelo);
 }
