@@ -35,3 +35,4 @@ public class MarcaDAO extends JpaGenericRepositoryImpl<Marca> implements IMarcaD
 	}
 
 }
+
