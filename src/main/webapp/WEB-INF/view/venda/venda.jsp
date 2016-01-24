@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
@@ -102,7 +106,7 @@
 					<!-- Text input-->
 					<div class="row">
 						<div class="form-group">
-							<label class="col-md-4 control-label" for="textinput">Número
+							<label class="col-md-4 control-label" for="textinput">NÃºmero
 								de Parcelas</label>
 							<div class="col-md-4">
 								<input id="textinput" name="numParcelas" type="number"
@@ -115,7 +119,7 @@
 					<!-- Text input-->
 					<div class="row">
 						<div class="form-group">
-							<label class="col-md-4 control-label" for="textinput">Mês
+							<label class="col-md-4 control-label" for="textinput">MÃªs
 								do Ultimo Pagamento</label>
 							<div class="col-md-4">
 								<input id="textinput" name="numParcelasPagas" type="number"
@@ -128,7 +132,7 @@
 					<!-- Text input-->
 					<div class="row">
 						<div class="form-group">
-							<label class="col-md-4 control-label" for="textinput">Número
+							<label class="col-md-4 control-label" for="textinput">NÃºmero
 								de Parcelas Pagas</label>
 							<div class="col-md-4">
 								<input id="textinput" name="ultimoPagamento" type="number"

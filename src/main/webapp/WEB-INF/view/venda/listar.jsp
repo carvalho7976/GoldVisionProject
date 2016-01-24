@@ -19,7 +19,7 @@
 			<div class="col-xs-6 col-md-4">
 				<a href="cadastrar/">
 					<button type="button" class="btn btn-primary btn-sm">Cadastrar
-						cliente</button>
+						venda</button>
 				</a>
 			</div>
 		</div>
