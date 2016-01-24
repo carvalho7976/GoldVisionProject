@@ -26,6 +26,7 @@
 <!-- JS DO FRONT -->
 <script type="text/javascript" src="<c:url value="/resources/js/front.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/script_menu.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 
 <!-- CSS -->
 <link href="<c:url value="/resources/css/menu.css"/>" rel="stylesheet">

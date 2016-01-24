@@ -15,7 +15,7 @@ public class PapelDao implements
 	@PersistenceContext
 	private EntityManager em;
 
-	public void save(Papel c) {
+	public void salvar(Papel c) {
 		if (c.getId() == null) {
 			em.persist(c);
 		} else {
@@ -23,18 +23,18 @@ public class PapelDao implements
 		}
 	}
 
-	public List<Papel> findAll() {
+	public List<Papel> listar() {
 		return em.createQuery("from Papel", Papel.class)
 				.getResultList();
 	}
 
 	@Override
-	public void remove(Papel categoria) {
+	public void apagar(Papel categoria) {
 		em.remove(em.merge(categoria));
 	}
 
 	@Override
-	public Papel findByName(String name) {
+	public Papel buscarPorNome(String name) {
 		return em.createQuery("from Papel c where c.nome = '"+name+"'", Papel.class).getSingleResult();
 	}
 

@@ -64,7 +64,7 @@ public class PessoaControle {
 		pessoa.setNome(name);
 
 		List<Papel> papeis = new ArrayList<Papel>();
-		Papel papel = pls.findByName(role);
+		Papel papel = pls.buscarPorNome(role);
 		papeis.add(papel);
 
 		pessoa.setPapeis(papeis);

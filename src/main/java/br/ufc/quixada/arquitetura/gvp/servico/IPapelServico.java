@@ -6,13 +6,13 @@ import br.ufc.quixada.arquitetura.gvp.modelo.Papel;
 
 public interface IPapelServico {
 
-	public abstract void save(Papel c);
+	public abstract void salvar(Papel c);
 
-	public abstract List<Papel> findAll();
+	public abstract List<Papel> listar();
 	
-	public Papel findByName(String name);
+	public Papel buscarPorNome(String name);
 	
-	public void remove(Papel categoria);
+	public void apagar(Papel categoria);
 	
 
 }
