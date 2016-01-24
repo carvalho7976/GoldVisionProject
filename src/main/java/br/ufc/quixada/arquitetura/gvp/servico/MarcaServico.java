@@ -46,3 +46,4 @@ public class MarcaServico extends GenericServiceImpl<Marca> implements IMarcaSer
 	}
 
 }
+

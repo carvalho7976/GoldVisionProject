@@ -1,3 +1,4 @@
+
 package br.ufc.quixada.arquitetura.gvp.persistencia;
 
 import java.util.List;
@@ -12,3 +13,4 @@ public interface IMarcaDao extends GenericRepository<Marca> {
 	public Marca buscarPorId(Integer idMarca);
 
 }
+
