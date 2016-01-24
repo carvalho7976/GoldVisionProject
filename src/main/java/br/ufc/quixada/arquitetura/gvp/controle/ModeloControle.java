@@ -13,7 +13,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ufc.quixada.arquitetura.gvp.modelo.Marca;
 import br.ufc.quixada.arquitetura.gvp.modelo.Modelo;
-import br.ufc.quixada.arquitetura.gvp.modelo.Produto;
 import br.ufc.quixada.arquitetura.gvp.servico.MarcaServico;
 import br.ufc.quixada.arquitetura.gvp.servico.ModeloServico;
 
