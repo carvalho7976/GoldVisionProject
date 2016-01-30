@@ -9,19 +9,90 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Adicionar</title>
+<jsp:include page="../fragments/headTag.jsp" />
+
+<c:url var="listaModelosURL" value="/produto/modelos" />
+<c:url var="listaMarcasURL" value="/produto/marcas" />
+
+<script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+						$('#marcas')
+								.change(
+										function() {
+											$
+													.getJSON(
+															'${listaModelosURL}',
+															{
+																stateName : $(
+																		this)
+																		.val(),
+																ajax : 'true'
+															},
+															function(data) {
+																var html = '<option value="">Modelo</option>';
+																var len = data.length;
+																for (var i = 0; i < len; i++) {
+																	html += '<option value="' + data[i].name + '">'
+																			+ data[i].name
+																			+ '</option>';
+																}
+																html += '</option>';
+																$('#modelo')
+																		.html(
+																				html);
+															});
+										});
+					});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+				$.getJSON('${listaMarcasURL}', {
+					ajax : 'true'
+				}, function(data) {
+					var html = '<option value="marca">Marca</option>';
+					var len = data.length;
+					for (var i = 0; i < len; i++) {
+						html += '<option value="' + data[i] + '">' + data[i]
+								+ '</option>';
+					}
+					html += '</option>';
+					$('#marcas').html(html);
+				});
+			});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#modelo").change(onSelectChange);
+	});
+	function onSelectChange() {
+		var selected = $("#modelo option:selected");
+		var output = "";
+		if (selected.val() != 0) {
+			output = "modelo selecionado " + selected.text();
+		}
+		$("#output").html(output);
+	}
+</script>
 </head>
 <body>
-	<jsp:include page="../fragments/menu.jsp" />
-
-	<div id="container">
-		<jsp:include page="../fragments/headTag.jsp" />
-
+	<div class="container">
+		<jsp:include page="../fragments/menu.jsp" />
+		<button class="btn btn-default" onclick="history.back();">Voltar</button>
+		
 		<form:form servletRelativeAction="/produto/adicionar" method="post"
 			modelAttribute="produto" role="form">
-			<div class="form-group" style="text-align: center;">
-				<label class="control-label" style="font-size: 20px;">Adicionar
-					Produto</label>
-			</div>
+			
+			<fieldset>
+					<!-- Form Name -->
+					<legend>Adicionar Produto</legend>
+
+					<!-- Text input-->
+			</fieldset>
 
 			<div class="form-group">
 				<label for="codigo" class="col-sm-2 control-label">Código</label>
@@ -66,14 +137,11 @@
 				<label for="marca" class="col-sm-2 control-label">Marca</label>
 				<div class="col-sm-10">
 
-					<form:select id="marca" class="form-control"
-						modelAttribute="produto" placeholder="Marca do Produto"
-						path="marca" required="true">
-						<form:option value="nenhuma">Selecione a marca</form:option>
-						<c:forEach items="${listaMarcas}" var="itemMarca">
-							<form:option value="${itemMarca.id}">${itemMarca.nomeMarca}</form:option>
-						</c:forEach>
+					<form:select id="marcas" path="marca" required="true">
+					</form:select>
 
+					<form:select id="modelos" path="modelo">
+						<form:option value="">Modelos</form:option>
 					</form:select>
 					<form:errors path="marca" cssClass="error" />
 				</div>
@@ -83,7 +151,7 @@
 				<input id="criar" class="btn btn-primary" type="submit"
 					value="Adicionar" /> <a
 					href="<c:url value="/produto/listar"></c:url>"
-					class="btn btn-primary">Cancelar</a>
+					class="btn btn-danger">Cancelar</a>
 			</div>
 		</form:form>
 		<jsp:include page="../fragments/footer.jsp" />

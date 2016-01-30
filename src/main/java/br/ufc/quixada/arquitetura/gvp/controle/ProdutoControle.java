@@ -1,5 +1,9 @@
 package br.ufc.quixada.arquitetura.gvp.controle;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -7,10 +11,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ufc.quixada.arquitetura.gvp.modelo.Marca;
+import br.ufc.quixada.arquitetura.gvp.modelo.Modelo;
 import br.ufc.quixada.arquitetura.gvp.modelo.Produto;
 import br.ufc.quixada.arquitetura.gvp.servico.MarcaServico;
 import br.ufc.quixada.arquitetura.gvp.servico.ProdutoServico;
@@ -95,5 +102,25 @@ public class ProdutoControle {
 		
 		ModelAndView model = new ModelAndView("redirect:/produto/listar");
 		return model;
+	}
+	@RequestMapping(value = "/modelos", method = RequestMethod.GET)
+	public @ResponseBody
+	List<Modelo> modelosPorMarca(
+			@RequestParam(value = "marcaId", required = true) String marca) {
+		
+		return marcaServico.procurarPorId(Integer.valueOf(marca)).getModelos();
+	}
+
+	@RequestMapping(value = "/marcas", method = RequestMethod.GET)
+	public @ResponseBody
+	List<String> listaMarcas() {
+		List<Marca> lm = marcaServico.listarMarcas();	
+		List<String> ls = new ArrayList<String>();
+		for (Marca m : lm) {
+			ls.add(m.getNomeMarca());
+			
+		}
+		
+		return ls;
 	}
 }

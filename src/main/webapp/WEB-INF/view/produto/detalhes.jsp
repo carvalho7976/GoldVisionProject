@@ -10,14 +10,17 @@
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>
-	<div id="container">
+	<div class="container">
 		<jsp:include page="../fragments/menu.jsp" />
+		<button class="btn btn-default" onclick="history.back();">Voltar</button>
+		
 		<h2 align="center">Detalhes do Produto</h2>
+		
 		<div align="right">
-			<div class="col-sm-10">
+			<div>
 				<a href="<c:url value="/produto/${produto.id}/editar"  ></c:url>">
-					<button class="btn btn-primary">
-						<span class="glyphicon glyphicon-plus"></span> Editar Produto
+					<button class="btn btn-warning">
+						<span class="glyphicon glyphicon-edit"></span> Editar Produto
 					</button>
 				</a> <a href="<c:url value="/produto/${produto.id}/excluir" ></c:url>">
 					<button class="btn btn-danger">
@@ -47,7 +50,6 @@
 				<label for="codigo" class="col-sm-10">Valor de Compra</label>
 				${produto.valorCompra}
 			</div>
-
 		</div>
 
 	</div>
