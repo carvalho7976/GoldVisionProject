@@ -13,15 +13,15 @@
 	<div class="container">
 		<jsp:include page="../fragments/menu.jsp" />
 		<h1>Modulo Clientes</h1>
-		<div class="row">
-			<div class="col-xs-12 col-md-8"></div>
-			<div class="col-xs-6 col-md-4">
-				<a href="cadastrar/">
-					<button type="button" class="btn btn-primary">Cadastrar
-						cliente</button>
-				</a>
-			</div>
+		
+		<div class="nav navbar-nav navbar-right">
+			<a href="<c:url value="/cliente/cadastrar/" ></c:url>">
+				<button class="btn btn-primary">
+					<span class="glyphicon glyphicon-plus"></span> Adicionar Novo Cliente
+				</button>
+			</a>
 		</div>
+		
 		<br />
 		<table class="table" id="tableCliente">
 			<thead>
@@ -40,13 +40,19 @@
 						<td>${cliente.telefone}</td>
 						<td><a
 							href="<c:url value="/cliente/detalhes/${cliente.id }/" ></c:url>">
-								<button type="button" class="btn btn-info">Detalhes</button>
+								<button type="button" class="btn btn-info">
+									<span class="glyphicon glyphicon-file"></span> Detalhes
+								</button>
 						</a> <a
 							href="<c:url value="/cliente/editar	/${cliente.id }/" ></c:url>">
-								<button type="button" class="btn btn-warning">Editar</button>
+								<button type="button" class="btn btn-warning">
+									<span class="glyphicon glyphicon-edit"></span> Editar Cliente
+								</button>
 						</a> <a
 							href="<c:url value="/cliente/apagar/${cliente.id }/" ></c:url>">
-								<button type="button" class="btn btn-danger">Apagar</button>
+								<button type="button" class="btn btn-danger">
+									<span class="glyphicon glyphicon-trash"></span> Excluir Cliente
+								</button>
 						</a></td>
 					</tr>
 				</c:forEach>

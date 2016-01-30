@@ -13,6 +13,7 @@
 	<div class="container">
 		<jsp:include page="../fragments/menu.jsp" />
 		<h1 align="left">Modulo Produtos</h1>
+		
 		<div class="nav navbar-nav navbar-right">
 			<a href="<c:url value="/produto/adicionar" ></c:url>">
 				<button class="btn btn-primary">
@@ -40,7 +41,7 @@
 					<td>${produto.valorVenda}</td>
 					<td><a
 						href="<c:url value="/produto/${produto.id}/detalhes" ></c:url>">
-							<button class="btn btn-primary">
+							<button class="btn btn-info">
 								<span class="glyphicon glyphicon-file"></span> Detalhes
 							</button>
 					</a><a href="<c:url value="/produto/${produto.id}/editar" ></c:url>">

@@ -6,18 +6,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Gold Vision</title>
+<title>Módulo Vendas - Listagem</title>
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>
-
 	<div class="container">
 		<jsp:include page="../fragments/menu.jsp" />
+
 		<h1>Modulo Vendas</h1>
-		<div class="row">
-			<a href="<c:url value="cadastrar/" ></c:url>">
+
+		<div class="nav navbar-nav navbar-right">
+			<a href="<c:url value="/venda/cadastrar/" ></c:url>">
 				<button class="btn btn-primary">
-					<span class="glyphicon glyphicon-plus"></span>Adicionar Nova Marca
+					<span class="glyphicon glyphicon-plus"></span> Adicionar Nova Venda
 				</button>
 			</a>
 		</div>
@@ -33,7 +34,7 @@
 						<th>Número de Parcelas</th>
 						<th>Número de Parcelas Pagas</th>
 						<th>Último Pagamento</th>
-						<th>Valor de Venda</th>
+						<th>Atualização</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -48,14 +49,14 @@
 							<td>${venda.numParcelas}</td>
 							<td>${venda.numParcelasPagas}</td>
 							<td>${venda.ultimoPagamento}</td>
-
-							<td><a href="<c:url value="/editar/${venda.id}/" ></c:url>">
-									<button class="btn btn-primary">
-										<span class="glyphicon glyphicon-edit"></span> Editar
+							<td><a href="<c:url value="/venda/editar/${venda.id}/" ></c:url>">
+									<button class="btn btn-warning">
+										<span class="glyphicon glyphicon-edit"></span> Editar Venda
 									</button>
-							</a> <a href="<c:url value="/venda/apagar/${venda.id}/" ></c:url>">
+							</a></td>
+							<td> <a href="<c:url value="/venda/apagar/${venda.id}/" ></c:url>">
 									<button class="btn btn-danger">
-										<span class="glyphicon glyphicon-trash"></span> Excluir
+										<span class="glyphicon glyphicon-trash"></span> Excluir Venda
 									</button>
 							</a></td>
 						</tr>

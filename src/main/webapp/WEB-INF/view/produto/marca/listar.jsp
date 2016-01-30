@@ -33,7 +33,7 @@
 					<td>${marca.codigo}</td>
 					<td><a
 						href="<c:url value="/marca/${marca.id}/detalhes" ></c:url>">
-							<button class="btn btn-primary">
+							<button class="btn btn-info">
 								<span class="glyphicon glyphicon-file"></span> Detalhes
 							</button>
 					</a><a href="<c:url value="/marca/${marca.id}/editar" ></c:url>">

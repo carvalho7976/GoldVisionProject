@@ -10,33 +10,34 @@
 <jsp:include page="../../fragments/headTag.jsp" />
 </head>
 <body>
-	<jsp:include page="../../fragments/menu.jsp" />
 	<div class="container">
-		<div role="main" class="col-md-6 col-md-push-3">
+		<jsp:include page="../../fragments/menu.jsp" />
+		<button class="btn btn-default" onclick="history.back();">Voltar</button>
 
-			<h2 align="center">Detalhes de Marca - ${marca.nomeMarca}
-				(${marca.codigo})</h2>
-
-				<a href="<c:url value="/marca/${marca.id}/editar" ></c:url>">
-					<button class="btn btn-primary">
-						<span class="glyphicon glyphicon-edit"></span> Editar Marca
-					</button>
-				</a>
-				<table class="table" id="tableModelos">
-					<thead>
-						<tr>
-							<th>Codigo do Modelo</th>
-							<th>Nome do Modelo</th>
-						</tr>
-					</thead>
-					<c:forEach var="modelo" items="${marca.modelos}">
-						<tr>
-							<td>${modelo.codigo}</td>
-							<td>${modelo.nomeModelo}</td>
-						</tr>
-					</c:forEach>
-				</table>
-			</div>
+		<h2 align="center">Detalhes de Marca - ${marca.nomeMarca}
+			(${marca.codigo})</h2>
+		<div align="right">
+			<a href="<c:url value="/marca/${marca.id}/editar" ></c:url>">
+				<button class="btn btn-warning">
+					<span class="glyphicon glyphicon-edit"></span> Editar Marca
+				</button>
+			</a>
 		</div>
+		<table class="table" id="tableMarcas">
+			<thead>
+				<tr>
+					<th>Codigo do Modelo</th>
+					<th>Nome do Modelo</th>
+				</tr>
+			</thead>
+			<c:forEach var="modelo" items="${marca.modelos}">
+				<tr>
+					<td>${modelo.codigo}</td>
+					<td>${modelo.nomeModelo}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
+	</div>
 </body>
 </html>

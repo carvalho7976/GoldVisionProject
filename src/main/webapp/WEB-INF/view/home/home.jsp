@@ -10,12 +10,11 @@
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>
-	<jsp:include page="../fragments/menu.jsp" />
 	<div class="container">
+	<jsp:include page="../fragments/menu.jsp" />
 		<div role="main" class="col-md-6 col-md-push-3">
 			<h1 align="center">Bem vindo</h1>
 		</div>
 	</div>
-	<jsp:include page="../fragments/footer.jsp"></jsp:include>
 </body>
 </html>

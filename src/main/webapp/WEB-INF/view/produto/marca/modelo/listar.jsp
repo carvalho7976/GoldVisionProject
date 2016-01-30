@@ -38,12 +38,12 @@
 						<td>${lista.marca.nomeMarca}</td>
 						<td><a
 							href="<c:url value="/modelo/${lista.id}/detalhes" ></c:url>">
-								<button class="btn btn-primary">
-									<span class="glyphicon glyphicon-plus"></span> Detalhes
+								<button class="btn btn-info">
+									<span class="glyphicon glyphicon-file"></span> Detalhes
 								</button>
 						</a><a
 							href="<c:url value="/modelo/${lista.id}/editar" ></c:url>">
-								<button class="btn btn-primary">
+								<button class="btn btn-warning">
 									<span class="glyphicon glyphicon-edit"></span> Editar Modelo
 								</button>
 						</a><a

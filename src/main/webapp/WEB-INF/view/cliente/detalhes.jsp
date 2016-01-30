@@ -10,23 +10,44 @@
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>
-	<jsp:include page="../fragments/menu.jsp" />
-
 	<div class="container">
-		<div role="main" class="col-md-6 col-md-push-3">
-			<h3>Informações</h3>
+		<jsp:include page="../fragments/menu.jsp" />
+		<button class="btn btn-default" onclick="history.back();">Voltar</button>
+
+		<h2 align="center">Detalhes do Cliente</h2>
+
+		<div align="right">
+			<div>
+				<a href="<c:url value="/cliente/editar/${cliente.id}/"  ></c:url>">
+					<button class="btn btn-warning">
+						<span class="glyphicon glyphicon-edit"></span> Editar Cliente
+					</button>
+				</a> <a href="<c:url value="/cliente/editar/${cliente.id}/" ></c:url>">
+					<button class="btn btn-danger">
+						<span class="glyphicon glyphicon-trash"></span> Excluir Cliente
+					</button>
+				</a>
+			</div>
 		</div>
+
 		<div class="row">
-			<h5 class="col-md-4">Nome: ${cliente.nome }</h5>
-			<h5 class="col-md-4">Telefone: ${cliente.telefone }</h5>
-		</div>
-		<div class="row">
-			<h5 class="col-md-4">Endereço: ${cliente.endereco }</h5>
-			<h5 class="col-md-4">Data nascimento: ${cliente.dataNasc }</h5>
-		</div>
-		<div class="row">
-			<h5 class="col-md-4">RG: ${cliente.rg }</h5>
-			<h5 class="col-md-4">CPF: ${cliente.cpf }</h5>
+			<div class="col-sm-10">
+				<label for="nome" class="col-sm-10">Nome</label> ${cliente.nome }
+			</div>
+			<div class="col-sm-10">
+				<label for="telefone" class="col-sm-10">Telefone</label>
+				${cliente.telefone }
+			</div>
+			<div class="col-sm-10">
+				<label for="endereco" class="col-sm-10">Endereco</label>
+				${cliente.endereco }
+			</div>
+			<div class="col-sm-10">
+				<label for="cpf" class="col-sm-10">CPF</label> ${cliente.cpf }
+			</div>
+			<div class="col-sm-10">
+				<label for="rg" class="col-sm-10">RG</label> ${cliente.rg }
+			</div>
 		</div>
 	</div>
 </body>

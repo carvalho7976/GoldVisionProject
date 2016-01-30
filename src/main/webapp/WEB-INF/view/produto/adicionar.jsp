@@ -86,10 +86,13 @@
 		
 		<form:form servletRelativeAction="/produto/adicionar" method="post"
 			modelAttribute="produto" role="form">
-			<div class="form-group" style="text-align: center;">
-				<label class="control-label" style="font-size: 20px;">Adicionar
-					Produto</label>
-			</div>
+			
+			<fieldset>
+					<!-- Form Name -->
+					<legend>Adicionar Produto</legend>
+
+					<!-- Text input-->
+			</fieldset>
 
 			<div class="form-group">
 				<label for="codigo" class="col-sm-2 control-label">Código</label>

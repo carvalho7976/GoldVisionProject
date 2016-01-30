@@ -10,99 +10,105 @@
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>
-	<jsp:include page="../fragments/menu.jsp" />
-
 	<div class="container">
-		<div role="main" class="col-md-6 col-md-push-3">
-		<form:form servletRelativeAction="/venda/editar/${venda.id}/" method="post"
-			modelAttribute="venda" class="form-horizontal" role="form">
+		<jsp:include page="../fragments/menu.jsp" />
+		<button class="btn btn-default" onclick="history.back();">Voltar</button>
 
-			<fieldset>
-				<!-- Form Name -->
-				<legend>Editar venda</legend>
+		<form:form servletRelativeAction="/venda/editar/${venda.id}/"
+			method="post" modelAttribute="venda" class="form-horizontal"
+			role="form">
 
-				<!-- Text input-->
+			<div class="form-group" style="text-align: center;">
+				<label class="control-label" style="font-size: 20px;">Editar
+					Venda</label>
+			</div>
 
-				<div class="form-group">
-					<div class="row">
-						<label class="col-md-4 control-label" for="valorVenda">Valor de Venda</label>
-						<div class="col-md-4">
-							<input id="valorVenda" name="valorVenda" type="number" value = "${venda.valorVenda }"
-								class="form-control input-md" required>
-						</div>
+			<div class="form-group">
+				<div class="row">
+					<label class="col-md-4 control-label" for="valorVenda">Valor
+						de Venda</label>
+					<div class="col-md-4">
+						<input id="valorVenda" name="valorVenda" type="number"
+							value="${venda.valorVenda }" class="form-control input-md"
+							required>
 					</div>
 				</div>
-				<!-- Text input-->
-				<div class="form-group">
-					<div class="row">
-						<label class="col-md-4 control-label" for="formaPagamento">Forma de Pagamento</label>
-						<div class="col-md-4">
-							<input id="formaPagamento" name="formaPagamento" type="text" value = "${venda.formaPagamento}"
-								class="form-control input-md">
-						</div>
+			</div>
+			<!-- Text input-->
+			<div class="form-group">
+				<div class="row">
+					<label class="col-md-4 control-label" for="formaPagamento">Forma
+						de Pagamento</label>
+					<div class="col-md-4">
+						<input id="formaPagamento" name="formaPagamento" type="text"
+							value="${venda.formaPagamento}" class="form-control input-md">
 					</div>
 				</div>
+			</div>
 
-				<!-- Text input-->
-				<div class="form-group">
-					<div class="row">
-						<label class="col-md-4 control-label" for="diaVencimento">Dia de Vencimento</label>
-						<div class="col-md-4">
-							<input id="diaVencimento" name="diaVencimento" type="number" value = "${venda.diaVencimento }"
-								class="form-control input-md" required>
-						</div>
+			<!-- Text input-->
+			<div class="form-group">
+				<div class="row">
+					<label class="col-md-4 control-label" for="diaVencimento">Dia
+						de Vencimento</label>
+					<div class="col-md-4">
+						<input id="diaVencimento" name="diaVencimento" type="number"
+							value="${venda.diaVencimento }" class="form-control input-md"
+							required>
 					</div>
 				</div>
+			</div>
 
-				<!-- Text input-->
-				<div class="form-group">
-					<div class="row">
-						<label class="col-md-4 control-label" for="numParcelas">Numero de Parcelas</label>
-						<div class="col-md-4">
-							<input id="numParcelas" name="numParcelas" type="number" value = "${venda.numParcelas }"
-								class="form-control input-md" required>
-						</div>
+			<!-- Text input-->
+			<div class="form-group">
+				<div class="row">
+					<label class="col-md-4 control-label" for="numParcelas">Numero
+						de Parcelas</label>
+					<div class="col-md-4">
+						<input id="numParcelas" name="numParcelas" type="number"
+							value="${venda.numParcelas }" class="form-control input-md"
+							required>
 					</div>
 				</div>
+			</div>
 
-				<!-- Text input-->
-				<div class="form-group">
-					<div class="row">
-						<label class="col-md-4 control-label" for="numParcelasPagas">Numero de Parcelas Pagas</label>
-						<div class="col-md-4">
-							<input id="numParcelasPagas" name="numParcelasPagas" type="number" value = "${venda.numParcelasPagas }"
-								class="form-control input-md">
-						</div>
+			<!-- Text input-->
+			<div class="form-group">
+				<div class="row">
+					<label class="col-md-4 control-label" for="numParcelasPagas">Numero
+						de Parcelas Pagas</label>
+					<div class="col-md-4">
+						<input id="numParcelasPagas" name="numParcelasPagas" type="number"
+							value="${venda.numParcelasPagas }" class="form-control input-md">
 					</div>
 				</div>
+			</div>
 
-				<!-- Text input-->
-				<div class="form-group">
-					<div class="row">
-						<label class="col-md-4 control-label" for="ultimoPagamento">Ultimo Pagamento</label>
-						<div class="col-md-4">
-							<input id="ultimoPagamento" name="ultimoPagamento" type="number" value = "${venda.ultimoPagamento }"
-								class="form-control input-md">
-						</div>
+			<!-- Text input-->
+			<div class="form-group">
+				<div class="row">
+					<label class="col-md-4 control-label" for="ultimoPagamento">Ultimo
+						Pagamento</label>
+					<div class="col-md-4">
+						<input id="ultimoPagamento" name="ultimoPagamento" type="number"
+							value="${venda.ultimoPagamento }" class="form-control input-md">
 					</div>
 				</div>
+			</div>
 
-				<!-- Button -->
-				<div class="form-group">
-					<div class="row">
-						<label class="col-md-4 control-label" for="salvar"></label>
-						<div class="col-md-4">
-							<button id="salvar" name="salvar" class="btn btn-primary">Salvar</button>
-							<a href="<c:url value="/venda/" ></c:url>">
+			<!-- Button -->
+			<div class="form-group">
+				<div class="row">
+					<label class="col-md-4 control-label" for="salvar"></label>
+					<div class="col-md-4">
+						<button id="salvar" name="salvar" class="btn btn-primary">Salvar</button>
+						<a href="<c:url value="/venda/" ></c:url>">
 							<button type="button" class="btn btn-danger">Cancelar</button>
-							</a>
-						</div>
+						</a>
 					</div>
 				</div>
-
-			</fieldset>
+			</div>
 		</form:form>
 	</div>
-</div>
 </body>
 </html>
