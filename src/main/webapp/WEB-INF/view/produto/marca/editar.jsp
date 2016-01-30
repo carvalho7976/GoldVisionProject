@@ -37,7 +37,7 @@
 				<label for="codigo" class="col-sm-1 control-label">Codigo</label>
 				<div class="col-sm-10">
 					<form:input id="codigo" class="form-control"
-						placeholder="Quantidade" path="codigo" />
+						placeholder="Código" path="codigo" />
 					<form:errors path="codigo" cssClass="error" />
 				</div>
 			</div>

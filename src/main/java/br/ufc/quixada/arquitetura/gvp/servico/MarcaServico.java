@@ -45,5 +45,15 @@ public class MarcaServico extends GenericServiceImpl<Marca> implements IMarcaSer
 		marcaRepositorio.apagar(idMarca);
 	}
 
+	@Override
+	public Marca procurarCodigo(String codigo) {
+		return marcaRepositorio.buscaPorCodigo(codigo);
+	}
+
+	@Override
+	public Marca procurarNome(String nome) {
+		return marcaRepositorio.buscaPorNome(nome);
+	}
+
 }
 

@@ -83,15 +83,32 @@
 	<div class="container">
 		<jsp:include page="../fragments/menu.jsp" />
 		<button class="btn btn-default" onclick="history.back();">Voltar</button>
-		
+
+		<c:if test="${not empty error}">
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<c:out value="${error}"></c:out>
+			</div>
+		</c:if>
+		<c:if test="${not empty info}">
+			<div class="alert alert-info alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<c:out value="${info}"></c:out>
+			</div>
+		</c:if>
+
 		<form:form servletRelativeAction="/produto/adicionar" method="post"
 			modelAttribute="produto" role="form">
-			
-			<fieldset>
-					<!-- Form Name -->
-					<legend>Adicionar Produto</legend>
 
-					<!-- Text input-->
+			<fieldset>
+				<!-- Form Name -->
+				<legend>Adicionar Produto</legend>
+
+				<!-- Text input-->
 			</fieldset>
 
 			<div class="form-group">
