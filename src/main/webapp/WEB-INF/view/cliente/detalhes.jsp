@@ -13,20 +13,20 @@
 	<jsp:include page="../fragments/menu.jsp" />
 
 	<div class="container">
-		<div class="row">
+		<div role="main" class="col-md-6 col-md-push-3">
 			<h3>Informações</h3>
 		</div>
 		<div class="row">
-		<h5 class="col-md-4">Nome: ${cliente.nome }</h5>
-		<h5 class="col-md-4">Telefone: ${cliente.telefone }</h5> 
+			<h5 class="col-md-4">Nome: ${cliente.nome }</h5>
+			<h5 class="col-md-4">Telefone: ${cliente.telefone }</h5>
 		</div>
 		<div class="row">
-		<h5 class="col-md-4">Endereço: ${cliente.endereco }</h5>
-		<h5 class="col-md-4">Data nascimento: ${cliente.dataNasc }</h5> 
+			<h5 class="col-md-4">Endereço: ${cliente.endereco }</h5>
+			<h5 class="col-md-4">Data nascimento: ${cliente.dataNasc }</h5>
 		</div>
 		<div class="row">
-		<h5 class="col-md-4">RG: ${cliente.rg }</h5>
-		<h5 class="col-md-4">CPF: ${cliente.cpf }</h5> 
+			<h5 class="col-md-4">RG: ${cliente.rg }</h5>
+			<h5 class="col-md-4">CPF: ${cliente.cpf }</h5>
 		</div>
 	</div>
 </body>

@@ -6,14 +6,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Restaurant</title>
+<title>GoldVision Project - Home</title>
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>
 	<jsp:include page="../fragments/menu.jsp" />
-
-	<h1>Bem vindo</h1>
-
-
+	<div class="container">
+		<div role="main" class="col-md-6 col-md-push-3">
+			<h1 align="center">Bem vindo</h1>
+		</div>
+	</div>
+	<jsp:include page="../fragments/footer.jsp"></jsp:include>
 </body>
 </html>

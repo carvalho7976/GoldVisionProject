@@ -12,54 +12,57 @@
 </head>
 <body>
 
-	<div id="container">
-		<jsp:include page="../../../fragments/menu.jsp" />
-		<div class="panel-heading">
-			<form:form servletRelativeAction="/modelo/adicionar" method="post"
-				modelAttribute="modelo" class="form-horizontal" role="form">
+	<div class="container">
+		<div role="main" class="col-md-6 col-md-push-3">
+			<jsp:include page="../../../fragments/menu.jsp" />
+			<div class="panel-heading">
+				<form:form servletRelativeAction="/modelo/adicionar" method="post"
+					modelAttribute="modelo" class="form-horizontal" role="form">
 
-				<div class="form-group">
+					<div class="form-group">
 
-					<label for="nomeModelo" class="col-sm-1 control-label">Nome
-						do Modelo</label>
-					<div class="col-sm-10">
-						<form:input id="nomeModelo" class="form-control"
-							placeholder="Nome do Modelo" path="nomeModelo" />
+						<label for="nomeModelo" class="col-sm-1 control-label">Nome
+							do Modelo</label>
+						<div class="col-sm-10">
+							<form:input id="nomeModelo" class="form-control"
+								placeholder="Nome do Modelo" path="nomeModelo" />
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="codigo" class="col-sm-1 control-label">Codigo</label>
-					<div class="col-sm-10">
-						<form:input id="codigo" class="form-control"
-							placeholder="Código" path="codigo" />
+					<div class="form-group">
+						<label for="codigo" class="col-sm-1 control-label">Codigo</label>
+						<div class="col-sm-10">
+							<form:input id="codigo" class="form-control" placeholder="Código"
+								path="codigo" />
+						</div>
 					</div>
-				</div>
 
-				<div class="form-group">
-					<label for="marca" class="col-sm-1 control-label">Marca do Modelo</label>
-					<div class="col-sm-1">
+					<div class="form-group">
+						<label for="marca" class="col-sm-1 control-label">Marca do
+							Modelo</label>
+						<div class="col-sm-1">
 
-						<form:select id="marca" class="form-control"
-							modelAttribute="produto" placeholder="Marca do Modelo"
-							path="marca" required="true">
-							<form:option value="nenhuma">Selecione a marca</form:option>
-							<c:forEach items="${marca}" var="itemMarca">
-								<form:option value="${itemMarca.id}">${itemMarca.nomeMarca}</form:option>
-							</c:forEach>
+							<form:select id="marca" class="form-control"
+								modelAttribute="produto" placeholder="Marca do Modelo"
+								path="marca" required="true">
+								<form:option value="nenhuma">Selecione a marca</form:option>
+								<c:forEach items="${marca}" var="itemMarca">
+									<form:option value="${itemMarca.id}">${itemMarca.nomeMarca}</form:option>
+								</c:forEach>
 
-						</form:select>
-						<form:errors path="marca" cssClass="error" />
+							</form:select>
+							<form:errors path="marca" cssClass="error" />
+						</div>
 					</div>
-				</div>
-				
-				<div class="controls">
-					<input id="criar" class="btn btn-primary" type="submit"
-						value="Adicionar" /> <a
-						href="<c:url value="/modelo/listar"></c:url>"
-						class="btn btn-default">Cancelar</a>
-				</div>
-			</form:form>
 
+					<div class="controls">
+						<input id="criar" class="btn btn-primary" type="submit"
+							value="Adicionar" /> <a
+							href="<c:url value="/modelo/listar"></c:url>"
+							class="btn btn-default">Cancelar</a>
+					</div>
+				</form:form>
+
+			</div>
 		</div>
 	</div>
 </body>

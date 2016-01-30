@@ -10,8 +10,9 @@
 <jsp:include page="../../../fragments/headTag.jsp" />
 </head>
 <body>
-	<div id="container">
+	<div class="container">
 		<jsp:include page="../../../fragments/menu.jsp" />
+		<h1>Módulo Modelos</h1>
 		<div class="nav navbar-nav navbar-right">
 			<a href="<c:url value="/modelo/adicionar" ></c:url>">
 				<button class="btn btn-primary">

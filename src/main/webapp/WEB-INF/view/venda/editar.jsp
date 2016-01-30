@@ -13,6 +13,7 @@
 	<jsp:include page="../fragments/menu.jsp" />
 
 	<div class="container">
+		<div role="main" class="col-md-6 col-md-push-3">
 		<form:form servletRelativeAction="/venda/editar/${venda.id}/" method="post"
 			modelAttribute="venda" class="form-horizontal" role="form">
 
@@ -102,6 +103,6 @@
 			</fieldset>
 		</form:form>
 	</div>
-
+</div>
 </body>
 </html>

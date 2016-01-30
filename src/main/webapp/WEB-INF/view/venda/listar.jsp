@@ -10,9 +10,9 @@
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>
-	<jsp:include page="../fragments/menu.jsp" />
 
-	<div class="container" align="center">
+	<div class="container">
+		<jsp:include page="../fragments/menu.jsp" />
 		<h1>Modulo Vendas</h1>
 		<div class="row">
 			<a href="<c:url value="cadastrar/" ></c:url>">
@@ -49,19 +49,15 @@
 							<td>${venda.numParcelasPagas}</td>
 							<td>${venda.ultimoPagamento}</td>
 
-							<td><a
-								href="<c:url value="/editar/${venda.id}/" ></c:url>">
+							<td><a href="<c:url value="/editar/${venda.id}/" ></c:url>">
 									<button class="btn btn-primary">
 										<span class="glyphicon glyphicon-edit"></span> Editar
 									</button>
-							</a>
-							<a
-								href="<c:url value="/venda/apagar/${venda.id}/" ></c:url>">
+							</a> <a href="<c:url value="/venda/apagar/${venda.id}/" ></c:url>">
 									<button class="btn btn-danger">
 										<span class="glyphicon glyphicon-trash"></span> Excluir
 									</button>
-							</a>
-							</td>
+							</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

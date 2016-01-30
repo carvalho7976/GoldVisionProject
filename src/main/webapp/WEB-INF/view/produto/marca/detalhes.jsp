@@ -10,31 +10,33 @@
 <jsp:include page="../../fragments/headTag.jsp" />
 </head>
 <body>
-	<div id="container">
-		<jsp:include page="../../fragments/menu.jsp" />
-		<h2 align="center"> Detalhes de Marca - ${marca.nomeMarca} (${marca.codigo})</h2>
-		<div class="container">
+	<jsp:include page="../../fragments/menu.jsp" />
+	<div class="container">
+		<div role="main" class="col-md-6 col-md-push-3">
 
-			<a href="<c:url value="/marca/${marca.id}/editar" ></c:url>">
-				<button class="btn btn-primary">
-					<span class="glyphicon glyphicon-edit"></span> Editar Marca
-				</button>
-			</a>
-			<table class="table" id="tableModelos">
-				<thead>
-					<tr>
-						<th>Codigo do Modelo</th>
-						<th>Nome do Modelo</th>
-					</tr>
-				</thead>
-				<c:forEach var="modelo" items="${marca.modelos}">
-					<tr>
-						<td>${modelo.codigo}</td>
-						<td>${modelo.nomeModelo}</td>
-					</tr>
-				</c:forEach>
-			</table>
+			<h2 align="center">Detalhes de Marca - ${marca.nomeMarca}
+				(${marca.codigo})</h2>
+
+				<a href="<c:url value="/marca/${marca.id}/editar" ></c:url>">
+					<button class="btn btn-primary">
+						<span class="glyphicon glyphicon-edit"></span> Editar Marca
+					</button>
+				</a>
+				<table class="table" id="tableModelos">
+					<thead>
+						<tr>
+							<th>Codigo do Modelo</th>
+							<th>Nome do Modelo</th>
+						</tr>
+					</thead>
+					<c:forEach var="modelo" items="${marca.modelos}">
+						<tr>
+							<td>${modelo.codigo}</td>
+							<td>${modelo.nomeModelo}</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
 		</div>
-	</div>
 </body>
 </html>

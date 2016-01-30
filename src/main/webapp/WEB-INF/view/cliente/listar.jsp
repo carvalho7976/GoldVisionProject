@@ -10,9 +10,8 @@
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>
-	<jsp:include page="../fragments/menu.jsp" />
-
 	<div class="container">
+		<jsp:include page="../fragments/menu.jsp" />
 		<h1>Modulo Clientes</h1>
 		<div class="row">
 			<div class="col-xs-12 col-md-8"></div>

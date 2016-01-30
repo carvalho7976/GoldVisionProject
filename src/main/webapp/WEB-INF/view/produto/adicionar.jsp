@@ -15,24 +15,36 @@
 <c:url var="listaMarcasURL" value="/produto/marcas" />
 
 <script type="text/javascript">
-$(document).ready(function() { 
-	$('#marcas').change(
-			function() {
-				$.getJSON('${listaModelosURL}', {
-					stateName : $(this).val(),
-					ajax : 'true'
-				}, function(data) {
-					var html = '<option value="">Modelo</option>';
-					var len = data.length;
-					for ( var i = 0; i < len; i++) {
-						html += '<option value="' + data[i].name + '">'
-								+ data[i].name + '</option>';
-					}
-					html += '</option>';
-					$('#modelo').html(html);
-				});
-			});
-});
+	$(document)
+			.ready(
+					function() {
+						$('#marcas')
+								.change(
+										function() {
+											$
+													.getJSON(
+															'${listaModelosURL}',
+															{
+																stateName : $(
+																		this)
+																		.val(),
+																ajax : 'true'
+															},
+															function(data) {
+																var html = '<option value="">Modelo</option>';
+																var len = data.length;
+																for (var i = 0; i < len; i++) {
+																	html += '<option value="' + data[i].name + '">'
+																			+ data[i].name
+																			+ '</option>';
+																}
+																html += '</option>';
+																$('#modelo')
+																		.html(
+																				html);
+															});
+										});
+					});
 </script>
 
 <script type="text/javascript">
@@ -43,9 +55,9 @@ $(document).ready(function() {
 				}, function(data) {
 					var html = '<option value="marca">Marca</option>';
 					var len = data.length;
-					for ( var i = 0; i < len; i++) {
-						html += '<option value="' + data[i] + '">'
-								+ data[i]+ '</option>';
+					for (var i = 0; i < len; i++) {
+						html += '<option value="' + data[i] + '">' + data[i]
+								+ '</option>';
 					}
 					html += '</option>';
 					$('#marcas').html(html);
@@ -54,13 +66,13 @@ $(document).ready(function() {
 </script>
 
 <script type="text/javascript">
-	$(document).ready(function(){
+	$(document).ready(function() {
 		$("#modelo").change(onSelectChange);
 	});
 	function onSelectChange() {
-		var selected = $("#modelo option:selected");		
+		var selected = $("#modelo option:selected");
 		var output = "";
-		if(selected.val() != 0){
+		if (selected.val() != 0) {
 			output = "modelo selecionado " + selected.text();
 		}
 		$("#output").html(output);
@@ -68,10 +80,10 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-	<jsp:include page="../fragments/menu.jsp" />
-	<div id="container">
+	<div class="container">
+		<jsp:include page="../fragments/menu.jsp" />
+		<button class="btn btn-default" onclick="history.back();">Voltar</button>
 		
-
 		<form:form servletRelativeAction="/produto/adicionar" method="post"
 			modelAttribute="produto" role="form">
 			<div class="form-group" style="text-align: center;">
@@ -122,12 +134,11 @@ $(document).ready(function() {
 				<label for="marca" class="col-sm-2 control-label">Marca</label>
 				<div class="col-sm-10">
 
-					<form:select id="marcas" 
-						path="marca" required="true">
+					<form:select id="marcas" path="marca" required="true">
 					</form:select>
-					
+
 					<form:select id="modelos" path="modelo">
-					<form:option value="">Modelos</form:option>
+						<form:option value="">Modelos</form:option>
 					</form:select>
 					<form:errors path="marca" cssClass="error" />
 				</div>
