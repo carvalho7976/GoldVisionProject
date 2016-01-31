@@ -20,13 +20,15 @@
 				</button>
 			</a>
 		</div>
-		<table class="table" id="tableCliente">
+		<table class="table" id="tableMarca">
 			<thead>
 				<tr>
 					<th>Nome da Marca</th>
 					<th>Código</th>
+					<th></th>
 				</tr>
 			</thead>
+			<tbody>
 			<c:forEach var="marca" items="${listaMarcas}">
 				<tr>
 					<td>${marca.nomeMarca}</td>
@@ -47,6 +49,7 @@
 					</a></td>
 				</tr>
 			</c:forEach>
+			</tbody>
 		</table>
 	</div>
 </body>
