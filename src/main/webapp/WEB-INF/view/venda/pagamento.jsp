@@ -23,76 +23,49 @@
 				<label class="control-label" style="font-size: 20px;">Realizar
 					Pagamento</label>
 			</div>
-
-			<div class="form-group">
-				<div class="row">
-					<label class="col-md-4 control-label" for="valorVenda">Valor
-						de Venda</label>${venda.valorVenda }
+			<br />
+			<div class="halfContainer" align="center">
+				<div class="littleBox" style="padding: 0px 12px;">
+					<b>Dados da Venda</b> <br> <b>Valor de Venda: </b>${venda.valorVenda }<b>
+					</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Forma de
+						Pagamento: </b>${venda.formaPagamento}<b> </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<b>Dia de Vencimento: </b>${venda.diaVencimento }<b> </b><br>
 				</div>
-			</div>
-			<!-- Text input-->
-			<div class="form-group">
-				<div class="row">
-					<label class="col-md-4 control-label" for="formaPagamento">Forma
-						de Pagamento - ${venda.formaPagamento}</label>
+				<br />
+				<br />
+				<div class="littleBox" style="padding: 0px 12px;">
+					<b>Dados do Pagamento</b> <br> <b>Número de Parcelas: </b>${venda.numParcelas }<b>
+					</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Número de
+						Parcelas Pagas: </b>${venda.numParcelasPagas}<b> </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<b>Último Pagamento: </b>
+					<fmt:formatDate pattern="dd/MM/yyyy"
+						value="${venda.ultimoPagamento }" />
+					<b> </b><br>
 				</div>
-			</div>
-
-			<!-- Text input-->
-			<div class="form-group">
-				<div class="row">
-					<label class="col-md-4 control-label" for="diaVencimento">Dia
-						de Vencimento - ${venda.diaVencimento }</label>
-				</div>
-			</div>
-
-			<!-- Text input-->
-			<div class="form-group">
-				<div class="row">
-					<label class="col-md-4 control-label" for="numParcelas">Numero
-						de Parcelas - ${venda.numParcelas }</label>
-				</div>
-			</div>
-
-			<!-- Text input-->
-			<div class="form-group">
-				<div class="row">
-					<label class="col-md-4 control-label" for="numParcelasPagas">Numero
-						de Parcelas Pagas - ${venda.numParcelasPagas }</label>
-				</div>
-			</div>
-
-			<!-- Text input-->
-			<div class="form-group">
-				<div class="row">
-					<label class="col-md-4 control-label" for="ultimoPagamento">Ultimo
-						Pagamento - <fmt:formatDate pattern="dd/MM/yyyy"
-							value="${venda.ultimoPagamento }" />
-					</label>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class="row">
-					<label class="col-md-4 control-label" for="numParcelas">Número
-						de parcelas a serem pagas </label>
+				<br />
+				<br />
+				<div class="littleBox" style="padding: 0px 12px;">
+					<b>Próximo Pagamento</b> <br> <b>Número de Parcelas a
+						serem pagas: </b>
 					<form:select path="numParcelas">
 						<c:forEach var="i" begin="1" end="${numeroParcelasPagamento}">
 							<form:option value="${i}">${i} Parcela(s)</form:option>
 						</c:forEach>
 					</form:select>
+					
 				</div>
-			</div>
-
-			<!-- Button -->
-			<div class="form-group">
-				<div class="row">
-					<label class="col-md-4 control-label" for="salvar"></label>
-					<div class="col-md-4">
-						<button id="salvar" name="salvar" class="btn btn-primary">Atualizar</button>
-						<a href="<c:url value="pagamento/${venda.id }/" ></c:url>">
-							<button type="button" class="btn btn-danger">Cancelar</button>
-						</a>
+				<br />
+				<br />
+				<!-- Button -->
+				<div class="form-group">
+					<div class="row">
+						<label class="col-md-4 control-label" for="salvar"></label>
+						<div class="col-md-4">
+							<button id="salvar" name="salvar" class="btn btn-primary">Atualizar</button>
+							<a href="<c:url value="/venda/" ></c:url>">
+								<button type="button" class="btn btn-danger">Cancelar</button>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
