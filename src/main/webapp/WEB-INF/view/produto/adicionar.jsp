@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -14,70 +15,6 @@
 <c:url var="listaModelosURL" value="/produto/modelos" />
 <c:url var="listaMarcasURL" value="/produto/marcas" />
 
-<script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
-						$('#marcas')
-								.change(
-										function() {
-											$
-													.getJSON(
-															'${listaModelosURL}',
-															{
-																stateName : $(
-																		this)
-																		.val(),
-																ajax : 'true'
-															},
-															function(data) {
-																var html = '<option value="">Modelo</option>';
-																var len = data.length;
-																for (var i = 0; i < len; i++) {
-																	html += '<option value="' + data[i].name + '">'
-																			+ data[i].name
-																			+ '</option>';
-																}
-																html += '</option>';
-																$('#modelo')
-																		.html(
-																				html);
-															});
-										});
-					});
-</script>
-
-<script type="text/javascript">
-	$(document).ready(
-			function() {
-				$.getJSON('${listaMarcasURL}', {
-					ajax : 'true'
-				}, function(data) {
-					var html = '<option value="marca">Marca</option>';
-					var len = data.length;
-					for (var i = 0; i < len; i++) {
-						html += '<option value="' + data[i] + '">' + data[i]
-								+ '</option>';
-					}
-					html += '</option>';
-					$('#marcas').html(html);
-				});
-			});
-</script>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#modelo").change(onSelectChange);
-	});
-	function onSelectChange() {
-		var selected = $("#modelo option:selected");
-		var output = "";
-		if (selected.val() != 0) {
-			output = "modelo selecionado " + selected.text();
-		}
-		$("#output").html(output);
-	}
-</script>
 </head>
 <body>
 	<div class="container">
@@ -137,12 +74,20 @@
 				<label for="marca" class="col-sm-2 control-label">Marca</label>
 				<div class="col-sm-10">
 
-					<form:select id="marcas" path="marca" required="true">
+					<form:select id="marcaSelect" class="form-control"
+						modelAttribute="produto" placeholder="Marca do Produto"
+						path="marca" required="true">
+						<form:option value="nenhuma">Selecione a marca</form:option>
+						<c:forEach items="${listaMarcas}" var="itemMarca">
+							<form:option value="${itemMarca.id}">${itemMarca.nomeMarca}</form:option>
+						</c:forEach>
+
+					</form:select>
+					<form:select path="" id="#modeloSelect">
+						<form:option value="nenhuma">Selecione a marca</form:option>
 					</form:select>
 
-					<form:select id="modelos" path="modelo">
-						<form:option value="">Modelos</form:option>
-					</form:select>
+					
 					<form:errors path="marca" cssClass="error" />
 				</div>
 			</div>
@@ -156,5 +101,24 @@
 		</form:form>
 		<jsp:include page="../fragments/footer.jsp" />
 	</div>
+	<script type="text/javascript">
+$('#marcaSelect').change(function() {
+    $.ajax({
+        type:"GET",
+        url : "/GoldVisionProject/produto/getModeloPorMarca",
+        data : { marcaId: $('#marcaSelect').val()},
+        success : function(data) {
+            $('#modeloSelect').empty(); //remove all child nodes
+            for(var i = 0; i < data.length; i++){
+                var newOption = $('<option value=data[i].value>data[i].text</option>');
+                $('#modeloSelect').append(newOption);
+            }   
+        },
+        error: function() {
+            alert('Error occured');
+        }
+    });
+});
+</script>
 </body>
 </html>

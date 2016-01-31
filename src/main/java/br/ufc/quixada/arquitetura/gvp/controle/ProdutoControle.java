@@ -20,6 +20,7 @@ import br.ufc.quixada.arquitetura.gvp.modelo.Marca;
 import br.ufc.quixada.arquitetura.gvp.modelo.Modelo;
 import br.ufc.quixada.arquitetura.gvp.modelo.Produto;
 import br.ufc.quixada.arquitetura.gvp.servico.MarcaServico;
+import br.ufc.quixada.arquitetura.gvp.servico.ModeloServico;
 import br.ufc.quixada.arquitetura.gvp.servico.ProdutoServico;
 
 @Controller
@@ -29,6 +30,9 @@ public class ProdutoControle {
 	private MarcaServico marcaServico;
 	@Inject
 	private ProdutoServico produtoServico;
+	
+	@Inject
+	private ModeloServico ms;
 
 	@RequestMapping(value = "/adicionar", method = RequestMethod.GET)
 	public ModelAndView adicionarProduto(Model modelAtribute) {
@@ -123,4 +127,16 @@ public class ProdutoControle {
 		
 		return ls;
 	}
+	@RequestMapping("/getModeloPorMarca")
+	@ResponseBody
+	public List<Modelo> printHello(@RequestParam int marcaId) {
+	      
+			
+			List<Modelo> modelos = ms.buscarPorMarca(Integer.valueOf(marcaId));
+			
+			
+			System.out.println("modelos...");
+			
+	      return modelos;
+	   }
 }
