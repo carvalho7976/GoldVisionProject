@@ -13,7 +13,12 @@
 	<div class="container">
 		<jsp:include page="../fragments/menu.jsp" />
 		<button class="btn btn-default" onclick="history.back();">Voltar</button>
-		<h1>Modulo Clientes</h1>
+		<fieldset>
+			<!-- Form Name -->
+			<legend>Aniversariantes do Mês</legend>
+
+			<!-- Text input-->
+		</fieldset>
 
 		<br />
 		<table class="table" id="tableCliente">
