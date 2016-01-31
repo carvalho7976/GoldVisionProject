@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -33,6 +34,8 @@ public class Venda {
 	private Integer numParcelasPagas;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date ultimoPagamento;
+	@Transient
+	private double valorParcela;
 	
 	public Date getDataVenda() {
 		return dataVenda;
@@ -98,6 +101,14 @@ public class Venda {
 		this.id = id;
 	}
 	
+	public double getValorParcela() {
+		return valorVenda/numParcelas;
+	}
+
+	public void setValorParcela(double valorParcela) {
+		this.valorParcela = valorParcela;
+	}
+
 	@Override
 	public String toString() {
 		return "Venda [id=" + id + ", dataVenda=" + dataVenda + ", valorVenda="

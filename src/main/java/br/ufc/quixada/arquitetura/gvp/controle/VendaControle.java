@@ -106,5 +106,13 @@ public class VendaControle {
 		return model;
 	}
 	
+	@RequestMapping(value = "/pagamento/{id}/", method = RequestMethod.GET)
+	public ModelAndView pagamento(Model modelAtribute, @PathVariable("id") Integer id) {
+		modelAtribute.addAttribute("venda", vs.buscarPorId(id));
+		modelAtribute.addAttribute("numeroParcelasPagamento", vs.buscarPorId(id).getNumParcelas() - vs.buscarPorId(id).getNumParcelasPagas());
+		ModelAndView model = new ModelAndView("venda/pagamento");
+		return model;
+	}
+	
 
 }

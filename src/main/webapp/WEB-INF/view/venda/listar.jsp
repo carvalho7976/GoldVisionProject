@@ -37,7 +37,6 @@
 						<th>Data da Venda</th>
 						<th>Valor de Venda</th>
 						<th>Dia do Vencimento</th>
-						<th>Forma de Pagamento</th>
 						<th>Número de Parcelas</th>
 						<th>Número de Parcelas Pagas</th>
 						<th>Último Pagamento</th>
@@ -52,7 +51,6 @@
 							<td><fmt:formatDate pattern="dd/MM/yyyy" value="${venda.dataVenda}" /></td>
 							<td>${venda.valorVenda}</td>
 							<td>${venda.diaVencimento }</td>
-							<td>${venda.formaPagamento}</td>
 							<td>${venda.numParcelas}</td>
 							<td>${venda.numParcelasPagas}</td>
 							<td><fmt:formatDate pattern="dd/MM/yyyy" value="${venda.ultimoPagamento}" /></td>
