@@ -14,19 +14,11 @@
 		<jsp:include page="../fragments/menu.jsp" />
 		<button class="btn btn-default" onclick="history.back();">Voltar</button>
 
-		<h3>Cobranças do Mês</h3>
+		<h3>Pagamentos Atrasados do Mês</h3>
 		
 		<label>
 			Montate esperado - ${montante }
 		</label>
-		
-		<div class="nav navbar-nav navbar-right">
-			<a href="<c:url value="/venda/atrasado/" ></c:url>">
-				<button class="btn btn-primary">
-					<span class="glyphicon glyphicon-file"></span> Pagamentos Atrasados
-				</button>
-			</a>
-		</div>
 		<br />
 		<div class="">
 			<table class="table table-striped" id="tableVenda">

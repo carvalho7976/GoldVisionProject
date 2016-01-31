@@ -1,5 +1,8 @@
 package br.ufc.quixada.arquitetura.gvp.servico;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -61,5 +64,22 @@ public class VendaServico implements IVendaServico {
 			montante += venda.getValorParcela();
 		}
 		return montante;
+	}
+
+
+	@Override
+	public List<Venda> listaCobrancasAtrasadas() {
+		List<Venda> pagamentosAtrasados = new ArrayList<>();
+		Date dataAtual = new Date();
+		Calendar temp = Calendar.getInstance();
+		temp.setTime(dataAtual);
+		int dia = temp.get(Calendar.DAY_OF_MONTH);
+		for (Venda venda : listaCobrancas()) {
+			if(venda.getDiaVencimento() < dia){
+				pagamentosAtrasados.add(venda);
+			}
+		}
+		
+		return pagamentosAtrasados;
 	}
 }

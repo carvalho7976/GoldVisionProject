@@ -15,5 +15,7 @@ public interface IVendaServico {
 	
 	public abstract List<Venda> listaCobrancas();
 	
+	public abstract List<Venda> listaCobrancasAtrasadas();
+	
 	public double montanteMes(List<Venda> cobrancas);
 }
