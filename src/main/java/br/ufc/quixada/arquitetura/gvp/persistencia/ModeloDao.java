@@ -11,7 +11,7 @@ import br.ufc.quixada.arquitetura.gvp.util.JpaGenericRepositoryImpl;
 
 @Named
 public class ModeloDao extends JpaGenericRepositoryImpl<Modelo> implements IModeloDao {
-	
+
 	@PersistenceContext
 	private EntityManager em;
 	
@@ -34,13 +34,14 @@ public class ModeloDao extends JpaGenericRepositoryImpl<Modelo> implements IMode
 	public Modelo buscarPorId(Integer idModelo) {
 		return em.find(Modelo.class, idModelo);
 	}
-	
+
 	@Override
 	public List<Modelo> buscarPorMarca(Integer idMarca){
 		
 		return  em.createQuery("from Modelo m where m.marca.id = :id", Modelo.class).setParameter("id", idMarca).getResultList();
 		
 	}
+
 
 
 }

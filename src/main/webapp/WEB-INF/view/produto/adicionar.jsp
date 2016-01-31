@@ -15,20 +15,38 @@
 <c:url var="listaModelosURL" value="/produto/modelos" />
 <c:url var="listaMarcasURL" value="/produto/marcas" />
 
+
 </head>
 <body>
 	<div class="container">
 		<jsp:include page="../fragments/menu.jsp" />
 		<button class="btn btn-default" onclick="history.back();">Voltar</button>
-		
+		<c:if test="${not empty error}">
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<c:out value="${error}"></c:out>
+			</div>
+		</c:if>
+		<c:if test="${not empty info}">
+			<div class="alert alert-info alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<c:out value="${info}"></c:out>
+			</div>
+		</c:if>
+
 		<form:form servletRelativeAction="/produto/adicionar" method="post"
 			modelAttribute="produto" role="form">
-			
-			<fieldset>
-					<!-- Form Name -->
-					<legend>Adicionar Produto</legend>
 
-					<!-- Text input-->
+			<fieldset>
+				<!-- Form Name -->
+				<legend>Adicionar Produto</legend>
+
+				<!-- Text input-->
+
 			</fieldset>
 
 			<div class="form-group">
@@ -74,6 +92,7 @@
 				<label for="marca" class="col-sm-2 control-label">Marca</label>
 				<div class="col-sm-10">
 
+
 					<form:select id="marcaSelect" class="form-control"
 						modelAttribute="produto" placeholder="Marca do Produto"
 						path="marca" required="true">
@@ -97,6 +116,7 @@
 			</div>
 			
 
+
 			<div class="controls">
 				<input id="criar" class="btn btn-primary" type="submit"
 					value="Adicionar" /> <a
@@ -106,6 +126,7 @@
 		</form:form>
 		<jsp:include page="../fragments/footer.jsp" />
 	</div>
+
 	<script type="text/javascript">
 $('#marcaSelect').change(function() {
     $.ajax({
