@@ -4,7 +4,7 @@ $(document).ready(function() {
 	        "url": "/GoldVisionProject/resources/js/Portuguese-Brasil.json"
 	    }
 	});
-	$("#dataNasc").datepicker({
+	$("#dataNasc, #ultimoPagamento").datepicker({
 		changeMonth: true,
         changeYear: true,
         dateFormat: 'dd/mm/yy',

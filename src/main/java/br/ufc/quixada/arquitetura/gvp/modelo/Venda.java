@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,8 +14,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.Transient;
 
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = { "id" }))
@@ -28,12 +34,12 @@ public class Venda {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-//	@ManyToMany(targetEntity = Produto.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	private List<Produto> produtos;
+	@OneToMany(mappedBy = "venda", targetEntity = Produto.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Produto> produtos;
 //	
-	 @ManyToMany(cascade = CascadeType.ALL)	
-	 @JoinTable(name = "produto_venda", joinColumns = @JoinColumn(name = "venda_id"), inverseJoinColumns = @JoinColumn(name = "produto_id"))
-	 private List<Produto> produtos;
+	 //@ManyToMany
+	 //@JoinTable(name = "produto_venda", joinColumns = {@JoinColumn(name = "venda_id")}, inverseJoinColumns = {@JoinColumn(name = "produto_id")})
+	 //private List<Produto> produtos;
 	
 	@ManyToOne
 	private Cliente cliente;
@@ -45,7 +51,10 @@ public class Venda {
 	private Integer diaVencimento;
 	private Integer numParcelas;
 	private Integer numParcelasPagas;
-	private Integer ultimoPagamento;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Date ultimoPagamento;
+	@Transient
+	private double valorParcela;
 	
 	
 	public Cliente getCliente() {
@@ -112,11 +121,11 @@ public class Venda {
 		this.numParcelasPagas = numParcelasPagas;
 	}
 
-	public Integer getUltimoPagamento() {
+	public Date getUltimoPagamento() {
 		return ultimoPagamento;
 	}
 
-	public void setUltimoPagamento(Integer ultimoPagamento) {
+	public void setUltimoPagamento(Date ultimoPagamento) {
 		this.ultimoPagamento = ultimoPagamento;
 	}
 
@@ -126,6 +135,13 @@ public class Venda {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public double getValorParcela() {
+		return valorVenda/numParcelas;
+	}
+
+	public void setValorParcela(double valorParcela) {
+		this.valorParcela = valorParcela;
 	}
 
 	@Override
@@ -138,3 +154,5 @@ public class Venda {
 	}
 
 }
+
+

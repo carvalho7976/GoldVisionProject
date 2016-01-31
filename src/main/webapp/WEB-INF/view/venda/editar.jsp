@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,7 +17,7 @@
 
 		
 		
-		<form:form servletRelativeAction="/venda/editar/${venda.id}/"
+		<form:form servletRelativeAction="/venda/editar2/${venda.id}/"
 			method="post" modelAttribute="venda" class="form-horizontal"
 			role="form">
 
@@ -32,7 +33,7 @@
 						<form:select id="clientes" class="form-control"
 							modelAttribute="venda" placeholder="Clientes"
 							path="cliente" required="true">
-							<form:option value="nenhuma">Selecione o Cliente</form:option>
+							<form:option value="${venda.cliente.id}"> ${venda.cliente.nome}</form:option>
 							<c:forEach items="${clientes}" var="pessoaCliente">
 								<form:option value="${pessoaCliente.id}">${pessoaCliente.nome} / ${pessoaCliente.cpf}</form:option>
 							</c:forEach>
@@ -97,7 +98,7 @@
 						de Parcelas Pagas</label>
 					<div class="col-md-4">
 						<input id="numParcelasPagas" name="numParcelasPagas" type="number"
-							value="${venda.numParcelasPagas }" class="form-control input-md">
+							value="${venda.numParcelasPagas}" class="form-control input-md">
 					</div>
 				</div>
 			</div>
@@ -108,8 +109,8 @@
 					<label class="col-md-4 control-label" for="ultimoPagamento">Ultimo
 						Pagamento</label>
 					<div class="col-md-4">
-						<input id="ultimoPagamento" name="ultimoPagamento" type="number"
-							value="${venda.ultimoPagamento }" class="form-control input-md">
+						<input id="ultimoPagamento" name="ultimoPagamento" type="text"
+							value="<fmt:formatDate pattern="dd/MM/yyyy" value="${venda.ultimoPagamento }" />" class="form-control input-md">
 					</div>
 				</div>
 			</div>
@@ -129,3 +130,5 @@
 		</form:form>
 	</div>
 </body>
+</html>
+

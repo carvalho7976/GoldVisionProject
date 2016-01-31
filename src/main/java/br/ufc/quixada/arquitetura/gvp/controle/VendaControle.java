@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -78,15 +79,24 @@ public class VendaControle {
 		return model;
 	}
 	
+	
 	@RequestMapping(value = "/editar/{id}/", method = RequestMethod.POST)
-	public ModelAndView editarSalvar(@PathVariable("id") Integer id, Integer cliente, Double valorVenda, String formaPagamento, Integer diaVencimento,
-			Integer numParcelas, Integer numParcelasPagas, Integer ultimoPagamento,
-			final RedirectAttributes redirectAttributes) {
+	public ModelAndView editarSalvar(@ModelAttribute("venda") Venda venda, @PathVariable("id") Integer id) {
+		venda.setId(id);
+		venda.setDataVenda(vs.buscarPorId(id).getDataVenda());
+		vs.salvar(venda);
+		String vendaEnd = "/venda/";
+		return new ModelAndView("redirect:" + vendaEnd);
+	}
+	@RequestMapping(value = "/editar2/{id}", method = RequestMethod.POST)
+	public ModelAndView adicionar2POST(Integer cliente, Double valorVenda, String formaPagamento, Integer diaVencimento,
+			Integer numParcelas, Integer numParcelasPagas,@PathVariable("id") Integer id, Date ultimoPagamento, final RedirectAttributes redirectAttributes) {
+		
 		
 		Venda venda = vs.buscarPorId(id);
+		venda.setDataVenda(new Date(System.currentTimeMillis()));
 		
 		venda.setCliente(cs.procurarPorId(cliente));
-		venda.setDataVenda(vs.buscarPorId(id).getDataVenda());
 		venda.setValorVenda(valorVenda);
 		venda.setFormaPagamento(formaPagamento);
 		venda.setDiaVencimento(diaVencimento);
@@ -95,14 +105,13 @@ public class VendaControle {
 		venda.setUltimoPagamento(ultimoPagamento);
 		
 		vs.salvar(venda);
-
 		ModelAndView model = new ModelAndView("redirect:/venda/");
 		return model;
 	}
 	
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
 	public ModelAndView adicionarPOST(Integer cliente, Double valorVenda, String formaPagamento, Integer diaVencimento,
-			Integer numParcelas, Integer numParcelasPagas, Integer ultimoPagamento, Integer produtos, final RedirectAttributes redirectAttributes) {
+			Integer numParcelas, Integer numParcelasPagas, Integer produtos, final RedirectAttributes redirectAttributes) {
 		
 		
 		System.out.println("produto " + produtos);
@@ -119,17 +128,46 @@ public class VendaControle {
 		venda.setDiaVencimento(diaVencimento);
 		venda.setNumParcelas(numParcelas);
 		venda.setNumParcelasPagas(numParcelasPagas);
-		venda.setUltimoPagamento(ultimoPagamento);
 		venda.setProdutos(produtosList);
+		venda.setUltimoPagamento(venda.getDataVenda());
 		
 		vs.salvar(venda);
 		ModelAndView model = new ModelAndView("redirect:/venda/");
 		return model;
 	}
-	
-	
-	
-	
+	@RequestMapping(value = "/cobrancas/", method = RequestMethod.GET)
+	public ModelAndView cobrancas(Model modelAtribute) {
 
+		modelAtribute.addAttribute("cobrancas", vs.listaCobrancas());
+		modelAtribute.addAttribute("montante", vs.montanteMes(vs.listaCobrancas()));
+		ModelAndView model = new ModelAndView("venda/cobrancas");
+		return model;
+	}
+	@RequestMapping(value = "/pagamento/{id}/", method = RequestMethod.GET)
+	public ModelAndView pagamento(Model modelAtribute, @PathVariable("id") Integer id) {
+		modelAtribute.addAttribute("venda", vs.buscarPorId(id));
+		modelAtribute.addAttribute("numeroParcelasPagamento",
+				vs.buscarPorId(id).getNumParcelas() - vs.buscarPorId(id).getNumParcelasPagas());
+		ModelAndView model = new ModelAndView("venda/pagamento");
+		return model;
+	}
 
+	@RequestMapping(value = "/pagamento/{id}/", method = RequestMethod.POST)
+	public ModelAndView pagamento(@ModelAttribute("venda") Venda venda, @PathVariable("id") Integer id) {
+		Venda minhaVenda = vs.buscarPorId(id);
+		minhaVenda.setNumParcelasPagas(minhaVenda.getNumParcelasPagas() + venda.getNumParcelas());
+		minhaVenda.setUltimoPagamento(new Date());
+		vs.salvar(minhaVenda);
+		return new ModelAndView("redirect:/venda/");
+	}
+
+	@RequestMapping(value = "/atrasado/", method = RequestMethod.GET)
+	public ModelAndView vencimentos(Model modelAtribute) {
+
+		modelAtribute.addAttribute("cobrancas", vs.listaCobrancasAtrasadas());
+		modelAtribute.addAttribute("montante", vs.montanteMes(vs.listaCobrancasAtrasadas()));
+		ModelAndView model = new ModelAndView("venda/atrasado");
+		return model;
+	}
+	
 }

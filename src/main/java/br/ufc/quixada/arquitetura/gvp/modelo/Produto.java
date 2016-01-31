@@ -44,10 +44,10 @@ public class Produto {
 	@JsonBackReference
 	private Modelo modelo;
 	
-	
-//	@ManyToOne
-//	@JoinColumn(name = "cod_venda")
-//	private Venda venda;
+	//seja feliz
+	@ManyToOne
+	private Venda venda;
+	//@JoinColumn(name = "cod_venda")
 	
 	@Column(name = "valor_compra")
 	private Double valorCompra;

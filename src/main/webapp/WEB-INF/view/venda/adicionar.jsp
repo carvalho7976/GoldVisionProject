@@ -111,26 +111,14 @@
 					</div>
 				</div>
 
-				<!-- Text input-->
-				<div class="row">
-					<div class="form-group">
-						<label class="col-md-2 control-label" for="textinput">Mês
-							do Ultimo Pagamento</label>
-						<div class="col-md-4">
-							<input id="textinput" name="numParcelasPagas" type="number"
-								placeholder="ex: 1" class="form-control input-md" required="">
-
-						</div>
-					</div>
-				</div>
-
+				
 				<!-- Text input-->
 				<div class="row">
 					<div class="form-group">
 						<label class="col-md-2 control-label" for="textinput">Número
 							de Parcelas Pagas</label>
 						<div class="col-md-4">
-							<input id="textinput" name="ultimoPagamento" type="number"
+							<input id="textinput" name="numParcelasPagas" type="number"
 								placeholder="ex:1" class="form-control input-md" required="">
 
 						</div>
