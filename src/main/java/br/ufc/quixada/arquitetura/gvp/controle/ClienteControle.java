@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import br.ufc.quixada.arquitetura.gvp.modelo.Cliente;
 import br.ufc.quixada.arquitetura.gvp.servico.ClienteServico;
 
@@ -44,7 +43,6 @@ public class ClienteControle {
 
 	@RequestMapping(value = "/cadastrar/", method = RequestMethod.POST)
 	public ModelAndView salvarCliente(@ModelAttribute("cliente") Cliente cliente) {
-		
 		clienteServico.salvarCliente(cliente);
 		String clienteEnd = "/cliente/";
 		return new ModelAndView("redirect:" +clienteEnd );

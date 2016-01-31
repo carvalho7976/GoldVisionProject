@@ -22,7 +22,7 @@
 					<button class="btn btn-warning">
 						<span class="glyphicon glyphicon-edit"></span> Editar Cliente
 					</button>
-				</a> <a href="<c:url value="/cliente/editar/${cliente.id}/" ></c:url>">
+				</a> <a href="<c:url value="/cliente/apagar/${cliente.id}/" ></c:url>">
 					<button class="btn btn-danger">
 						<span class="glyphicon glyphicon-trash"></span> Excluir Cliente
 					</button>
@@ -47,6 +47,9 @@
 			</div>
 			<div class="col-sm-10">
 				<label for="rg" class="col-sm-10">RG</label> ${cliente.rg }
+			</div>
+			<div class="col-sm-10">
+				<label for="dataNasc" class="col-sm-10">Data nascimento</label> ${cliente.dataNasc }
 			</div>
 		</div>
 	</div>

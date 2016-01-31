@@ -4,4 +4,10 @@ $(document).ready(function() {
 	        "url": "/GoldVisionProject/resources/js/Portuguese-Brasil.json"
 	    }
 	});
+	$("#dataNasc").datepicker({
+		changeMonth: true,
+        changeYear: true,
+        dateFormat: 'dd/mm/yy',
+        language: 'pt-BR'
+	});
 });

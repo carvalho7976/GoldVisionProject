@@ -70,7 +70,7 @@
 				<div class="row">
 					<label class="col-md-2 control-label" for="dataNacs">DataNacs</label>
 					<div class="col-md-4">
-						<input id="datanacs" name="datanacs" type="text"
+						<input id="dataNacs" name="dataNacs" type="text"
 							value="${cliente.dataNasc }" class="form-control input-md">
 					</div>
 				</div>
