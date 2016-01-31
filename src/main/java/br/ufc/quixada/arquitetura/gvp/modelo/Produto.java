@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -43,9 +44,10 @@ public class Produto {
 	@JsonBackReference
 	private Modelo modelo;
 	
-	@ManyToOne
-	@JoinColumn(name = "cod_venda")
-	private Venda venda;
+	
+//	@ManyToOne
+//	@JoinColumn(name = "cod_venda")
+//	private Venda venda;
 	
 	@Column(name = "valor_compra")
 	private Double valorCompra;
@@ -119,15 +121,7 @@ public class Produto {
 	public void setValorVenda(Double valorVenda) {
 		this.valorVenda = valorVenda;
 	}
-	
 
-	public Venda getVenda() {
-		return venda;
-	}
-
-	public void setVenda(Venda venda) {
-		this.venda = venda;
-	}
 
 	@Override
 	public String toString() {

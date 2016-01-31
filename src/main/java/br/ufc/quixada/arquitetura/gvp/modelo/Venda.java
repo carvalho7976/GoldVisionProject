@@ -6,17 +6,15 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = { "id" }))
@@ -30,9 +28,13 @@ public class Venda {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@OneToMany(mappedBy = "venda", targetEntity = Produto.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Produto> produtos;
-
+//	@ManyToMany(targetEntity = Produto.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	private List<Produto> produtos;
+//	
+	 @ManyToMany(cascade = CascadeType.ALL)	
+	 @JoinTable(name = "produto_venda", joinColumns = @JoinColumn(name = "venda_id"), inverseJoinColumns = @JoinColumn(name = "produto_id"))
+	 private List<Produto> produtos;
+	
 	@ManyToOne
 	private Cliente cliente;
 	
