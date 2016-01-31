@@ -1,5 +1,6 @@
 GoldVision Project
-Ferramena para contole básico de estoque, vendas e clientes de óticas.
+
+Ferramena para controle básico de estoque, vendas e clientes de óticas.
 
 Trabalho da Disciplina de Arquitetura de Software
 Curso Engenharia de Software
