@@ -16,7 +16,7 @@
 		<h1>Modulo Clientes</h1>
 
 		<br />
-		<table class="table" id="tableAniversariantes">
+		<table class="table" id="tableCliente">
 			<thead>
 				<tr>
 					<th>nome</th>
