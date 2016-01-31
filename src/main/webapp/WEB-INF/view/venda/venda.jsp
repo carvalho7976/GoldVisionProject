@@ -61,10 +61,10 @@
 				<!-- Text input-->
 				<div class="row">
 					<div class="form-group" class="row">
-						<label class="col-md-2 control-label" for="textinput">Valor
+						<label class="col-md-2 control-label" for="valorVenda">Valor
 							de Venda</label>
 						<div class="col-md-4">
-							<input id="textinput" name="valorVenda" type="number"
+							<input id="valorVenda" name="valorVenda" type="number"
 								placeholder="ex: 200" class="form-control input-md" required="">
 
 						</div>
@@ -74,10 +74,10 @@
 				<!-- Text input-->
 				<div class="row">
 					<div class="form-group">
-						<label class="col-md-2 control-label" for="textinput">Forma
+						<label class="col-md-2 control-label" for="formaPagamento">Forma
 							de Pagamento</label>
 						<div class="col-md-4">
-							<input id="textinput" name="formaPagamento" type="text"
+							<input id="formaPagamento" name="formaPagamento" type="text"
 								placeholder="ex: a vista" class="form-control input-md"
 								required="">
 
@@ -88,10 +88,10 @@
 				<!-- Text input-->
 				<div class="row">
 					<div class="form-group">
-						<label class="col-md-2 control-label" for="textinput">Dia
+						<label class="col-md-2 control-label" for="diaVencimento">Dia
 							de Vencimento</label>
 						<div class="col-md-4">
-							<input id="textinput" name="diaVencimento" type="number"
+							<input id="diaVencimento" name="diaVencimento" type="number"
 								placeholder="ex:2" class="form-control input-md" required="">
 
 						</div>
@@ -101,24 +101,11 @@
 				<!-- Text input-->
 				<div class="row">
 					<div class="form-group">
-						<label class="col-md-2 control-label" for="textinput">Número
+						<label class="col-md-2 control-label" for="numParcelas">Número
 							de Parcelas</label>
 						<div class="col-md-4">
-							<input id="textinput" name="numParcelas" type="number"
+							<input id="numParcelas" name="numParcelas" type="number"
 								placeholder="ex:12" class="form-control input-md" required="">
-
-						</div>
-					</div>
-				</div>
-
-				<!-- Text input-->
-				<div class="row">
-					<div class="form-group">
-						<label class="col-md-2 control-label" for="textinput">Mês
-							do Ultimo Pagamento</label>
-						<div class="col-md-4">
-							<input id="textinput" name="numParcelasPagas" type="number"
-								placeholder="ex: 1" class="form-control input-md" required="">
 
 						</div>
 					</div>
@@ -130,7 +117,7 @@
 						<label class="col-md-2 control-label" for="textinput">Número
 							de Parcelas Pagas</label>
 						<div class="col-md-4">
-							<input id="textinput" name="ultimoPagamento" type="number"
+							<input id="textinput" name="numParcelasPagas" type="number"
 								placeholder="ex:1" class="form-control input-md" required="">
 
 						</div>

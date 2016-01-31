@@ -13,22 +13,8 @@
 	<div class="container">
 		<jsp:include page="../fragments/menu.jsp" />
 
-		<h1>Modulo Vendas</h1>
-		
-		<div class="nav navbar-nav navbar-right">
-			<a href="<c:url value="/venda/cobrancas/" ></c:url>">
-				<button class="btn btn-primary">
-					<span class="glyphicon glyphicon-file"></span> Relatório de Cobrancas
-				</button>
-			</a>
-		</div>
-		<div class="nav navbar-nav navbar-right">
-			<a href="<c:url value="/venda/cadastrar/" ></c:url>">
-				<button class="btn btn-primary">
-					<span class="glyphicon glyphicon-plus"></span> Adicionar Nova Venda
-				</button>
-			</a>
-		</div>
+		<h3>Cobranças do Mês</h3>
+
 		<br />
 		<div class="">
 			<table class="table table-striped" id="tableVenda">
@@ -46,22 +32,22 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${vendas}" var="venda">
+					<c:forEach items="${cobrancas}" var="cobranca">
 
 						<tr>
-							<td><fmt:formatDate pattern="dd/MM/yyyy" value="${venda.dataVenda}" /></td>
-							<td>${venda.valorVenda}</td>
-							<td>${venda.diaVencimento }</td>
-							<td>${venda.formaPagamento}</td>
-							<td>${venda.numParcelas}</td>
-							<td>${venda.numParcelasPagas}</td>
-							<td><fmt:formatDate pattern="dd/MM/yyyy" value="${venda.ultimoPagamento}" /></td>
-							<td><a href="<c:url value="/venda/editar/${venda.id}/" ></c:url>">
+							<td><fmt:formatDate pattern="dd/MM/yyyy" value="${cobranca.dataVenda}" /></td>
+							<td>${cobranca.valorVenda}</td>
+							<td>${cobranca.diaVencimento }</td>
+							<td>${cobranca.formaPagamento}</td>
+							<td>${cobranca.numParcelas}</td>
+							<td>${cobranca.numParcelasPagas}</td>
+							<td><fmt:formatDate pattern="dd/MM/yyyy" value="${cobranca.ultimoPagamento}" /></td>
+							<td><a href="<c:url value="/venda/editar/${cobranca.id}/" ></c:url>">
 									<button class="btn btn-warning">
 										<span class="glyphicon glyphicon-edit"></span> Editar Venda
 									</button>
 							</a></td>
-							<td> <a href="<c:url value="/venda/apagar/${venda.id}/" ></c:url>">
+							<td> <a href="<c:url value="/venda/apagar/${cobranca.id}/" ></c:url>">
 									<button class="btn btn-danger">
 										<span class="glyphicon glyphicon-trash"></span> Excluir Venda
 									</button>

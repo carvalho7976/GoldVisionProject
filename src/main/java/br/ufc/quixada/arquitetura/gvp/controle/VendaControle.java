@@ -81,8 +81,7 @@ public class VendaControle {
 			@RequestParam(value = "formaPagamento", required = true) String formaPagamento,
 			@RequestParam(value = "diaVencimento", required = true) Integer diaVencimento,
 			@RequestParam(value = "numParcelas", required = true) Integer numParcelas,
-			@RequestParam(value = "numParcelasPagas", required = true) Integer numParcelasPagas,
-			@RequestParam(value = "ultimoPagamento", required = true) Integer ultimoPagamento) {
+			@RequestParam(value = "numParcelasPagas", required = true) Integer numParcelasPagas) {
 
 		Venda venda = new Venda();
 		venda.setDataVenda(new Date(System.currentTimeMillis()));
@@ -92,12 +91,20 @@ public class VendaControle {
 		venda.setDiaVencimento(diaVencimento);
 		venda.setNumParcelas(numParcelas);
 		venda.setNumParcelasPagas(numParcelasPagas);
-		venda.setUltimoPagamento(ultimoPagamento);
+		venda.setUltimoPagamento(venda.getDataVenda());
 
 		vs.salvar(venda);
 
 		return "redirect:/venda/";
 	}
-
+	
+	@RequestMapping(value = "/cobrancas/", method = RequestMethod.GET)
+	public ModelAndView cobrancas(Model modelAtribute) {
+		
+		modelAtribute.addAttribute("cobrancas", vs.listaCobrancas());
+		ModelAndView model = new ModelAndView("venda/cobrancas");
+		return model;
+	}
+	
 
 }

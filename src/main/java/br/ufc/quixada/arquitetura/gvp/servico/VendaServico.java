@@ -45,4 +45,11 @@ public class VendaServico implements IVendaServico {
 	public void apagar(Venda g) {
 		VendaRepository.apagar(g);
 	}
+
+
+	@Override
+	@Transactional
+	public List<Venda> listaCobrancas() {
+		return VendaRepository.listaCobrancas();
+	}
 }

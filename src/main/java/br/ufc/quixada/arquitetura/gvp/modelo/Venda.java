@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = { "id" }))
 public class Venda {
@@ -29,7 +31,8 @@ public class Venda {
 	private Integer diaVencimento;
 	private Integer numParcelas;
 	private Integer numParcelasPagas;
-	private Integer ultimoPagamento;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Date ultimoPagamento;
 	
 	public Date getDataVenda() {
 		return dataVenda;
@@ -79,11 +82,11 @@ public class Venda {
 		this.numParcelasPagas = numParcelasPagas;
 	}
 
-	public Integer getUltimoPagamento() {
+	public Date getUltimoPagamento() {
 		return ultimoPagamento;
 	}
 
-	public void setUltimoPagamento(Integer ultimoPagamento) {
+	public void setUltimoPagamento(Date ultimoPagamento) {
 		this.ultimoPagamento = ultimoPagamento;
 	}
 	
