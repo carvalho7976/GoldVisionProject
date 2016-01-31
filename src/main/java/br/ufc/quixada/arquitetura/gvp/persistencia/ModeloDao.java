@@ -37,8 +37,8 @@ public class ModeloDao extends JpaGenericRepositoryImpl<Modelo> implements IMode
 	
 	@Override
 	public List<Modelo> buscarPorMarca(Integer idMarca){
-		 //em.createQuery("from Modelo m where m.marca.id = :id", Modelo.class).setParameter("id", idMarca).getResultList();
-		return em.createQuery("from Modelo", Modelo.class).getResultList();
+		
+		return  em.createQuery("from Modelo m where m.marca.id = :id", Modelo.class).setParameter("id", idMarca).getResultList();
 		
 	}
 

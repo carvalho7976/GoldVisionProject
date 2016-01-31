@@ -81,16 +81,21 @@
 						<c:forEach items="${listaMarcas}" var="itemMarca">
 							<form:option value="${itemMarca.id}">${itemMarca.nomeMarca}</form:option>
 						</c:forEach>
-
-					</form:select>
-					<form:select path="" id="#modeloSelect">
-						<form:option value="nenhuma">Selecione a marca</form:option>
+						</form:select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="modelo" class="col-sm-2 control-label">Modelo</label>
+				<div class="col-sm-10">
+					<form:select path="modelo" id="modeloSelect"  class="form-control">
+						<form:option value="nenhuma">Selecione o modelo</form:option>
 					</form:select>
 
 					
-					<form:errors path="marca" cssClass="error" />
+					<form:errors path="modelo" cssClass="error" />
 				</div>
 			</div>
+			
 
 			<div class="controls">
 				<input id="criar" class="btn btn-primary" type="submit"
@@ -110,7 +115,7 @@ $('#marcaSelect').change(function() {
         success : function(data) {
             $('#modeloSelect').empty(); //remove all child nodes
             for(var i = 0; i < data.length; i++){
-                var newOption = $('<option value=data[i].value>data[i].text</option>');
+                var newOption = $('<option value=' + data[i].codigo + '>'+data[i].nomeModelo+'</option>');
                 $('#modeloSelect').append(newOption);
             }   
         },

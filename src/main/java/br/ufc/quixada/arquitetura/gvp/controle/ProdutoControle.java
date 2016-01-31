@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,7 +45,7 @@ public class ProdutoControle {
 
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
 	public String adicionarProduto(String codigo, Integer quantidade, Double valorCompra, Double valorVenda,
-			Integer marca, final RedirectAttributes redirectAttributes) {
+			Integer marca, Integer modelo, final RedirectAttributes redirectAttributes) {
 
 		Produto p = new Produto();
 		p.setCodigo(codigo);
@@ -52,6 +53,7 @@ public class ProdutoControle {
 		p.setValorCompra(valorCompra);
 		p.setValorVenda(valorVenda);
 		p.setMarca(marcaServico.procurarPorId(marca));
+		p.setModelo(ms.procurarPorId(modelo));
 
 		produtoServico.salvarProduto(p);
 		return "redirect:/produto/listar";
@@ -127,6 +129,7 @@ public class ProdutoControle {
 		
 		return ls;
 	}
+	
 	@RequestMapping("/getModeloPorMarca")
 	@ResponseBody
 	public List<Modelo> printHello(@RequestParam int marcaId) {
@@ -134,8 +137,10 @@ public class ProdutoControle {
 			
 			List<Modelo> modelos = ms.buscarPorMarca(Integer.valueOf(marcaId));
 			
+			for (Modelo modelo : modelos) {
+				System.out.println("modelo " + modelo.getNomeModelo());
+			}
 			
-			System.out.println("modelos...");
 			
 	      return modelos;
 	   }
