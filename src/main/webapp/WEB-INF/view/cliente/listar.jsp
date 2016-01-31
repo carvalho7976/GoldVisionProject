@@ -18,7 +18,7 @@
 		<div class="nav navbar-nav navbar-right">
 			<a href="<c:url value="/cliente/aniversariantes/" ></c:url>">
 				<button class="btn btn-primary">
-					<span class="glyphicon glyphicon-file"></span> Aniversariantes do
+					<span class="glyphicon glyphicon-user"></span> Aniversariantes do
 					Mês
 				</button>
 			</a>
@@ -38,6 +38,7 @@
 			<thead>
 				<tr>
 					<th>nome</th>
+					<th>Data de Nascimento</th>
 					<th>Endereço</th>
 					<th>Telefone</th>
 					<th></th>
@@ -47,6 +48,7 @@
 				<c:forEach items="${clientes}" var="cliente">
 					<tr>
 						<td>${cliente.nome}</td>
+						<td>${cliente.dataNasc}</td>
 						<td>${cliente.endereco }</td>
 						<td>${cliente.telefone}</td>
 						<td><a
