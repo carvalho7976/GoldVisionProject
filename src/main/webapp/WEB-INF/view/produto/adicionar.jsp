@@ -136,7 +136,7 @@ $('#marcaSelect').change(function() {
         success : function(data) {
             $('#modeloSelect').empty(); //remove all child nodes
             for(var i = 0; i < data.length; i++){
-                var newOption = $('<option value=' + data[i].codigo + '>'+data[i].nomeModelo+'</option>');
+                var newOption = $('<option value=' + data[i].id + '>'+data[i].nomeModelo+'</option>');
                 $('#modeloSelect').append(newOption);
             }   
         },

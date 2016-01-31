@@ -53,6 +53,7 @@ public class ProdutoControle {
 		p.setValorCompra(valorCompra);
 		p.setValorVenda(valorVenda);
 		p.setMarca(marcaServico.procurarPorId(marca));
+		System.out.println("modelo " + modelo);
 		p.setModelo(ms.procurarPorId(modelo));
 
 		produtoServico.salvarProduto(p);
