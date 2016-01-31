@@ -14,6 +14,8 @@
 		<jsp:include page="../fragments/menu.jsp" />
 		<button class="btn btn-default" onclick="history.back();">Voltar</button>
 
+		
+		
 		<form:form servletRelativeAction="/venda/editar/${venda.id}/"
 			method="post" modelAttribute="venda" class="form-horizontal"
 			role="form">
@@ -22,7 +24,23 @@
 				<label class="control-label" style="font-size: 20px;">Editar
 					Venda</label>
 			</div>
+			
+			<div class="form-group">
+					<label for="clientes" class="col-sm-2 control-label">Clientes</label>
+					<div class="col-sm-5">
 
+						<form:select id="clientes" class="form-control"
+							modelAttribute="venda" placeholder="Clientes"
+							path="cliente" required="true">
+							<form:option value="nenhuma">Selecione o Cliente</form:option>
+							<c:forEach items="${clientes}" var="pessoaCliente">
+								<form:option value="${pessoaCliente.id}">${pessoaCliente.nome} / ${pessoaCliente.cpf}</form:option>
+							</c:forEach>
+						</form:select>
+						<form:errors path="cliente" cssClass="error" />
+					</div>
+				</div>
+			
 			<div class="form-group">
 				<div class="row">
 					<label class="col-md-4 control-label" for="valorVenda">Valor
@@ -111,4 +129,3 @@
 		</form:form>
 	</div>
 </body>
-</html>

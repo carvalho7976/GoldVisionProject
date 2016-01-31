@@ -1,11 +1,16 @@
 package br.ufc.quixada.arquitetura.gvp.modelo;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -38,6 +43,11 @@ public class Produto {
 	@JoinColumn(name = "cod_modelo")
 	@JsonBackReference
 	private Modelo modelo;
+	
+	
+//	@ManyToOne
+//	@JoinColumn(name = "cod_venda")
+//	private Venda venda;
 	
 	@Column(name = "valor_compra")
 	private Double valorCompra;
@@ -111,6 +121,7 @@ public class Produto {
 	public void setValorVenda(Double valorVenda) {
 		this.valorVenda = valorVenda;
 	}
+
 
 	@Override
 	public String toString() {
