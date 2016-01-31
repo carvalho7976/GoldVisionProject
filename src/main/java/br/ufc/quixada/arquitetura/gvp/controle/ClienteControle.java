@@ -26,12 +26,12 @@ public class ClienteControle {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView listar(Model modelAtribute) {
-		
+
 		List<Cliente> clientes = clienteServico.listarClientes();
-		modelAtribute.addAttribute("clientes",clientes);
+		modelAtribute.addAttribute("clientes", clientes);
 		ModelAndView model = new ModelAndView("cliente/listar");
 		return model;
-		
+
 	}
 
 	@RequestMapping(value = "/cadastrar/", method = RequestMethod.GET)
@@ -45,35 +45,45 @@ public class ClienteControle {
 	public ModelAndView salvarCliente(@ModelAttribute("cliente") Cliente cliente) {
 		clienteServico.salvarCliente(cliente);
 		String clienteEnd = "/cliente/";
-		return new ModelAndView("redirect:" +clienteEnd );
+		return new ModelAndView("redirect:" + clienteEnd);
 	}
-	
+
 	@RequestMapping(value = "/apagar/{id}", method = RequestMethod.GET)
 	public ModelAndView apagar(@PathVariable("id") Integer id) {
 		clienteServico.deletarCliente(id);
-		
+
 		String clienteEnd = "/cliente/";
-		return new ModelAndView("redirect:" +clienteEnd );
+		return new ModelAndView("redirect:" + clienteEnd);
 	}
+
 	@RequestMapping(value = "/editar/{id}/", method = RequestMethod.GET)
-	public ModelAndView editar(Model modelAtribute,@PathVariable("id") Integer id) {
-		
+	public ModelAndView editar(Model modelAtribute, @PathVariable("id") Integer id) {
+
 		modelAtribute.addAttribute("cliente", clienteServico.procurarPorId(id));
 		ModelAndView model = new ModelAndView("cliente/editar");
 		return model;
 	}
+
 	@RequestMapping(value = "/editar/{id}/", method = RequestMethod.POST)
-	public ModelAndView editarSalvar(@ModelAttribute("cliente") Cliente cliente,@PathVariable("id") Integer id) {
+	public ModelAndView editarSalvar(@ModelAttribute("cliente") Cliente cliente, @PathVariable("id") Integer id) {
 		cliente.setId(id);
 		clienteServico.salvarCliente(cliente);
 		String clienteEnd = "/cliente/";
-		return new ModelAndView("redirect:" +clienteEnd );
+		return new ModelAndView("redirect:" + clienteEnd);
 	}
+
 	@RequestMapping(value = "/detalhes/{id}", method = RequestMethod.GET)
-	public ModelAndView detalhes(Model modelAtribute,@PathVariable("id") Integer id) {
-		
+	public ModelAndView detalhes(Model modelAtribute, @PathVariable("id") Integer id) {
+
 		modelAtribute.addAttribute("cliente", clienteServico.procurarPorId(id));
 		ModelAndView model = new ModelAndView("cliente/detalhes");
+		return model;
+	}
+
+	@RequestMapping(value = "/aniversariantes/", method = RequestMethod.GET)
+	public ModelAndView aniversariantes(Model modelAtribute) {
+		modelAtribute.addAttribute("aniversariantes", clienteServico.listaAniversarios());
+		ModelAndView model = new ModelAndView("cliente/aniversariantes");
 		return model;
 	}
 }

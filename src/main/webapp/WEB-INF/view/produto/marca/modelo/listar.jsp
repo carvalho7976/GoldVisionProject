@@ -23,6 +23,7 @@
 
 		<div class="container">
 
+
 			<table class="table" id="tableModelo">
 				<thead>
 					<tr>
@@ -57,6 +58,7 @@
 					</tr>
 				</c:forEach>
 				</tbody>
+
 			</table>
 		</div>
 	</div>
