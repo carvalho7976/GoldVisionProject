@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -49,7 +50,8 @@
 				<label for="rg" class="col-sm-10">RG</label> ${cliente.rg }
 			</div>
 			<div class="col-sm-10">
-				<label for="dataNasc" class="col-sm-10">Data nascimento</label> ${cliente.dataNasc }
+				<label for="dataNasc" class="col-sm-10">Data nascimento</label>
+				<fmt:formatDate pattern="dd/MM/yyyy" value="${cliente.dataNasc }" />
 			</div>
 		</div>
 	</div>

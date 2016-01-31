@@ -12,4 +12,10 @@ public interface IVendaServico {
 	public Venda buscarPorId(Integer id);
 	
 	public void apagar(Venda Venda);
+	
+	public abstract List<Venda> listaCobrancas();
+	
+	public abstract List<Venda> listaCobrancasAtrasadas();
+	
+	public double montanteMes(List<Venda> cobrancas);
 }

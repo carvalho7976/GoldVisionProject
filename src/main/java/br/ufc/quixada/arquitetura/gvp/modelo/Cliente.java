@@ -1,11 +1,15 @@
 package br.ufc.quixada.arquitetura.gvp.modelo;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -33,8 +37,23 @@ public class Cliente {
 	String naturalidade;
 	String telefone;
 	
+//	@OneToOne(mappedBy="cliente")
+//	@NotNull
+//	private Venda venda;
+	
+	@OneToMany(mappedBy = "cliente", targetEntity = Venda.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Venda> vendas;
 	
 	
+
+	public List<Venda> getVendas() {
+		return vendas;
+	}
+
+	public void setVendas(List<Venda> vendas) {
+		this.vendas = vendas;
+	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
