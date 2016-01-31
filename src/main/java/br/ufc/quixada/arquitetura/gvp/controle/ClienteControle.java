@@ -1,7 +1,5 @@
 package br.ufc.quixada.arquitetura.gvp.controle;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -45,7 +43,6 @@ public class ClienteControle {
 
 	@RequestMapping(value = "/cadastrar/", method = RequestMethod.POST)
 	public ModelAndView salvarCliente(@ModelAttribute("cliente") Cliente cliente) {
-
 		clienteServico.salvarCliente(cliente);
 		String clienteEnd = "/cliente/";
 		return new ModelAndView("redirect:" + clienteEnd);
