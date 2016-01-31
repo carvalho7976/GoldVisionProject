@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import br.ufc.quixada.arquitetura.gvp.modelo.Marca;
 import br.ufc.quixada.arquitetura.gvp.modelo.Modelo;
 import br.ufc.quixada.arquitetura.gvp.modelo.Produto;
 import br.ufc.quixada.arquitetura.gvp.servico.MarcaServico;
+import br.ufc.quixada.arquitetura.gvp.servico.ModeloServico;
 import br.ufc.quixada.arquitetura.gvp.servico.ProdutoServico;
 
 @Controller
@@ -29,6 +31,9 @@ public class ProdutoControle {
 	private MarcaServico marcaServico;
 	@Inject
 	private ProdutoServico produtoServico;
+	
+	@Inject
+	private ModeloServico ms;
 
 	@RequestMapping(value = "/adicionar", method = RequestMethod.GET)
 	public ModelAndView adicionarProduto(Model modelAtribute) {
@@ -40,7 +45,7 @@ public class ProdutoControle {
 
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
 	public String adicionarProduto(String codigo, Integer quantidade, Double valorCompra, Double valorVenda,
-			Integer marca, final RedirectAttributes redirectAttributes) {
+			Integer marca, Integer modelo, final RedirectAttributes redirectAttributes) {
 
 		Produto p = new Produto();
 		p.setCodigo(codigo);
@@ -48,6 +53,7 @@ public class ProdutoControle {
 		p.setValorCompra(valorCompra);
 		p.setValorVenda(valorVenda);
 		p.setMarca(marcaServico.procurarPorId(marca));
+		p.setModelo(ms.procurarPorId(modelo));
 
 		produtoServico.salvarProduto(p);
 		return "redirect:/produto/listar";
@@ -123,4 +129,19 @@ public class ProdutoControle {
 		
 		return ls;
 	}
+	
+	@RequestMapping("/getModeloPorMarca")
+	@ResponseBody
+	public List<Modelo> printHello(@RequestParam int marcaId) {
+	      
+			
+			List<Modelo> modelos = ms.buscarPorMarca(Integer.valueOf(marcaId));
+			
+			for (Modelo modelo : modelos) {
+				System.out.println("modelo " + modelo.getNomeModelo());
+			}
+			
+			
+	      return modelos;
+	   }
 }
