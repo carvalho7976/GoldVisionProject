@@ -12,4 +12,8 @@ public interface IMarcaServico {
 	public Marca procurarPorId(Integer idMarca);
 
 	public abstract List<Marca> listarMarcas();
+	
+	public Marca procurarCodigo(String codigo);
+	
+	public Marca procurarNome (String nome);
 }

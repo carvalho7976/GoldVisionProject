@@ -13,20 +13,32 @@
 	<div class="container">
 		<jsp:include page="../fragments/menu.jsp" />
 		<h1>Modulo Clientes</h1>
-		
+
+
 		<div class="nav navbar-nav navbar-right">
-			<a href="<c:url value="/cliente/cadastrar/" ></c:url>">
+			<a href="<c:url value="/cliente/aniversariantes/" ></c:url>">
 				<button class="btn btn-primary">
-					<span class="glyphicon glyphicon-plus"></span> Adicionar Novo Cliente
+					<span class="glyphicon glyphicon-user"></span> Aniversariantes do
+					Mês
 				</button>
 			</a>
 		</div>
-		
+		<div class="nav navbar-nav navbar-right">
+			<a href="<c:url value="/cliente/cadastrar/" ></c:url>">
+				<button class="btn btn-primary">
+					<span class="glyphicon glyphicon-plus"></span> Adicionar Novo
+					Cliente
+				</button>
+			</a>
+		</div>
+
+
 		<br />
 		<table class="table" id="tableCliente">
 			<thead>
 				<tr>
 					<th>nome</th>
+					<th>Data de Nascimento</th>
 					<th>Endereço</th>
 					<th>Telefone</th>
 					<th></th>
@@ -36,6 +48,7 @@
 				<c:forEach items="${clientes}" var="cliente">
 					<tr>
 						<td>${cliente.nome}</td>
+						<td>${cliente.dataNasc}</td>
 						<td>${cliente.endereco }</td>
 						<td>${cliente.telefone}</td>
 						<td><a

@@ -43,4 +43,11 @@ public class ModeloServico extends GenericServiceImpl<Modelo> implements IModelo
 		return listaDeModelos;
 	}
 
+	@Transactional
+	public List<Modelo> buscarPorMarca(Integer idMarca) {
+		List<Modelo> listaDeModelos = modeloRepositorio.buscarPorMarca(idMarca);
+		return listaDeModelos;
+	}
+
+
 }
