@@ -114,5 +114,14 @@ public class VendaControle {
 		return model;
 	}
 	
+	@RequestMapping(value = "/pagamento/{id}/", method = RequestMethod.POST)
+	public ModelAndView pagamento(@ModelAttribute("venda") Venda venda,@PathVariable("id") Integer id) {
+		Venda minhaVenda = vs.buscarPorId(id);
+		minhaVenda.setNumParcelasPagas(minhaVenda.getNumParcelasPagas()+venda.getNumParcelas());
+		minhaVenda.setUltimoPagamento(new Date());
+		vs.salvar(minhaVenda);
+		String vendaEnd = "/venda/";
+		return new ModelAndView("redirect:/venda/");
+	}
 
 }

@@ -15,7 +15,7 @@
 		<jsp:include page="../fragments/menu.jsp" />
 		<button class="btn btn-default" onclick="history.back();">Voltar</button>
 
-		<form:form servletRelativeAction="/pagamento/${venda.id}/"
+		<form:form servletRelativeAction="/venda/pagamento/${venda.id}/"
 			method="post" modelAttribute="venda" class="form-horizontal"
 			role="form">
 
@@ -74,9 +74,9 @@
 
 			<div class="form-group">
 				<div class="row">
-					<label class="col-md-4 control-label" for="numeroParcelasPagas">Número
+					<label class="col-md-4 control-label" for="numParcelas">Número
 						de parcelas a serem pagas </label>
-					<form:select path="numeroParcelas">
+					<form:select path="numParcelas">
 						<c:forEach var="i" begin="1" end="${numeroParcelasPagamento}">
 							<form:option value="${i}">${i} Parcela(s)</form:option>
 						</c:forEach>
@@ -89,8 +89,8 @@
 				<div class="row">
 					<label class="col-md-4 control-label" for="salvar"></label>
 					<div class="col-md-4">
-						<button id="salvar" name="salvar" class="btn btn-primary">Salvar</button>
-						<a href="<c:url value="/venda/" ></c:url>">
+						<button id="salvar" name="salvar" class="btn btn-primary">Atualizar</button>
+						<a href="<c:url value="pagamento/${venda.id }/" ></c:url>">
 							<button type="button" class="btn btn-danger">Cancelar</button>
 						</a>
 					</div>
