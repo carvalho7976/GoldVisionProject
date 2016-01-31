@@ -10,4 +10,5 @@ public interface IModeloDao extends GenericRepository<Modelo>{
 	public void apagar(Integer modelo);
 	public abstract  List<Modelo> listar();
 	public Modelo buscarPorId(Integer idModelo);
+	public List<Modelo> buscarPorMarca(Integer idMarca);
 }

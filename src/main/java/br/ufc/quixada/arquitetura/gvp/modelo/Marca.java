@@ -1,6 +1,5 @@
 package br.ufc.quixada.arquitetura.gvp.modelo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,13 +9,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
-import org.hibernate.annotations.ManyToAny;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonManagedReference;
 
 @Entity
 @Table(name = "marca")
@@ -32,9 +29,11 @@ public class Marca {
 	private String nomeMarca;
 
 	@OneToMany(mappedBy = "marca", targetEntity = Modelo.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonManagedReference
 	private List<Modelo> modelos;
 	
 	@OneToMany(mappedBy = "marca", targetEntity = Produto.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonManagedReference
 	private List<Produto> produtos;
 
 	public String getNomeMarca() {
@@ -52,7 +51,7 @@ public class Marca {
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
-
+	@JsonIgnore
 	public List<Modelo> getModelos() {
 		return modelos;
 	}
