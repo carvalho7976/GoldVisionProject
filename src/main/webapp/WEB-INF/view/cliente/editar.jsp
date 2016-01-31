@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -70,8 +71,8 @@
 				<div class="row">
 					<label class="col-md-2 control-label" for="dataNacs">DataNacs</label>
 					<div class="col-md-4">
-						<input id="datanacs" name="datanacs" type="text"
-							value="${cliente.dataNasc }" class="form-control input-md">
+						<input id="dataNasc" name="dataNasc" type="text" value="<fmt:formatDate pattern="dd/MM/yyyy" value="${cliente.dataNasc }" />"
+							class="form-control input-md">
 					</div>
 				</div>
 			</div>

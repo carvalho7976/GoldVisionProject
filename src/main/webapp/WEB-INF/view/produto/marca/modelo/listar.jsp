@@ -23,14 +23,17 @@
 
 		<div class="container">
 
-			<table class="table" id="tableCliente">
+
+			<table class="table" id="tableModelo">
 				<thead>
 					<tr>
 						<th>Nome do Modelo</th>
 						<th>Código</th>
 						<th>Marca</th>
+						<th></th>
 					</tr>
 				</thead>
+				<tbody>
 				<c:forEach var="lista" items="${listaModelos}">
 					<tr>
 						<td>${lista.nomeModelo}</td>
@@ -54,6 +57,8 @@
 						</a></td>
 					</tr>
 				</c:forEach>
+				</tbody>
+
 			</table>
 		</div>
 	</div>

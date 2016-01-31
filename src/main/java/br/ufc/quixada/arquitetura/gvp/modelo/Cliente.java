@@ -1,6 +1,6 @@
 package br.ufc.quixada.arquitetura.gvp.modelo;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,7 +26,10 @@ public class Cliente {
 	String endereco;
 	String cpf;
 	String rg;
+	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	Date dataNasc;
+	
 	String naturalidade;
 	String telefone;
 	
@@ -80,7 +83,6 @@ public class Cliente {
 		return dataNasc;
 	}
 
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	public void setDataNasc(Date dataNasc) {
 		this.dataNasc = dataNasc;
 	}

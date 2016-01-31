@@ -36,9 +36,10 @@
 <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <link href="<c:url value="/webjars/bootstrap/3.1.1/css/bootstrap.min.css" />" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css" />
+<!-- <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap-theme.min.css" />
 <script src="./resources/bootstrap/js/bootstrap.min.js"></script>
-
+ -->
+ <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" rel="stylesheet">
 
 
