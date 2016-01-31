@@ -102,6 +102,7 @@ public class VendaControle {
 	public ModelAndView cobrancas(Model modelAtribute) {
 		
 		modelAtribute.addAttribute("cobrancas", vs.listaCobrancas());
+		modelAtribute.addAttribute("montante", vs.montanteMes(vs.listaCobrancas()));
 		ModelAndView model = new ModelAndView("venda/cobrancas");
 		return model;
 	}

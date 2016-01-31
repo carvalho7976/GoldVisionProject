@@ -52,4 +52,14 @@ public class VendaServico implements IVendaServico {
 	public List<Venda> listaCobrancas() {
 		return VendaRepository.listaCobrancas();
 	}
+
+
+	@Override
+	public double montanteMes(List<Venda> cobrancas) {
+		double montante = 0;
+		for (Venda venda : cobrancas) {
+			montante += venda.getValorParcela();
+		}
+		return montante;
+	}
 }

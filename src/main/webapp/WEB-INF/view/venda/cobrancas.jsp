@@ -15,7 +15,10 @@
 		<button class="btn btn-default" onclick="history.back();">Voltar</button>
 
 		<h3>Cobranças do Mês</h3>
-
+		
+		<label>
+			Montate esperado - ${montante }
+		</label>
 		<br />
 		<div class="">
 			<table class="table table-striped" id="tableVenda">

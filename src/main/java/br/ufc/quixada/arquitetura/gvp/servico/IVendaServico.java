@@ -14,4 +14,6 @@ public interface IVendaServico {
 	public void apagar(Venda Venda);
 	
 	public abstract List<Venda> listaCobrancas();
+	
+	public double montanteMes(List<Venda> cobrancas);
 }
