@@ -14,17 +14,17 @@
 	<div class="container">
 		<jsp:include page="../../fragments/menu.jsp" />
 		<button class="btn btn-default" onclick="history.back();">Voltar</button>
+		
 		<form:form servletRelativeAction="/marca/${marca.id}/editar"
 			method="post" modelAttribute="marca" class="form-horizontal"
 			role="form">
-
+			
 			<div class="form-group" style="text-align: center;">
 				<label class="control-label" style="font-size: 20px;">Edita
 					Marca</label>
 			</div>
-
+			
 			<div class="form-group">
-
 				<label for="nomeMarca" class="col-sm-1 control-label">Nome
 					da Marca</label>
 				<div class="col-sm-10">
@@ -33,11 +33,15 @@
 					<form:errors path="nomeMarca" cssClass="error" />
 				</div>
 			</div>
+			
 			<div class="form-group">
 				<label for="codigo" class="col-sm-1 control-label">Codigo</label>
 				<div class="col-sm-10">
 					<form:input id="codigo" class="form-control"
+
 						placeholder="Código" path="codigo" />
+
+
 					<form:errors path="codigo" cssClass="error" />
 				</div>
 			</div>

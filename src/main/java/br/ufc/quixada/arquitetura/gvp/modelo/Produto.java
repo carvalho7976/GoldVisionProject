@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Entity
 @Table(name="produto")
 public class Produto {
@@ -28,10 +31,12 @@ public class Produto {
 	
 	@ManyToOne
 	@JoinColumn (name = "cod_marca")
+	@JsonBackReference
 	private Marca marca;
 	
 	@ManyToOne
 	@JoinColumn(name = "cod_modelo")
+	@JsonBackReference
 	private Modelo modelo;
 	
 	@Column(name = "valor_compra")
@@ -78,7 +83,7 @@ public class Produto {
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
-	
+	@JsonIgnore
 	public Modelo getModelo() {
 		return modelo;
 	}

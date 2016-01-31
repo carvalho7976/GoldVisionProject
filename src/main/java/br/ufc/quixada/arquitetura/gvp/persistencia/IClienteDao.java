@@ -9,4 +9,5 @@ public interface IClienteDao {
 	void apagar(Integer idCliente);
 	List<Cliente> listar();
 	Cliente buscarPorId(Integer idCliente);
+	List<Cliente> listaAniversariantes();
 }

@@ -13,7 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+
+import org.codehaus.jackson.annotate.JsonBackReference;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 @Entity
 @Table(name = "modelo")
@@ -23,6 +25,7 @@ public class Modelo {
 	private Integer id;
 	
 	@OneToMany(mappedBy = "modelo", targetEntity = Produto.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonBackReference
 	private List<Produto> produtos;
 	
 	@Column(name="cod_modelo")
@@ -33,6 +36,7 @@ public class Modelo {
 	
 	@ManyToOne
 	@JoinColumn (name = "cod_marca")
+	@JsonBackReference
 	private Marca marca;
 
 	public String getCodigo() {
@@ -50,7 +54,7 @@ public class Modelo {
 	public void setNomeModelo(String nomeModelo) {
 		this.nomeModelo = nomeModelo;
 	}
-
+	@JsonIgnore
 	public Marca getMarca() {
 		return marca;
 	}

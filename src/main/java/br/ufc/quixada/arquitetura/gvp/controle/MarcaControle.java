@@ -93,23 +93,27 @@ public class MarcaControle {
 			final RedirectAttributes redirectAttributes) {
 
 		boolean erros = false;
-		if (marca.getCodigo().isEmpty()) {
-			result.rejectValue("codigo", "Repeat.marca.codigo", "Campo Obrigatório");
+		try{
+			if (marca.getCodigo().isEmpty()) {
+				result.rejectValue("codigo", "Repeat.marca.codigo", "Campo Obrigatório");
+				erros = true;
+			}
+			if (marca.getNomeMarca().isEmpty()) {
+				result.rejectValue("nomeMarca", "Repeat.marca.nomeMarca", "Campo Obrigatório");
+				erros = true;
+			}
+			if (servico.procurarCodigo(marca.getCodigo()).getId() != marca.getId()) {
+				result.rejectValue("codigo", "Repeat.marca.codigo", "Já existe uma marca com esse código");
+				erros = true;
+			}
+			if (servico.procurarNome(marca.getNomeMarca()).getId() != marca.getId()) {
+				result.rejectValue("nomeMarca", "Repeat.marca.nomeMarca", "Já existe uma marca com esse código");
+				erros = true;
+			}
+		}catch(NullPointerException e){
 			erros = true;
 		}
-		if (marca.getNomeMarca().isEmpty()) {
-			result.rejectValue("nomeMarca", "Repeat.marca.nomeMarca", "Campo Obrigatório");
-			erros = true;
-		}
-		if (servico.procurarCodigo(marca.getCodigo()).getId() != marca.getId()) {
-			result.rejectValue("codigo", "Repeat.marca.codigo", "Já existe uma marca com esse código");
-			erros = true;
-		}
-		if (servico.procurarNome(marca.getNomeMarca()).getId() != marca.getId()) {
-			result.rejectValue("nomeMarca", "Repeat.marca.nomeMarca", "Já existe uma marca com esse código");
-			erros = true;
-		}
-
+		
 		if (erros)
 			return new ModelAndView("produto/marca/editar");
 

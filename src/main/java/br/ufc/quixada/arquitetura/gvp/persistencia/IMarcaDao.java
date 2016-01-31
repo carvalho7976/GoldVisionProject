@@ -13,5 +13,6 @@ public interface IMarcaDao extends GenericRepository<Marca> {
 	public Marca buscarPorId(Integer idMarca);
 	public Marca buscaPorCodigo(String codigo);
 	public Marca buscaPorNome(String nome);
+
 }
 
