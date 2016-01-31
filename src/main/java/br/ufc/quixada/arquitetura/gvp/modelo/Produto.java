@@ -1,7 +1,11 @@
 package br.ufc.quixada.arquitetura.gvp.modelo;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,6 +37,10 @@ public class Produto {
 	@ManyToOne
 	@JoinColumn(name = "cod_modelo")
 	private Modelo modelo;
+	
+	@ManyToOne
+	@JoinColumn(name = "cod_venda")
+	private Venda venda;
 	
 	@Column(name = "valor_compra")
 	private Double valorCompra;
@@ -105,6 +113,15 @@ public class Produto {
 
 	public void setValorVenda(Double valorVenda) {
 		this.valorVenda = valorVenda;
+	}
+	
+
+	public Venda getVenda() {
+		return venda;
+	}
+
+	public void setVenda(Venda venda) {
+		this.venda = venda;
 	}
 
 	@Override

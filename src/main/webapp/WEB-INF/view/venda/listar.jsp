@@ -27,6 +27,7 @@
 			<table class="table table-striped" id="tableVenda">
 				<thead>
 					<tr>
+						<th>Nome</th>
 						<th>Data da Venda</th>
 						<th>Valor de Venda</th>
 						<th>Dia do Vencimento</th>
@@ -42,6 +43,8 @@
 					<c:forEach items="${vendas}" var="venda">
 
 						<tr>
+							
+							<td>${venda.cliente.nome}</td>
 							<td>${venda.dataVenda}</td>
 							<td>${venda.valorVenda}</td>
 							<td>${venda.diaVencimento }</td>

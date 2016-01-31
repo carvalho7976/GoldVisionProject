@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.ufc.quixada.arquitetura.gvp.modelo.Cliente;
+import br.ufc.quixada.arquitetura.gvp.modelo.Modelo;
 import br.ufc.quixada.arquitetura.gvp.modelo.Venda;
+import br.ufc.quixada.arquitetura.gvp.servico.ClienteServico;
 import br.ufc.quixada.arquitetura.gvp.servico.VendaServico;
 
 @Named
@@ -25,16 +27,17 @@ public class VendaControle {
 	@Inject
 	private VendaServico vs;
 	
+	@Inject
+	private ClienteServico cs;
+	
 	
 	@RequestMapping(value = "/cadastrar", method = RequestMethod.GET)
-	public ModelAndView home(Model mod) {
+	public ModelAndView home(Model modelAtribute) {
 
-		ModelAndView model = new ModelAndView("venda/venda");
-		model.addObject("vendas", vs.listar());
-		
-		// necessario para o formulario saveVenda
-		mod.addAttribute("Venda", new Venda());
-		
+		modelAtribute.addAttribute("venda", new Venda());
+		modelAtribute.addAttribute("clientes", cs.listarClientes());
+		ModelAndView model = new ModelAndView("venda/adicionar");
+
 		return model;
 	}
 	
@@ -44,6 +47,7 @@ public class VendaControle {
 		
 		List<Venda> vendas = vs.listar();
 		modelAtribute.addAttribute("vendas",vendas);
+		modelAtribute.addAttribute("clientes", cs.listarClientes());
 		ModelAndView model = new ModelAndView("venda/listar");
 		return model;
 		
@@ -62,42 +66,54 @@ public class VendaControle {
 	public ModelAndView editar(Model modelAtribute,@PathVariable("id") Integer id) {
 		
 		modelAtribute.addAttribute("venda", vs.buscarPorId(id));
+		modelAtribute.addAttribute("clientes", cs.listarClientes());
 		ModelAndView model = new ModelAndView("venda/editar");
 		return model;
 	}
-	@RequestMapping(value = "/editar/{id}/", method = RequestMethod.POST)
-	public ModelAndView editarSalvar(@ModelAttribute("venda") Venda venda,@PathVariable("id") Integer id) {
-		venda.setId(id);
-		venda.setDataVenda(vs.buscarPorId(id).getDataVenda());
-		vs.salvar(venda);
-		String vendaEnd = "/venda/";
-		return new ModelAndView("redirect:" +vendaEnd );
-	}
 	
-	@RequestMapping(value = "/save", method = RequestMethod.POST, produces = "application/json; charset=UTF-8")
-	public String criarVenda(	
-
-			@RequestParam(value = "valorVenda", required = true) float valorVenda,
-			@RequestParam(value = "formaPagamento", required = true) String formaPagamento,
-			@RequestParam(value = "diaVencimento", required = true) Integer diaVencimento,
-			@RequestParam(value = "numParcelas", required = true) Integer numParcelas,
-			@RequestParam(value = "numParcelasPagas", required = true) Integer numParcelasPagas,
-			@RequestParam(value = "ultimoPagamento", required = true) Integer ultimoPagamento) {
-
-		Venda venda = new Venda();
-		venda.setDataVenda(new Date(System.currentTimeMillis()));
-
+	@RequestMapping(value = "/editar/{id}/", method = RequestMethod.POST)
+	public ModelAndView editarSalvar(@PathVariable("id") Integer id, Integer cliente, Double valorVenda, String formaPagamento, Integer diaVencimento,
+			Integer numParcelas, Integer numParcelasPagas, Integer ultimoPagamento,
+			final RedirectAttributes redirectAttributes) {
+		
+		Venda venda = vs.buscarPorId(id);
+		
+		venda.setCliente(cs.procurarPorId(cliente));
+		venda.setDataVenda(vs.buscarPorId(id).getDataVenda());
 		venda.setValorVenda(valorVenda);
 		venda.setFormaPagamento(formaPagamento);
 		venda.setDiaVencimento(diaVencimento);
 		venda.setNumParcelas(numParcelas);
 		venda.setNumParcelasPagas(numParcelasPagas);
 		venda.setUltimoPagamento(ultimoPagamento);
-
+		
 		vs.salvar(venda);
 
-		return "redirect:/venda/";
+		ModelAndView model = new ModelAndView("redirect:/venda/");
+		return model;
 	}
+	
+	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
+	public ModelAndView adicionarPOST(Integer cliente, Double valorVenda, String formaPagamento, Integer diaVencimento,
+			Integer numParcelas, Integer numParcelasPagas, Integer ultimoPagamento, final RedirectAttributes redirectAttributes) {
+		
+		
+		Venda venda = new Venda();
+		venda.setDataVenda(new Date(System.currentTimeMillis()));
+		
+		venda.setCliente(cs.procurarPorId(cliente));
+		venda.setValorVenda(valorVenda);
+		venda.setFormaPagamento(formaPagamento);
+		venda.setDiaVencimento(diaVencimento);
+		venda.setNumParcelas(numParcelas);
+		venda.setNumParcelasPagas(numParcelasPagas);
+		venda.setUltimoPagamento(ultimoPagamento);
+		
+		vs.salvar(venda);
+		ModelAndView model = new ModelAndView("redirect:/venda/");
+		return model;
+	}
+	
 
 
 }
