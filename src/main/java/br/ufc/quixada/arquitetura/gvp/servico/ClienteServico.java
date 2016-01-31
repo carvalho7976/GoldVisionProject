@@ -49,4 +49,9 @@ public class ClienteServico implements IClienteServico{
 		return clienteDao.listar();
 	}
 
+	@Override
+	public List<Cliente> listaAniversarios() {
+		return clienteDao.listaAniversariantes();
+	}
+
 }
