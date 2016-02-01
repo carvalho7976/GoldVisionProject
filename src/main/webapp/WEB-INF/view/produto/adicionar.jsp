@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Adicionar</title>
+<title>Módulo Produtos - Adicionar</title>
 <jsp:include page="../fragments/headTag.jsp" />
 
 <c:url var="listaModelosURL" value="/produto/modelos" />

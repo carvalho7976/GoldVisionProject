@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Detalhes</title>
+<title>Módulo Produtos - Detalhamento</title>
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>

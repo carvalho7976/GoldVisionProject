@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Adicionar</title>
+<title>Módulo Vendas - Adicionar</title>
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>
@@ -20,18 +20,17 @@
 				modelAttribute="venda" class="form-horizontal" role="form">
 				<fieldset>
 				
-				<!-- Form Name -->
-				<legend>Cadastrar Venda</legend>
+			
 				
-				
-				<div class="form-group">
+				<div class="row">
+				<div class="form-group"  class="row">
 					<label for="clientes" class="col-sm-2 control-label">Clientes</label>
-					<div class="col-sm-5">
+					<div class="col-sm-4">
 
 						<form:select id="clientes" class="form-control"
 							modelAttribute="venda" placeholder="Clientes"
 							path="cliente" required="true">
-							<form:option value="nenhuma">Selecione o Cliente</form:option>
+							<form:option value="">Selecione o Cliente</form:option>
 							<c:forEach items="${clientes}" var="pessoaCliente">
 								<form:option value="${pessoaCliente.id}">${pessoaCliente.nome} / ${pessoaCliente.cpf}</form:option>
 							</c:forEach>
@@ -39,16 +38,16 @@
 						<form:errors path="cliente" cssClass="error" />
 					</div>
 				</div>
+				</div>
 				
-				
-				
-				<div class="form-group">
-					<label for="produtos" >Produtos</label>
-					<div class="col-sm-5">
+				<div class="row">
+				<div class="form-group" class="row">
+					<label class="col-md-2 control-label" for="produtos" >Produtos</label>
+					<div class="col-sm-4">
 						<form:select id="produtos" class="form-control"
 							modelAttribute="produtoLista"
 							path="produtos" required="true" >
-							<form:option value="nenhuma">Selecione o Produtos</form:option>
+							<form:option value="" selected="selected">Selecione o produto</form:option>
 							<c:forEach items="${produtoLista}" var="itemProduto">
 								<form:option value="${itemProduto.id}">${itemProduto.codigo}</form:option>
 							</c:forEach>
@@ -56,7 +55,7 @@
 						<form:errors path="produtos" cssClass="error" />
 					</div>
 				</div>
-				
+				</div>
 				
 				<!-- Text input-->
 				<div class="row">
@@ -65,7 +64,7 @@
 							de Venda</label>
 						<div class="col-md-4">
 							<input id="textinput" name="valorVenda" type="double"
-								placeholder="ex: 200" class="form-control input-md" required="">
+								placeholder="ex: 200.50" class="form-control input-md" required="">
 
 						</div>
 					</div>
@@ -136,6 +135,12 @@
 
 		</div>
 	</div>
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		$('select').removeAttr('multiple');
+	});
+	</script>
 	
 </body>
 </html>

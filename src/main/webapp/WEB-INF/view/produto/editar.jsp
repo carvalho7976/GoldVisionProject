@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Editar Produto</title>
+<title>Módulo Produto - Editar</title>
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>
