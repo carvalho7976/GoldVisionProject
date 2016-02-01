@@ -135,12 +135,7 @@
 
 		</div>
 	</div>
-	<script type="text/javascript">
-	
-	$(document).ready(function(){
-		$('select').removeAttr('multiple');
-	});
-	</script>
+
 	
 </body>
 </html>
