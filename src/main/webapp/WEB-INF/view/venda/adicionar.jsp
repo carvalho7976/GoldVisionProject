@@ -20,13 +20,12 @@
 				modelAttribute="venda" class="form-horizontal" role="form">
 				<fieldset>
 				
-				<!-- Form Name -->
-				<legend>Cadastrar Venda</legend>
+			
 				
-				
-				<div class="form-group">
+				<div class="row">
+				<div class="form-group"  class="row">
 					<label for="clientes" class="col-sm-2 control-label">Clientes</label>
-					<div class="col-sm-5">
+					<div class="col-sm-4">
 
 						<form:select id="clientes" class="form-control"
 							modelAttribute="venda" placeholder="Clientes"
@@ -39,16 +38,16 @@
 						<form:errors path="cliente" cssClass="error" />
 					</div>
 				</div>
+				</div>
 				
-				
-				
-				<div class="form-group">
-					<label for="produtos" >Produtos</label>
-					<div class="col-sm-5">
+				<div class="row">
+				<div class="form-group" class="row">
+					<label class="col-md-2 control-label" for="produtos" >Produtos</label>
+					<div class="col-sm-4">
 						<form:select id="produtos" class="form-control"
 							modelAttribute="produtoLista"
 							path="produtos" required="true" >
-							<form:option value="nenhuma">Selecione o Produtos</form:option>
+							<form:option value="nenhuma">Selecione os Produtos</form:option>
 							<c:forEach items="${produtoLista}" var="itemProduto">
 								<form:option value="${itemProduto.id}">${itemProduto.codigo}</form:option>
 							</c:forEach>
@@ -56,7 +55,7 @@
 						<form:errors path="produtos" cssClass="error" />
 					</div>
 				</div>
-				
+				</div>
 				
 				<!-- Text input-->
 				<div class="row">
