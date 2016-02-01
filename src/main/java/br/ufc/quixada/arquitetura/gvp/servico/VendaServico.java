@@ -26,6 +26,7 @@ public class VendaServico implements IVendaServico {
 	@Override
 	@Transactional
 	public void salvar(Venda v) {
+
 		Integer i =v.getProduto().getQuantidade().intValue();
 		if(i.intValue()>1){
 			v.getProduto().setQuantidade(i -= 1);

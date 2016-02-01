@@ -116,6 +116,7 @@ public class VendaControle {
 	
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
 
+
 	public ModelAndView adicionarPOST(ModelAndView model, Integer cliente, Double valorVenda, String formaPagamento, Integer diaVencimento,
 			Integer numParcelas, Integer numParcelasPagas, Integer produto, final RedirectAttributes redirectAttributes) {
  
