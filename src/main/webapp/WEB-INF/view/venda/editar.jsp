@@ -41,6 +41,23 @@
 						<form:errors path="cliente" cssClass="error" />
 					</div>
 				</div>
+				
+				
+				<div class="form-group">
+					<label for="produtos" class="col-sm-2 control-label">Produtos</label>
+					<div class="col-sm-5">
+
+						<form:select id="produtos" class="form-control"
+							modelAttribute="venda" placeholder="Produtos"
+							path="produto" required="true">
+							<form:option value="${venda.produto.id}"> ${venda.produto.codigo}</form:option>
+							<c:forEach items="${produtos}" var="itemProduto">
+								<form:option value="${itemProduto.id}">${itemProduto.codigo}</form:option>
+							</c:forEach>
+						</form:select>
+						<form:errors path="produto" cssClass="error" />
+					</div>
+				</div>
 			
 			<div class="form-group">
 					<label class="col-md-2 control-label" for="valorVenda">Valor

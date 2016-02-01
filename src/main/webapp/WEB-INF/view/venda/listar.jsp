@@ -38,6 +38,7 @@
 						<th>Data da Venda</th>
 						<th>Valor de Venda</th>
 						<th>Cliente (Detalhes)</th>
+						<th>Produto (Detalhes)</th>
 						<th>Atualização</th>
 					</tr>
 				</thead>
@@ -52,6 +53,12 @@
 								href="<c:url value="/cliente/detalhes/${venda.cliente.id }/" ></c:url>">
 									<button type="button" class="btn btn-info">
 										<span class="glyphicon glyphicon-file"></span> ${venda.cliente.nome }
+									</button>
+							</a></th>
+							<th><a
+								href="<c:url value="/produto/${venda.produto.id}/detalhes" ></c:url>">
+									<button type="button" class="btn btn-info">
+										<span class="glyphicon glyphicon-file"></span> ${venda.produto.codigo}
 									</button>
 							</a></th>
 							<td><a

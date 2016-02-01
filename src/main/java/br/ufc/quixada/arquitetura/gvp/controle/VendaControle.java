@@ -56,6 +56,7 @@ public class VendaControle {
 	public ModelAndView listar(Model modelAtribute) {
 		
 		List<Venda> vendas = vs.listar();
+		
 		modelAtribute.addAttribute("vendas",vendas);
 		modelAtribute.addAttribute("clientes", cs.listarClientes());
 		ModelAndView model = new ModelAndView("venda/listar");
@@ -77,6 +78,7 @@ public class VendaControle {
 		
 		modelAtribute.addAttribute("venda", vs.buscarPorId(id));
 		modelAtribute.addAttribute("clientes", cs.listarClientes());
+		modelAtribute.addAttribute("produtos", ps.listarProdutos());
 		ModelAndView model = new ModelAndView("venda/editar");
 		return model;
 	}
@@ -91,13 +93,14 @@ public class VendaControle {
 		return new ModelAndView("redirect:" + vendaEnd);
 	}
 	@RequestMapping(value = "/editar2/{id}", method = RequestMethod.POST)
-	public ModelAndView adicionar2POST(Integer cliente, Double valorVenda, String formaPagamento, Integer diaVencimento,
+	public ModelAndView adicionar2POST(Integer cliente, Integer produto,Double valorVenda, String formaPagamento, Integer diaVencimento,
 			Integer numParcelas, Integer numParcelasPagas,@PathVariable("id") Integer id, Date ultimoPagamento, final RedirectAttributes redirectAttributes) {
 		
 		
 		Venda venda = vs.buscarPorId(id);
 		venda.setDataVenda(new Date(System.currentTimeMillis()));
 		
+		venda.setProduto(ps.procurarPorId(produto));
 		venda.setCliente(cs.procurarPorId(cliente));
 		venda.setValorVenda(valorVenda);
 		venda.setFormaPagamento(formaPagamento);
@@ -113,19 +116,13 @@ public class VendaControle {
 	
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
 	public ModelAndView adicionarPOST(ModelAndView model, Integer cliente, Double valorVenda, String formaPagamento, Integer diaVencimento,
-			Integer numParcelas, Integer numParcelasPagas, Integer produtos, final RedirectAttributes redirectAttributes, BindingResult result) {
-		
-		
-		if(ps.procurarPorId(produtos).getQuantidade() < 1){
+			Integer numParcelas, Integer numParcelasPagas, Integer produto, final RedirectAttributes redirectAttributes) {
+ 
+		if(ps.procurarPorId(produto).getQuantidade() < 1){
 			model = new ModelAndView("redirect:/venda/");
 			return model;
-		}
-		
-		System.out.println("produto " + produtos);
-		
-		List<Produto> produtosList = new ArrayList<Produto>();
-		produtosList.add(ps.procurarPorId(produtos));
-		
+		}		
+
 		Venda venda = new Venda();
 		venda.setDataVenda(new Date(System.currentTimeMillis()));
 		
@@ -135,7 +132,7 @@ public class VendaControle {
 		venda.setDiaVencimento(diaVencimento);
 		venda.setNumParcelas(numParcelas);
 		venda.setNumParcelasPagas(numParcelasPagas);
-		venda.setProdutos(produtosList);
+		venda.setProduto(ps.procurarPorId(produto));
 		venda.setUltimoPagamento(venda.getDataVenda());
 		
 		vs.salvar(venda);
