@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Gold Vision</title>
+<title>Módulo Vendas - Pagamento</title>
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>

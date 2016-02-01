@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Módulo Vendas - Listagem</title>
+<title>Módulo Vendas - Atrasados</title>
 <jsp:include page="../fragments/headTag.jsp" />
 </head>
 <body>
