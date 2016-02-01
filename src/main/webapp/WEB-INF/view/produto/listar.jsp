@@ -13,7 +13,7 @@
 	<div class="container">
 		<jsp:include page="../fragments/menu.jsp" />
 		<h1 align="left">Modulo Produtos</h1>
-		
+
 		<div class="nav navbar-nav navbar-right">
 			<a href="<c:url value="/produto/adicionar" ></c:url>">
 				<button class="btn btn-primary">
@@ -30,31 +30,34 @@
 					<th>Marca</th>
 					<th>Valor de Compra</th>
 					<th>Valor de Venda</th>
+					<th></th>
 				</tr>
 			</thead>
-			<c:forEach var="produto" items="${listaProdutos}">
-				<tr>
-					<td>${produto.codigo}</td>
-					<td>${produto.quantidade}</td>
-					<td>${produto.marca.nomeMarca}</td>
-					<td>${produto.valorCompra}</td>
-					<td>${produto.valorVenda}</td>
-					<td><a
-						href="<c:url value="/produto/${produto.id}/detalhes" ></c:url>">
-							<button class="btn btn-info">
-								<span class="glyphicon glyphicon-file"></span> Detalhes
-							</button>
-					</a><a href="<c:url value="/produto/${produto.id}/editar" ></c:url>">
-							<button class="btn btn-warning">
-								<span class="glyphicon glyphicon-edit"></span> Editar Produto
-							</button>
-					</a><a href="<c:url value="/produto/${produto.id}/excluir" ></c:url>">
-							<button class="btn btn-danger">
-								<span class="glyphicon glyphicon-trash"></span> Excluir Produto
-							</button>
-					</a></td>
-				</tr>
-			</c:forEach>
+			<tbody>
+				<c:forEach var="produto" items="${listaProdutos}">
+					<tr>
+						<td>${produto.codigo}</td>
+						<td>${produto.quantidade}</td>
+						<td>${produto.marca.nomeMarca}</td>
+						<td>${produto.valorCompra}</td>
+						<td>${produto.valorVenda}</td>
+						<td><a
+							href="<c:url value="/produto/${produto.id}/detalhes" ></c:url>">
+								<button class="btn btn-info">
+									<span class="glyphicon glyphicon-file"></span> Detalhes
+								</button>
+						</a><a href="<c:url value="/produto/${produto.id}/editar" ></c:url>">
+								<button class="btn btn-warning">
+									<span class="glyphicon glyphicon-edit"></span> Editar Produto
+								</button>
+						</a><a href="<c:url value="/produto/${produto.id}/excluir" ></c:url>">
+								<button class="btn btn-danger">
+									<span class="glyphicon glyphicon-trash"></span> Excluir Produto
+								</button>
+						</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
 		</table>
 	</div>
 </body>

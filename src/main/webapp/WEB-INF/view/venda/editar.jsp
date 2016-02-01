@@ -43,76 +43,64 @@
 				</div>
 			
 			<div class="form-group">
-				<div class="row">
-					<label class="col-md-4 control-label" for="valorVenda">Valor
+					<label class="col-md-2 control-label" for="valorVenda">Valor
 						de Venda</label>
 					<div class="col-md-4">
 						<input id="valorVenda" name="valorVenda" type="number"
 							value="${venda.valorVenda }" class="form-control input-md"
 							required>
-					</div>
 				</div>
 			</div>
 			<!-- Text input-->
 			<div class="form-group">
-				<div class="row">
-					<label class="col-md-4 control-label" for="formaPagamento">Forma
+					<label class="col-md-2 control-label" for="formaPagamento">Forma
 						de Pagamento</label>
 					<div class="col-md-4">
 						<input id="formaPagamento" name="formaPagamento" type="text"
 							value="${venda.formaPagamento}" class="form-control input-md">
-					</div>
 				</div>
 			</div>
 
 			<!-- Text input-->
 			<div class="form-group">
-				<div class="row">
-					<label class="col-md-4 control-label" for="diaVencimento">Dia
+					<label class="col-md-2 control-label" for="diaVencimento">Dia
 						de Vencimento</label>
 					<div class="col-md-4">
 						<input id="diaVencimento" name="diaVencimento" type="number"
 							value="${venda.diaVencimento }" class="form-control input-md"
 							required>
-					</div>
 				</div>
 			</div>
 
 			<!-- Text input-->
 			<div class="form-group">
-				<div class="row">
-					<label class="col-md-4 control-label" for="numParcelas">Numero
+					<label class="col-md-2 control-label" for="numParcelas">Numero
 						de Parcelas</label>
 					<div class="col-md-4">
 						<input id="numParcelas" name="numParcelas" type="number"
 							value="${venda.numParcelas }" class="form-control input-md"
 							required>
-					</div>
 				</div>
 			</div>
 
 			<!-- Text input-->
 			<div class="form-group">
-				<div class="row">
-					<label class="col-md-4 control-label" for="numParcelasPagas">Numero
+					<label class="col-md-2 control-label" for="numParcelasPagas">Numero
 						de Parcelas Pagas</label>
 					<div class="col-md-4">
 						<input id="numParcelasPagas" name="numParcelasPagas" type="number"
 							value="${venda.numParcelasPagas}" class="form-control input-md">
 					</div>
 				</div>
-			</div>
 
 			<!-- Text input-->
 			<div class="form-group">
-				<div class="row">
-					<label class="col-md-4 control-label" for="ultimoPagamento">Ultimo
+					<label class="col-md-2 control-label" for="numParcelasPagas">Último
 						Pagamento</label>
 					<div class="col-md-4">
 						<input id="ultimoPagamento" name="ultimoPagamento" type="text"
 							value="<fmt:formatDate pattern="dd/MM/yyyy" value="${venda.ultimoPagamento }" />" class="form-control input-md">
 					</div>
-				</div>
 			</div>
 
 			<!-- Button -->
