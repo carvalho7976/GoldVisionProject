@@ -117,6 +117,7 @@ public class VendaControle {
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
 
 
+
 	public ModelAndView adicionarPOST(ModelAndView model, Integer cliente, Double valorVenda, String formaPagamento, Integer diaVencimento,
 			Integer numParcelas, Integer numParcelasPagas, Integer produto, final RedirectAttributes redirectAttributes) {
  
@@ -124,6 +125,7 @@ public class VendaControle {
 			model = new ModelAndView("redirect:/venda/");
 			return model;
 		}		
+
 		
 		Venda venda = new Venda();
 		venda.setDataVenda(new Date(System.currentTimeMillis()));
