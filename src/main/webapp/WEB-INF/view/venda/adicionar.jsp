@@ -42,17 +42,17 @@
 				
 				<div class="row">
 				<div class="form-group" class="row">
-					<label class="col-md-2 control-label" for="produtos" >Produtos</label>
+					<label class="col-md-2 control-label" for="produto" >Produtos</label>
 					<div class="col-sm-4">
-						<form:select id="produtos" class="form-control"
+						<form:select id="produto" class="form-control"
 							modelAttribute="produtoLista"
-							path="produtos" required="true" >
+							path="produto" required="true" >
 							<form:option value="" selected="selected">Selecione o produto</form:option>
 							<c:forEach items="${produtoLista}" var="itemProduto">
 								<form:option value="${itemProduto.id}">${itemProduto.codigo}</form:option>
 							</c:forEach>
 						</form:select>
-						<form:errors path="produtos" cssClass="error" />
+						<form:errors path="produto" cssClass="error" />
 					</div>
 				</div>
 				</div>

@@ -34,9 +34,12 @@ public class Venda {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@OneToMany(mappedBy = "venda", targetEntity = Produto.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Produto> produtos;
-//	
+//	@OneToMany(mappedBy = "venda", targetEntity = Produto.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	private List<Produto> produtos;
+	
+	@ManyToOne
+	private Produto produto;
+	
 	 //@ManyToMany
 	 //@JoinTable(name = "produto_venda", joinColumns = {@JoinColumn(name = "venda_id")}, inverseJoinColumns = {@JoinColumn(name = "produto_id")})
 	 //private List<Produto> produtos;
@@ -65,12 +68,12 @@ public class Venda {
 		this.cliente = cliente;
 	}
 
-	public List<Produto> getProdutos() {
-		return produtos;
+	public Produto getProduto() {
+		return produto;
 	}
 
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
+	public void setProduto(Produto produto) {
+		this.produto = produto;
 	}
 
 	public Date getDataVenda() {

@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
@@ -45,9 +46,12 @@ public class Produto {
 	private Modelo modelo;
 	
 	//seja feliz
-	@ManyToOne
-	private Venda venda;
+//	@ManyToOne
+//	private Venda venda;
 	//@JoinColumn(name = "cod_venda")
+	
+	@OneToMany(mappedBy = "produto", targetEntity = Venda.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Venda> vendas;
 	
 	@Column(name = "valor_compra")
 	private Double valorCompra;
@@ -57,7 +61,17 @@ public class Produto {
 	
 	public Produto() {
 	}
-	
+		
+	public List<Venda> getVendas() {
+		return vendas;
+	}
+
+
+	public void setVendas(List<Venda> vendas) {
+		this.vendas = vendas;
+	}
+
+
 	public Integer getQuantidade() {
 		return quantidade;
 	}
