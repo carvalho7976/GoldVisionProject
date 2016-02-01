@@ -18,7 +18,7 @@ public class VendaServico implements IVendaServico {
 
 	@Inject
 	private IVendaDao VendaRepository;
-
+	
 	public VendaServico() {
 	}
 
@@ -26,7 +26,12 @@ public class VendaServico implements IVendaServico {
 	@Override
 	@Transactional
 	public void salvar(Venda v) {
-		VendaRepository.salvar(v);
+		Integer i =v.getProdutos().get(0).getQuantidade().intValue();
+		if(i.intValue()>1){
+			v.getProdutos().get(0).setQuantidade(i -= 1);
+			VendaRepository.salvar(v);
+		}
+		
 	}
 
 	@Override

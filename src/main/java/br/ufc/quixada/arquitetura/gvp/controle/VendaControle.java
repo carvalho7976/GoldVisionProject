@@ -8,10 +8,12 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -110,9 +112,14 @@ public class VendaControle {
 	}
 	
 	@RequestMapping(value = "/adicionar", method = RequestMethod.POST)
-	public ModelAndView adicionarPOST(Integer cliente, Double valorVenda, String formaPagamento, Integer diaVencimento,
-			Integer numParcelas, Integer numParcelasPagas, Integer produtos, final RedirectAttributes redirectAttributes) {
+	public ModelAndView adicionarPOST(ModelAndView model, Integer cliente, Double valorVenda, String formaPagamento, Integer diaVencimento,
+			Integer numParcelas, Integer numParcelasPagas, Integer produtos, final RedirectAttributes redirectAttributes, BindingResult result) {
 		
+		
+		if(ps.procurarPorId(produtos).getQuantidade() < 1){
+			model = new ModelAndView("redirect:/venda/");
+			return model;
+		}
 		
 		System.out.println("produto " + produtos);
 		
@@ -132,7 +139,7 @@ public class VendaControle {
 		venda.setUltimoPagamento(venda.getDataVenda());
 		
 		vs.salvar(venda);
-		ModelAndView model = new ModelAndView("redirect:/venda/");
+		model = new ModelAndView("redirect:/venda/");
 		return model;
 	}
 	@RequestMapping(value = "/cobrancas/", method = RequestMethod.GET)
