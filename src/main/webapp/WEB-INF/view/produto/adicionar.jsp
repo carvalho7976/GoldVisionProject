@@ -100,26 +100,24 @@
 						<c:forEach items="${listaMarcas}" var="itemMarca">
 							<form:option value="${itemMarca.id}">${itemMarca.nomeMarca}</form:option>
 						</c:forEach>
-						</form:select>
+					</form:select>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="modelo" class="col-sm-2 control-label">Modelo</label>
 				<div class="col-sm-10">
-					<form:select path="modelo" id="modeloSelect"  class="form-control">
+					<form:select path="modelo" id="modeloSelect" class="form-control">
 						<form:option value="nenhuma">Selecione o modelo</form:option>
 					</form:select>
 
-					
+
 					<form:errors path="modelo" cssClass="error" />
 				</div>
 			</div>
-			
 
-
-			<div class="controls">
-				<input id="criar" class="btn btn-primary" type="submit"
-					value="Adicionar" /> <a
+			<div class="controls" align="center">
+				<br /> <br /> <input id="criar" class="btn btn-primary"
+					type="submit" value="Adicionar" /> <a
 					href="<c:url value="/produto/listar"></c:url>"
 					class="btn btn-danger">Cancelar</a>
 			</div>
@@ -128,23 +126,31 @@
 	</div>
 
 	<script type="text/javascript">
-$('#marcaSelect').change(function() {
-    $.ajax({
-        type:"GET",
-        url : "/GoldVisionProject/produto/getModeloPorMarca",
-        data : { marcaId: $('#marcaSelect').val()},
-        success : function(data) {
-            $('#modeloSelect').empty(); //remove all child nodes
-            for(var i = 0; i < data.length; i++){
-                var newOption = $('<option value=' + data[i].id + '>'+data[i].nomeModelo+'</option>');
-                $('#modeloSelect').append(newOption);
-            }   
-        },
-        error: function() {
-            alert('Error occured');
-        }
-    });
-});
-</script>
+		$('#marcaSelect')
+				.change(
+						function() {
+							$
+									.ajax({
+										type : "GET",
+										url : "/GoldVisionProject/produto/getModeloPorMarca",
+										data : {
+											marcaId : $('#marcaSelect').val()
+										},
+										success : function(data) {
+											$('#modeloSelect').empty(); //remove all child nodes
+											for (var i = 0; i < data.length; i++) {
+												var newOption = $('<option value=' + data[i].id + '>'
+														+ data[i].nomeModelo
+														+ '</option>');
+												$('#modeloSelect').append(
+														newOption);
+											}
+										},
+										error : function() {
+											alert('Error occured');
+										}
+									});
+						});
+	</script>
 </body>
 </html>

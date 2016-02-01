@@ -33,10 +33,11 @@
 				<thead>
 					<tr>
 						<th>Data da Venda</th>
+						<th>Dia vencimento</th>
 						<th>Valor de Venda</th>
 						<th>Valor da Parcela</th>
-						<th>Número de Parcelas</th>
-						<th>Número de Parcelas Pagas</th>
+						<th>Núm de Parcelas</th>
+						<th>Núm de Parcelas Pagas</th>
 						<th>Último Pagamento</th>
 						<th></th>
 					</tr>
@@ -47,6 +48,7 @@
 						<tr>
 							<td><fmt:formatDate pattern="dd/MM/yyyy"
 									value="${cobranca.dataVenda}" /></td>
+							<td>${cobranca.diaVencimento}</td>
 							<td>${cobranca.valorVenda}</td>
 							<td>${cobranca.valorParcela}</td>
 							<td>${cobranca.numParcelas}</td>

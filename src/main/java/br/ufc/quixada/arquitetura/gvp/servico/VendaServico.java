@@ -69,15 +69,26 @@ public class VendaServico implements IVendaServico {
 
 	@Override
 	public List<Venda> listaCobrancasAtrasadas() {
-		List<Venda> pagamentosAtrasados = new ArrayList<>();
+		List<Venda> pagamentosAtrasados = new ArrayList<Venda>();
 		Date dataAtual = new Date();
 		Calendar temp = Calendar.getInstance();
 		temp.setTime(dataAtual);
 		int dia = temp.get(Calendar.DAY_OF_MONTH);
+		int mes = temp.get(Calendar.MONTH);
+		int ano = temp.get(Calendar.YEAR);
 		for (Venda venda : listaCobrancas()) {
-			if(venda.getDiaVencimento() < dia){
+			temp.setTime(venda.getUltimoPagamento());
+			if(temp.get(Calendar.YEAR)<ano){
+				if(mes > temp.get(Calendar.JANUARY)){
+					pagamentosAtrasados.add(venda);
+					System.out.println("olha aqui " + venda.getId());
+				}else if(dia < venda.getDiaVencimento().intValue()){
+					pagamentosAtrasados.add(venda);
+				}
+			}else if(mes > temp.get(Calendar.MONTH)&& dia > venda.getDiaVencimento().intValue()){
 				pagamentosAtrasados.add(venda);
 			}
+			
 		}
 		
 		return pagamentosAtrasados;

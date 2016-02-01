@@ -170,4 +170,12 @@ public class VendaControle {
 		return model;
 	}
 	
+	@RequestMapping(value = "/detalhes/{id}/", method = RequestMethod.GET)
+	public ModelAndView detalhes(Model modelAtribute, @PathVariable("id") Integer id) {
+
+		modelAtribute.addAttribute("venda", vs.buscarPorId(id));
+		ModelAndView model = new ModelAndView("venda/detalhes");
+		return model;
+	}
+	
 }
