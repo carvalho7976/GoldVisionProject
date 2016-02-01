@@ -30,7 +30,7 @@
 						<form:select id="clientes" class="form-control"
 							modelAttribute="venda" placeholder="Clientes"
 							path="cliente" required="true">
-							<form:option value="nenhuma">Selecione o Cliente</form:option>
+							<form:option value="">Selecione o Cliente</form:option>
 							<c:forEach items="${clientes}" var="pessoaCliente">
 								<form:option value="${pessoaCliente.id}">${pessoaCliente.nome} / ${pessoaCliente.cpf}</form:option>
 							</c:forEach>
@@ -47,7 +47,7 @@
 						<form:select id="produtos" class="form-control"
 							modelAttribute="produtoLista"
 							path="produtos" required="true" >
-							<form:option value="nenhuma">Selecione os Produtos</form:option>
+							<form:option value="" selected="selected">Selecione o produto</form:option>
 							<c:forEach items="${produtoLista}" var="itemProduto">
 								<form:option value="${itemProduto.id}">${itemProduto.codigo}</form:option>
 							</c:forEach>
@@ -64,7 +64,7 @@
 							de Venda</label>
 						<div class="col-md-4">
 							<input id="textinput" name="valorVenda" type="double"
-								placeholder="ex: 200" class="form-control input-md" required="">
+								placeholder="ex: 200.50" class="form-control input-md" required="">
 
 						</div>
 					</div>
@@ -135,6 +135,12 @@
 
 		</div>
 	</div>
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		$('select').removeAttr('multiple');
+	});
+	</script>
 	
 </body>
 </html>
