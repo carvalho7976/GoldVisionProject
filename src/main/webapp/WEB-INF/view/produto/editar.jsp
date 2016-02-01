@@ -51,10 +51,8 @@
 			</div>
 
 			<div class="form-group">
-				<label for="marca" class="col-sm-2 control-label">Marca</label>
-				<div class="col-sm-10">
-
-
+				<label for="marca" class="col-sm-1 control-label">Marca</label>
+					<div class="col-sm-10">
 					<form:select id="marcaSelect" class="form-control"
 						modelAttribute="produto" placeholder="Marca do Produto"
 						path="marca" required="true">
@@ -63,16 +61,14 @@
 							<form:option value="${itemMarca.id}">${itemMarca.nomeMarca}</form:option>
 						</c:forEach>
 						</form:select>
-				</div>
+					</div>
 			</div>
 			<div class="form-group">
-				<label for="modelo" class="col-sm-2 control-label">Modelo</label>
+				<label for="modelo" class="col-sm-1 control-label">Modelo</label>
 				<div class="col-sm-10">
 					<form:select path="modelo" id="modeloSelect" modelAttribute="produto"  class="form-control">
 						<form:option value="${produto.modelo.id}">${produto.modelo.nomeModelo}</form:option>
 					</form:select>
-
-					
 					<form:errors path="modelo" cssClass="error" />
 				</div>
 			</div>

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$('#tableCliente, #tableProduto,#tableMarca,#tableModelo,#tableVenda').DataTable({
+	$('#tableCliente,#tableProduto,#tableMarca,#tableModelo,#tableVenda').DataTable({
 		"language": {
 	        "url": "/GoldVisionProject/resources/js/Portuguese-Brasil.json"
 	    }
