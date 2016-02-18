@@ -87,7 +87,8 @@ public class Produto {
 	public void setTipoArmacao(String tipoArmacao) {
 		this.tipoArmacao = tipoArmacao;
 	}
-
+	
+	@JsonIgnore
 	public Marca getMarca() {
 		return marca;
 	}
