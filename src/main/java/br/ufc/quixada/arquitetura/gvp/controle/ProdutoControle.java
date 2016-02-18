@@ -2,11 +2,9 @@ package br.ufc.quixada.arquitetura.gvp.controle;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.inject.Inject;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -131,7 +129,7 @@ public class ProdutoControle {
 		return ls;
 	}
 	
-	@RequestMapping("/getModeloPorMarca")
+	/*@RequestMapping("/getModeloPorMarca")
 	@ResponseBody
 	public List<Modelo> printHello(@RequestParam int marcaId) {
 	      
@@ -144,5 +142,24 @@ public class ProdutoControle {
 			
 			
 	      return modelos;
+	   }*/
+	
+	@RequestMapping("/getModeloPorMarca")
+	@ResponseBody
+	public List<Modelo> printHello(@RequestParam int marcaId) {
+	      
+			
+			Marca marca = new Marca();
+			marca = marcaServico.procurarPorId(marcaId);
+			List<Modelo> modelos = marca.getModelos();
+			for (Modelo modelo : modelos) {
+				System.out.println("modelo " + modelo.getNomeModelo());
+			}
+			
+	      return modelos;
 	   }
+	
+	
+	
+	
 }

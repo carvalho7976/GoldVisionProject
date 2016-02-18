@@ -2,7 +2,6 @@ package br.ufc.quixada.arquitetura.gvp.servico;
 
 import java.util.List;
 
-import br.ufc.quixada.arquitetura.gvp.modelo.Marca;
 import br.ufc.quixada.arquitetura.gvp.modelo.Modelo;
 
 public interface IModeloServico {

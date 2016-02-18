@@ -38,7 +38,8 @@ public class MarcaServico extends GenericServiceImpl<Marca> implements IMarcaSer
 		List<Marca> listaDeMarcas = marcaRepositorio.listar();
 		return listaDeMarcas;
 	}
-
+	
+	
 	@Override
 	@Transactional
 	public void deletarMarca(Integer idMarca) {

@@ -4,6 +4,7 @@ package br.ufc.quixada.arquitetura.gvp.persistencia;
 import java.util.List;
 
 import br.ufc.quixada.arquitetura.gvp.modelo.Marca;
+import br.ufc.quixada.arquitetura.gvp.modelo.Modelo;
 import br.ufc.quixada.arquitetura.gvp.util.GenericRepository;
 
 public interface IMarcaDao extends GenericRepository<Marca> {
@@ -12,7 +13,7 @@ public interface IMarcaDao extends GenericRepository<Marca> {
 	public abstract  List<Marca> listar();
 	public Marca buscarPorId(Integer idMarca);
 	public Marca buscaPorCodigo(String codigo);
-	public Marca buscaPorNome(String nome);
+	public Marca buscaPorNome(String nome); 
 
 }
 

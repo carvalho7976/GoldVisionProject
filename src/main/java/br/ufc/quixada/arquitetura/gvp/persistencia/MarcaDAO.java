@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import br.ufc.quixada.arquitetura.gvp.modelo.Marca;
+import br.ufc.quixada.arquitetura.gvp.modelo.Modelo;
 import br.ufc.quixada.arquitetura.gvp.util.JpaGenericRepositoryImpl;
 import br.ufc.quixada.arquitetura.gvp.util.QueryType;
 

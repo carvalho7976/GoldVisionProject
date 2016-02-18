@@ -2,7 +2,6 @@ package br.ufc.quixada.arquitetura.gvp.controle;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
