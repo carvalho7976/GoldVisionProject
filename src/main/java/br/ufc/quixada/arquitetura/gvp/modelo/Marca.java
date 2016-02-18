@@ -67,7 +67,7 @@ public class Marca {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	@JsonIgnore
 	public List<Produto> getProdutos() {
 		return produtos;
 	}

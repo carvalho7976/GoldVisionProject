@@ -70,7 +70,7 @@ public class Modelo {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	@JsonIgnore
 	public List<Produto> getProdutos() {
 		return produtos;
 	}

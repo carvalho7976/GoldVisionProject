@@ -43,6 +43,10 @@
 				${produto.marca.nomeMarca}
 			</div>
 			<div class="col-sm-10">
+				<label for="codigo" class="col-sm-10">Modelo</label>
+				${produto.modelo.nomeModelo}
+			</div>
+			<div class="col-sm-10">
 				<label for="codigo" class="col-sm-10">Valor de Venda</label>
 				${produto.valorVenda}
 			</div>
